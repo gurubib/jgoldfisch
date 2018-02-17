@@ -1,0 +1,77 @@
+######################################################
+#Szoftverprojekt laboratórium - Konzultűció - 2. Hét #
+######################################################
+
+##Dátum: 2018.02.14.
+##Helyszín: IB410
+##Jelenlévők: Mindenki
+
+(A !* részek fontosak)
+
+//tl;dr
+
+!* Két beadáshoz kell gép is -> erre kell a tárgyhonlapo leírt JAVA verzió -> HA EZ MEGOLDHATÓ KÜLDJÜNK EMAILT
+!*  A követelményelemzés lényege, hogy MINDEN ESETRE KITÉRJÜNK
+!* Ne vállaljuk túl magunkat, hiába tűnik egyszerűnek az elején, úgyis bonyolult lesz a végén
+!* HÁZI A KÖVI ALKALOMRA -> Egy gondolkodtató feladat az analízis modellhez, mert a modell helyessége a legnagyobb feladat
+	- majd elküldi elv emailben
+
+//Teljes:
+
+---------Általános---------
+
+* Konzi felépítése:
+	- alkalom elején a következő heti feladatra az elvárások megbeszélése
+	- utána csapatonkénti megbeszélése az adott heti beadott feladatra kapott pontnak
+	
+!* Két beadáshoz kell gép is -> erre kell a tárgyhonlapo leírt JAVA verzió -> HA EZ MEGOLDHATÓ KÜLDJÜNK EMAILT
+
+* határidőt vegyük komolyan, mert nagy szopás a pótlás
+
+* hétfőtől szerdáig mindenképp foglalkottunk a kövi feladattal
+
+* beadás után nincs reklamáció, úgyse adnak pontot
+
+* A fealdatleírás egy vázlatos követelmény -> ki kell egészíteni egy teljes követelményrendszerré
+	- Az első feladatban meg kell nézni mennyire fedi le a feladatleírás a valóságot, mennyire teljes, vagy esetleg kétértelmű
+
+* Hasznos ha a csapattagok egymás hibáira rámutatnak, átnézik a másik munkáját (pl. hiányos követelményrendszer)
+	- ha valami nincs benne, el kell dönteni, de a végén legyen minden benne
+	
+!*  A követelményelemzés lényege, hogy MINDEN ESETRE KITÉRJÜNK
+
+* társasjáték leírási szinten, mintha sima papírjáték lenne
+
+!* Ne vállaljuk túl magunkat, hiába tűnik egyszerűnek az elején, úgyis bonyolult lesz a végén
+
+* simán lehet olyan, hogy megváltoztatják félév közben a követelményeket
+
+---------Egyes részek---------
+
+* [Projekt rész a doksiban] -> A MI munkafolyamatunk, kommunikációnk, verziókezelés (nem kell túlbonyolítani)
+
+* [Szótár rész] -> Bárki aki háttértudás nélkül elolvassa a doksit, annak értenie kell minden kifejezést, entitást, stb...
+	- ABC-ben
+	- ne legyen benne olyan hogy billentyűzet, egér, stb...
+	- itt is fontos a validálás funkcióleírás <-> szótár összehasonlítása (fedje le)
+	
+* [USE CASE rész] -> az alap use case-ek amik az egyes cselekvő faktorokkal történhetnek (4-6 db), nem kell túlbonyolítani
+
+* [4000 karakteres cucc] -> a tartalom a lényeg, legyen minden definiálva,
+	legyen minden átgondolva, sok játékos esetek is, ritka állapotok is
+
+* [Napló rész] legyen pontos, de nem kell nagyon a részletekbe menni
+	-> legyen információtartalma a bejegyzéseknek, de nem fognak utánanézni
+
+* [Korlátozások rész] -> azok az esetek amiket nem engedünk meg, a nagy eseménytér leszűkítése,
+	de látszódjon hogy a nem kezelt eseményekről is tudunk lássuk mi történhet, és hozzunk saját szabályokat
+	nyilván ezek legyenek egységben az alapfeladattal
+	
+---------Házi---------
+
+!* HÁZI A KÖVI ALKALOMRA -> Egy gondolkodtató feladat az analízis modellhez, mert a modell helyessége a legnagyobb feladat
+	- majd elküldi elv emailben
+	
+	=> Feladat: 1 munkás és 1 doboz és a munks a dobozt eggyel arébb tolja - erre kell szekvenciadiagramm
+
+
