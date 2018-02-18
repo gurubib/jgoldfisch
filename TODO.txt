@@ -1,4 +1,4 @@
-######################################################
+﻿######################################################
 #		Szoftverprojekt laboratórium - TODO 		 #
 ######################################################
 
@@ -19,12 +19,10 @@
 
 
 ========ESETLEG========
-
-*[Barna] 2.1.1 - Erőforrásos cumónál megrendelővel kapcsolatos dolog lehetne, hogy kell egy olyan gép amin elfut :D
-	(pl formálisan, hogy a HSZK-ban található gépek minimum specifikációja)
- ->[Random Józsi] sztem is gecc!!
 	
 *[Barna] Egyéb nem funkcionális köv. rész - JDK 1.8 és Eclipse megfelelő verzió
+
+ -> [Mark] Ezek már benne vannak az erőforrásokkal kapcsolatos követelményeknél.
 
 *[Barna] Átadással kapcsolatos követelményeknél belekerülhetne, hogy könnyen, segítség nélkül, lehessen a kész programot futtatni, használni
 
