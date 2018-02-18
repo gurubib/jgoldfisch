@@ -1,2 +1,5 @@
 hello world szerk.
+<<<<<<< HEAD
 helloka
+=======
+>>>>>>> 1fb22a04ef3135ddb63492804dc592e2683898bc
