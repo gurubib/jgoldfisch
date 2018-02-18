@@ -20,11 +20,6 @@
 
 ========ESETLEG========
 	
-*[Barna] Egyéb nem funkcionális köv. rész - JDK 1.8 és Eclipse megfelelő verzió
-
- -> [Mark] Ezek már benne vannak az erőforrásokkal kapcsolatos követelményeknél.
-
-*[Barna] Átadással kapcsolatos követelményeknél belekerülhetne, hogy könnyen, segítség nélkül, lehessen a kész programot futtatni, használni
 
 
 
