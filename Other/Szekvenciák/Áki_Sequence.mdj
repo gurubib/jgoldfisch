@@ -9581,7 +9581,7 @@
 											"height": 13,
 											"autoResize": false,
 											"underline": false,
-											"text": "+pushBy(w: Worker, d: Direction): bool",
+											"text": "+pushBy(w: Worker, d: Direction)",
 											"horizontalAlignment": 0,
 											"verticalAlignment": 5,
 											"wordWrap": false
@@ -9610,7 +9610,7 @@
 											"height": 13,
 											"autoResize": false,
 											"underline": false,
-											"text": "+pushBy(b: Box, d: Direction): bool",
+											"text": "+pushBy(b: Box, d: Direction)",
 											"horizontalAlignment": 0,
 											"verticalAlignment": 5,
 											"wordWrap": false
@@ -10105,7 +10105,7 @@
 											"height": 13,
 											"autoResize": false,
 											"underline": false,
-											"text": "+pushBy(w: Worker, d: Direction): bool",
+											"text": "+pushBy(w: Worker, d: Direction)",
 											"horizontalAlignment": 0,
 											"verticalAlignment": 5,
 											"wordWrap": false
@@ -10134,7 +10134,7 @@
 											"height": 13,
 											"autoResize": false,
 											"underline": false,
-											"text": "+pushBy(b: Box, d: Direction): bool",
+											"text": "+pushBy(b: Box, d: Direction)",
 											"horizontalAlignment": 0,
 											"verticalAlignment": 5,
 											"wordWrap": false
@@ -10658,7 +10658,7 @@
 											"height": 13,
 											"autoResize": false,
 											"underline": false,
-											"text": "+pushBy(w: Worker, d: Direction): bool",
+											"text": "+pushBy(w: Worker, d: Direction)",
 											"horizontalAlignment": 0,
 											"verticalAlignment": 5,
 											"wordWrap": false
@@ -10687,7 +10687,7 @@
 											"height": 13,
 											"autoResize": false,
 											"underline": false,
-											"text": "+pushBy(b: Box, d: Direction): bool",
+											"text": "+pushBy(b: Box, d: Direction)",
 											"horizontalAlignment": 0,
 											"verticalAlignment": 5,
 											"wordWrap": false
@@ -18065,22 +18065,6 @@
 									"isOrdered": false,
 									"isUnique": false,
 									"direction": "in"
-								},
-								{
-									"_type": "UMLParameter",
-									"_id": "AAAAAAFhyR6DjrsuPaY=",
-									"_parent": {
-										"$ref": "AAAAAAFhyR6Djrsrk6I="
-									},
-									"name": "return",
-									"visibility": "public",
-									"isStatic": false,
-									"isLeaf": false,
-									"type": "bool",
-									"isReadOnly": false,
-									"isOrdered": false,
-									"isUnique": false,
-									"direction": "return"
 								}
 							],
 							"concurrency": "sequential",
@@ -18133,22 +18117,6 @@
 									"isOrdered": false,
 									"isUnique": false,
 									"direction": "in"
-								},
-								{
-									"_type": "UMLParameter",
-									"_id": "AAAAAAFhyR63Nrsy3Ok=",
-									"_parent": {
-										"$ref": "AAAAAAFhyR63NrsvEGE="
-									},
-									"name": "return",
-									"visibility": "public",
-									"isStatic": false,
-									"isLeaf": false,
-									"type": "bool",
-									"isReadOnly": false,
-									"isOrdered": false,
-									"isUnique": false,
-									"direction": "return"
 								}
 							],
 							"concurrency": "sequential",
@@ -18382,22 +18350,6 @@
 									"isOrdered": false,
 									"isUnique": false,
 									"direction": "in"
-								},
-								{
-									"_type": "UMLParameter",
-									"_id": "AAAAAAFhySZNJ7s6a6E=",
-									"_parent": {
-										"$ref": "AAAAAAFhySZNJrs3qS0="
-									},
-									"name": "return",
-									"visibility": "public",
-									"isStatic": false,
-									"isLeaf": false,
-									"type": "bool",
-									"isReadOnly": false,
-									"isOrdered": false,
-									"isUnique": false,
-									"direction": "return"
 								}
 							],
 							"concurrency": "sequential",
@@ -18450,22 +18402,6 @@
 									"isOrdered": false,
 									"isUnique": false,
 									"direction": "in"
-								},
-								{
-									"_type": "UMLParameter",
-									"_id": "AAAAAAFhySaILLtGFQ8=",
-									"_parent": {
-										"$ref": "AAAAAAFhySaILLtDiuw="
-									},
-									"name": "return",
-									"visibility": "public",
-									"isStatic": false,
-									"isLeaf": false,
-									"type": "bool",
-									"isReadOnly": false,
-									"isOrdered": false,
-									"isUnique": false,
-									"direction": "return"
 								}
 							],
 							"concurrency": "sequential",
@@ -18733,22 +18669,6 @@
 									"isOrdered": false,
 									"isUnique": false,
 									"direction": "in"
-								},
-								{
-									"_type": "UMLParameter",
-									"_id": "AAAAAAFhySZaIrs+WiU=",
-									"_parent": {
-										"$ref": "AAAAAAFhySZaIrs7dZk="
-									},
-									"name": "return",
-									"visibility": "public",
-									"isStatic": false,
-									"isLeaf": false,
-									"type": "bool",
-									"isReadOnly": false,
-									"isOrdered": false,
-									"isUnique": false,
-									"direction": "return"
 								}
 							],
 							"concurrency": "sequential",
@@ -18801,22 +18721,6 @@
 									"isOrdered": false,
 									"isUnique": false,
 									"direction": "in"
-								},
-								{
-									"_type": "UMLParameter",
-									"_id": "AAAAAAFhySZ89btC+wQ=",
-									"_parent": {
-										"$ref": "AAAAAAFhySZ89bs/5/E="
-									},
-									"name": "return",
-									"visibility": "public",
-									"isStatic": false,
-									"isLeaf": false,
-									"type": "bool",
-									"isReadOnly": false,
-									"isOrdered": false,
-									"isUnique": false,
-									"direction": "return"
 								}
 							],
 							"concurrency": "sequential",
