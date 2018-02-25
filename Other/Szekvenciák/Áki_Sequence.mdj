@@ -18289,7 +18289,7 @@
 											"height": 13,
 											"autoResize": false,
 											"underline": false,
-											"text": "+chechRecordWith(f: Field)",
+											"text": "+checkRecordWith(f: Field)",
 											"horizontalAlignment": 0,
 											"verticalAlignment": 5,
 											"wordWrap": false
@@ -22197,7 +22197,7 @@
 							"_parent": {
 								"$ref": "AAAAAAFhzmmJ+i0Mb0c="
 							},
-							"name": "chechRecordWith",
+							"name": "checkRecordWith",
 							"visibility": "public",
 							"isStatic": false,
 							"isLeaf": false,
