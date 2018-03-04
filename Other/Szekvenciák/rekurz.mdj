@@ -30324,7 +30324,7 @@
 															"height": 13,
 															"autoResize": false,
 															"underline": false,
-															"text": "f2: SimpleField",
+															"text": "f2: Field",
 															"horizontalAlignment": 2,
 															"verticalAlignment": 5,
 															"wordWrap": false
@@ -77495,7 +77495,7 @@
 							"visibility": "public",
 							"isStatic": false,
 							"isLeaf": false,
-							"type": "SimpleField",
+							"type": "Field",
 							"isReadOnly": false,
 							"isOrdered": false,
 							"isUnique": false,
