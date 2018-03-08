@@ -1,6 +1,7 @@
 package skeleton;
 
 import skeleton.menu.*;
+import skeleton.game.logic.*;
 
 public class Skeleton {
 
@@ -15,6 +16,10 @@ public class Skeleton {
 		m.setDescForItem(2, "This is the second menu option.");
 		
 		m.drawMenu();
+		
+		Direction d = Direction.DOWN;
+		
+		System.out.println(d.getOpposite());
 		
 	}
 
