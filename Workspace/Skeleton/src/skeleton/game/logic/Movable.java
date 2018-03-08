@@ -21,4 +21,8 @@ public abstract class Movable {
 	public void place(Field f) {
 		this.field = f;
 	}
+	
+	public Field getField() {
+		return this.field;
+	}
 }

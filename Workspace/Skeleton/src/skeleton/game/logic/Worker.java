@@ -2,6 +2,8 @@ package skeleton.game.logic;
 
 public class Worker extends Movable {
 
+	int points = 0;
+	
 	public Worker(Field field) {
 		super(field);
 	}
@@ -34,6 +36,18 @@ public class Worker extends Movable {
 	public void scorePoint(Direction d) {
 		// TODO Auto-generated method stub
 		
+	}
+	
+	void control(Direction d) {
+		//TODO
+	}
+	
+	void goBack(Direction d) {
+		//TODO
+	}
+	
+	void increasePoints() {
+		//TODO
 	}
 
 }
