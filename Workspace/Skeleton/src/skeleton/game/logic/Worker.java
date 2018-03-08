@@ -2,7 +2,7 @@ package skeleton.game.logic;
 
 public class Worker extends Movable {
 
-	int points = 0;
+	private int points = 0;
 	
 	public Worker(Field field) {
 		super(field);
