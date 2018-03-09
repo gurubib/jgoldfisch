@@ -47,6 +47,15 @@ public class Worker extends Movable {
 		
 		if (m != null)
 			m.pushByWorker(this, d);
+		
+		finalizeStep();
+	}
+	
+	@Override
+	public void finalizeStep() {						//LOL felesleges
+		System.out.println("Worker.finalizeStep(d)");
+		
+		getField().workerArrived(this);
 	}
 	
 	public void goBack(Direction d) {

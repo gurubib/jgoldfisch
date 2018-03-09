@@ -9,13 +9,10 @@ public abstract class Movable {
 	public abstract void pushByBox(Box b, Direction d);
 	public abstract void pushByWorker(Worker w, Direction d);
 	public abstract void scorePoint(Direction d);
+	public abstract void finalizeStep();
 	
 	public void setField(Field f) {
 		field = f;
-	}
-	
-	public void finalizeStep() {
-		//TODO
 	}
 	
 	public void place(Field f) {

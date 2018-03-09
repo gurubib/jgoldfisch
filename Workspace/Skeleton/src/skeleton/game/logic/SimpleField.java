@@ -34,12 +34,14 @@ public class SimpleField extends Field {
 	
 	@Override
 	public void boxArrived(Box b) {
-		//TODO
+		System.out.println("SimpleField.boxArrived(b)");
+		
+		
 	}
 	
 	@Override
 	public void workerArrived(Worker w) {
-		//TODO
+		System.out.println("SimpleField.boxArrived(b)");
 	}
 
 }

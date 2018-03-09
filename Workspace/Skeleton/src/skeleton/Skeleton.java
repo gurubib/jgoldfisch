@@ -17,10 +17,7 @@ public class Skeleton {
 		Menu m = new Menu();
 		
 		m.addMenuItem(1, "First");
-		m.addMenuItem(2, "Second");
-		m.addMenuItem(3, "Third");
-		
-		m.setDescForItem(2, "This is the second menu option.");
+		m.setDescForItem(1, "Worker -> Box -> Empty");
 		
 		initMenuItemMaps(m);
 		

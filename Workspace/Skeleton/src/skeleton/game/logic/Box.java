@@ -34,12 +34,21 @@ public class Box extends Movable {
 		if (m != null)
 			m.pushByBox(this, d);
 		
+		finalizeStep();
+		
 	}
 
 	@Override
 	public void scorePoint(Direction d) {
 		// TODO Auto-generated method stub
 		
+	}
+	
+	@Override
+	public void finalizeStep() {						//LOL felesleges
+		System.out.println("Worker.finalizeStep(d)");
+		
+		getField().boxArrived(this);
 	}
 
 }
