@@ -26,7 +26,13 @@ public class Box extends Movable {
 
 	@Override
 	public void pushByWorker(Worker w, Direction d) {
-		// TODO Auto-generated method stub
+		System.out.println("Box.pushByWorker(w, d)");
+		
+		Field f1 = getField().getNeighbor(d);
+		Movable m = f1.boxEnters(this, d);
+		
+		if (m != null)
+			m.pushByBox(this, d);
 		
 	}
 

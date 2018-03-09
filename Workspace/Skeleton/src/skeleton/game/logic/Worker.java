@@ -38,15 +38,22 @@ public class Worker extends Movable {
 		
 	}
 	
-	void control(Direction d) {
+	public void control(Direction d) {
+		System.out.println("Worker.control(d)");
+		
+		Field f1 = getField().getNeighbor(d);
+		
+		Movable m = f1.workerEnters(this, d);
+		
+		if (m != null)
+			m.pushByWorker(this, d);
+	}
+	
+	public void goBack(Direction d) {
 		//TODO
 	}
 	
-	void goBack(Direction d) {
-		//TODO
-	}
-	
-	void increasePoints() {
+	public void increasePoints() {
 		//TODO
 	}
 

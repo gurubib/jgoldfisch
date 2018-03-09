@@ -2,13 +2,17 @@ package skeleton.menu;
 
 import java.util.List;
 
+import skeleton.game.logic.Direction;
 import skeleton.game.logic.Field;
+import skeleton.game.logic.Game;
+import skeleton.game.logic.Worker;
 
 public class MenuItem {
 	
 	private String name;
 	private String desc;
 	private skeleton.game.logic.Map map = new skeleton.game.logic.Map();
+	private Game game = Game.getInstance();
 	
 	public MenuItem(String name) {
 		this.name = name;
@@ -35,11 +39,12 @@ public class MenuItem {
 		return map;
 	}
 
-	public void setMap(List<Field> fields) {
+	public void init(List<Field> fields, List<Worker> workers) {
 		map.manualLoad(fields);
+		game.init(workers);
 	}
 	
 	public void execute() {
-		System.out.println(name + " MenuItem selected");
+		game.getMainWorker().control(Direction.RIGHT);
 	}
 }

@@ -37,14 +37,33 @@ public class Skeleton {
 	private static void initMenuItemMaps(Menu m) {
 		List<Field> fl1 = new ArrayList<Field>();
 		
-		fl1.add(new SimpleField());
-		fl1.add(new SimpleField());
-		fl1.add(new SimpleField());
+		Field f1 = new SimpleField();
+		Field f2 = new SimpleField();
+		Field f3 = new SimpleField();
 		
-		fl1.get(0).setMovable(new Worker());
-		fl1.get(1).setMovable(new Box());
+		f1.setNeighbor(Direction.RIGHT, f2);
+		f2.setNeighbor(Direction.LEFT, f1);
+		f2.setNeighbor(Direction.RIGHT, f3);
+		f3.setNeighbor(Direction.LEFT, f2);
 		
-		m.setMenuItemMap(1, fl1);
+		fl1.add(f1);
+		fl1.add(f2);
+		fl1.add(f3);
+		
+		List<Worker> wl1 = new ArrayList<Worker>();
+		
+		Worker w = new Worker();
+		w.setField(f1);
+		
+		Box b = new Box();
+		b.setField(f2);
+		
+		wl1.add(w);
+		
+		fl1.get(0).setMovable(w);
+		fl1.get(1).setMovable(b);
+		
+		m.getMenuItem(1).init(fl1, wl1);
 	}
 
 }

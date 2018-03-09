@@ -14,6 +14,10 @@ public class Menu {
 		menuItems.put(number, new MenuItem(name));
 	}
 	
+	public MenuItem getMenuItem(int n) {
+		return menuItems.get(n);
+	}
+	
 	public void setDescForItem(int n, String desc) {
 		menuItems.get(n).setDesc(desc);
 	}
@@ -22,10 +26,6 @@ public class Menu {
 		for(Entry<Integer, MenuItem> e : menuItems.entrySet()) {
 			System.out.println(e.getKey() + ": " + e.getValue().getName() + " - " + e.getValue().getDesc());
 		}
-	}
-	
-	public void setMenuItemMap(int n, List<Field> fields) {
-		menuItems.get(n).setMap(fields);
 	}
 	
 	public void chooseMenuItem(int n) {

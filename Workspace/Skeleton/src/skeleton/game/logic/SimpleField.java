@@ -4,14 +4,32 @@ public class SimpleField extends Field {
 
 	@Override
 	public Movable boxEnters(Box b, Direction d) {
-		// TODO Auto-generated method stub
-		return null;
+		System.out.println("SimpleField.boxEnters(w, d)");
+		
+		b.place(this);
+		getNeighbor(d.getOpposite()).remove();
+		
+		Movable movable = getMovable();
+		
+		if (movable != null)
+			return movable;
+		else
+			return null;
 	}
 
 	@Override
 	public Movable workerEnters(Worker w, Direction d) {
-		// TODO Auto-generated method stub
-		return null;
+		System.out.println("SimpleField.workerEnters(w, d)");
+		
+		w.place(this);
+		getNeighbor(d.getOpposite()).remove();
+		
+		Movable movable = getMovable();
+		
+		if (movable != null)
+			return movable;
+		else
+			return null;
 	}
 	
 	@Override

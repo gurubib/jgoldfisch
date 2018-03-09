@@ -18,4 +18,8 @@ public class Map {
 	public void confField(int n, Field f) {
 		fields.set(n, f);
 	}
+	
+	public Field getField(int n) {
+		return fields.get(n);
+	}
 }

@@ -10,19 +10,23 @@ public abstract class Movable {
 	public abstract void pushByWorker(Worker w, Direction d);
 	public abstract void scorePoint(Direction d);
 	
-/*	public Movable(Field field) {
-		this.field = field;
-	}*/
+	public void setField(Field f) {
+		field = f;
+	}
 	
 	public void finalizeStep() {
 		//TODO
 	}
 	
 	public void place(Field f) {
+		System.out.println("Movable.place(f)");
+		
 		this.field = f;
 	}
 	
 	public Field getField() {
+		System.out.println("Movable.getField()");
+		
 		return this.field;
 	}
 }

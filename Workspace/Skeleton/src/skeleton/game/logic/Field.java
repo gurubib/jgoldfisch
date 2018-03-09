@@ -13,7 +13,13 @@ public abstract class Field {
 	public abstract Movable workerEnters(Worker w, Direction d);
 	
 	public Field getNeighbor(Direction d) {
+		System.out.println("Field.getNeighbor(d)");
+		
 		return neighbors.get(d);
+	}
+	
+	public void setNeighbor(Direction d, Field f) {
+		neighbors.put(d, f);
 	}
 	
 	public void setMovable(Movable m) {

@@ -6,8 +6,9 @@ import java.util.List;
 public class Game {
 	
 	private static final Game instance = new Game();
+	private List<Worker> workers = new ArrayList<Worker>();
+	private Map map = null;
 	
-	private static List<Worker> workers = new ArrayList<Worker>();
 	
 	private Game( ) {}
 	
@@ -15,7 +16,15 @@ public class Game {
         return instance;
     }
 	
-	public static void init(List<Worker> w) {
-		workers = w;
+	public void setMap(Map m) {
+		instance.map = m;
+	}
+	
+	public void init(List<Worker> w) {
+		instance.workers = w;
+	}
+	
+	public Worker getMainWorker() {
+		return workers.get(0);
 	}
 }
