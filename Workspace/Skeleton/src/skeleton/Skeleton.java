@@ -2,6 +2,9 @@ package skeleton;
 
 import skeleton.menu.*;
 
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -9,7 +12,7 @@ import skeleton.game.logic.*;
 
 public class Skeleton {
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws NumberFormatException, IOException {
 		
 		Menu m = new Menu();
 		
@@ -23,9 +26,11 @@ public class Skeleton {
 		
 		m.drawMenu();
 		
-		Direction d = Direction.DOWN;
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		
-		System.out.println(d.getOpposite());
+		int n = Integer.parseInt(br.readLine());
+		
+		m.chooseMenuItem(n);
 		
 	}
 	

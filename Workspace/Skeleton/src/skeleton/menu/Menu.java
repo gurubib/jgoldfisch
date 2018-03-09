@@ -27,4 +27,8 @@ public class Menu {
 	public void setMenuItemMap(int n, List<Field> fields) {
 		menuItems.get(n).setMap(fields);
 	}
+	
+	public void chooseMenuItem(int n) {
+		menuItems.get(n).execute();
+	}
 }

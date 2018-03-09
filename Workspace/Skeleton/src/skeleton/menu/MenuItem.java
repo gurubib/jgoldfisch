@@ -38,4 +38,8 @@ public class MenuItem {
 	public void setMap(List<Field> fields) {
 		map.manualLoad(fields);
 	}
+	
+	public void execute() {
+		System.out.println(name + " MenuItem selected");
+	}
 }
