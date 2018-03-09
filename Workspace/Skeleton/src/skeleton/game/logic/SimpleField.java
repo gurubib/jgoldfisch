@@ -13,5 +13,15 @@ public class SimpleField extends Field {
 		// TODO Auto-generated method stub
 		return null;
 	}
+	
+	@Override
+	public void boxArrived(Box b) {
+		//TODO
+	}
+	
+	@Override
+	public void workerArrived(Worker w) {
+		//TODO
+	}
 
 }

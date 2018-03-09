@@ -13,5 +13,23 @@ public class HoleField extends Field {
 		// TODO Auto-generated method stub
 		return null;
 	}
+	
+	@Override
+	public void boxArrived(Box b) {
+		//TODO
+	}
+	
+	@Override
+	public void workerArrived(Worker w) {
+		//TODO
+	}
+	
+	public void execute(Movable m) {
+		//TODO
+	}
+	
+	public void changeToActive() {
+		//TODO
+	}
 
 }

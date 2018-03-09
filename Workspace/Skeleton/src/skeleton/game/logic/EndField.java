@@ -14,4 +14,13 @@ public class EndField extends Field {
 		return null;
 	}
 
+	@Override
+	public void boxArrived(Box b) {
+		//TODO
+	}
+	
+	@Override
+	public void workerArrived(Worker w) {
+		//TODO
+	}
 }
