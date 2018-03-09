@@ -4,9 +4,9 @@ public class Worker extends Movable {
 
 	private int points = 0;
 	
-	public Worker(Field field) {
+/*	public Worker(Field field) {
 		super(field);
-	}
+	}*/
 
 	@Override
 	public void die() {

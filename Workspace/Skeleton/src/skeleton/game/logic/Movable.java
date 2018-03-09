@@ -10,9 +10,9 @@ public abstract class Movable {
 	public abstract void pushByWorker(Worker w, Direction d);
 	public abstract void scorePoint(Direction d);
 	
-	public Movable(Field field) {
+/*	public Movable(Field field) {
 		this.field = field;
-	}
+	}*/
 	
 	public void finalizeStep() {
 		//TODO

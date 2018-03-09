@@ -1,8 +1,10 @@
 package skeleton.menu;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
+import skeleton.game.logic.*;
 
 public class Menu {
 	
@@ -21,31 +23,8 @@ public class Menu {
 			System.out.println(e.getKey() + ": " + e.getValue().getName() + " - " + e.getValue().getDesc());
 		}
 	}
-}
-
-class MenuItem {
 	
-	private String name;
-	private String desc;
-	
-	public MenuItem(String name) {
-		this.name = name;
-		this.desc = name.toLowerCase();
-	}
-
-	public String getName() {
-		return name;
-	}
-
-	public void setName(String name) {
-		this.name = name;
-	}
-	
-	public String getDesc() {
-		return desc;
-	}
-
-	public void setDesc(String desc) {
-		this.desc = desc;
+	public void setMenuItemMap(int n, List<Field> fields) {
+		menuItems.get(n).setMap(fields);
 	}
 }

@@ -6,7 +6,7 @@ import java.util.Map;
 public abstract class Field {
 	
 	private Map<Direction, Field> neighbors = new HashMap<Direction, Field>();
-	private Movable movable;
+	private Movable movable = null;
 	
 	
 	public abstract Movable boxEnters(Box b, Direction d);
@@ -14,6 +14,10 @@ public abstract class Field {
 	
 	public Field getNeighbor(Direction d) {
 		return neighbors.get(d);
+	}
+	
+	public void setMovable(Movable m) {
+		movable = m;
 	}
 	
 	public Movable getMovable() {
