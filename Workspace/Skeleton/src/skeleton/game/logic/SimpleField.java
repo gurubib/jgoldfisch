@@ -23,29 +23,21 @@ public class SimpleField extends Field {
 
 	@Override
 	public Movable workerEnters(Worker w, Direction d) {
-		System.out.println("~SimpleField.workerEnters(w, d)");
+		System.out.println("SimpleField.workerEnters(w, d)");
 		
 		w.place(this);
 		getNeighbor(d.getOpposite()).remove();
 		
-		System.out.println("What is on this field? (1): A Box; (2): Nothing");
-		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		System.out.println("~ Is there a box on this Field? (y/n)");
 		
-		int n = 0;
-		try {
-			n = Integer.parseInt(br.readLine());
-		} catch (NumberFormatException | IOException e) {
-			e.printStackTrace();
-		}
+		String answer = readFromStdin();
 		
-		switch (n) {
-			case 1 : 
+		
+		switch (answer) {
+			case "y" : 
 				Box b = new Box();
 				b.setField(this);
 				this.setMovable(b);
-				break;
-			case 2 :
-				this.setMovable(null);
 				break;
 			default:
 				this.setMovable(null);
@@ -68,7 +60,19 @@ public class SimpleField extends Field {
 	
 	@Override
 	public void workerArrived(Worker w) {
-		System.out.println("SimpleField.boxArrived(b)");
+		System.out.println("SimpleField.workerArrived(b)");
+	}
+	
+	private String readFromStdin() {
+		String answer = null;
+		
+		try {
+			BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+			answer = br.readLine();
+		} catch (NumberFormatException | IOException e) {
+			e.printStackTrace();
+		}
+		return answer;
 	}
 
 }

@@ -2,10 +2,6 @@ package skeleton.game.logic;
 
 public class Box extends Movable {
 
-/*	public Box(Field field) {
-		super(field);
-	}*/
-
 	@Override
 	public void die() {
 		// TODO Auto-generated method stub

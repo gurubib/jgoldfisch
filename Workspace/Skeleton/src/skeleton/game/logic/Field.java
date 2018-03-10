@@ -31,7 +31,7 @@ public abstract class Field {
 	}
 	
 	public void remove() {
-		//TODO
+		System.out.println("Field.remove()");
 	}
 	
 	public void updateRecorder() {
