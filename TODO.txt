@@ -13,7 +13,7 @@
 3.4 - Áki, Barna, Gergő
 3.6
 
-[Barna és Áki dolga] - interactSpec()-ot a HitBy(..) viszatérések után berajzolni
+[Barna] - inicializálások.... (05)
 
 Követelményes doksi, "speciális rész" elnevezése és szótárba rakása
 
