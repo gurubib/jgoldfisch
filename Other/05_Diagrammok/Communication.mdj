@@ -121,8 +121,8 @@
 											"containerExtending": false,
 											"left": 5,
 											"top": 5,
-											"width": 692,
-											"height": 595,
+											"width": 604,
+											"height": 308,
 											"autoResize": false,
 											"nameLabel": {
 												"$ref": "AAAAAAFiFFQWSBbHEGs="
@@ -2265,8 +2265,8 @@
 											"containerExtending": false,
 											"left": 0,
 											"top": 5,
-											"width": 695,
-											"height": 595,
+											"width": 657,
+											"height": 396,
 											"autoResize": false,
 											"nameLabel": {
 												"$ref": "AAAAAAFiFF7fBhqBfho="
@@ -6253,8 +6253,8 @@
 											"containerExtending": false,
 											"left": 5,
 											"top": 5,
-											"width": 695,
-											"height": 595,
+											"width": 684,
+											"height": 308,
 											"autoResize": false,
 											"nameLabel": {
 												"$ref": "AAAAAAFiFGVpbSN/4vc="
@@ -8536,9 +8536,9 @@
 													"showShadow": true,
 													"containerChangeable": false,
 													"containerExtending": false,
-													"left": 75.97900390625,
+													"left": 75,
 													"top": 10,
-													"width": 114.4072265625,
+													"width": 114,
 													"height": 13,
 													"autoResize": false,
 													"underline": false,
@@ -8564,7 +8564,7 @@
 													"containerExtending": false,
 													"left": 10,
 													"top": 10,
-													"width": 60.97900390625,
+													"width": 60,
 													"height": 13,
 													"autoResize": false,
 													"underline": false,
@@ -10651,7 +10651,7 @@
 									"_parent": {
 										"$ref": "AAAAAAFiFGt0oCejWXk="
 									},
-									"name": "Worker moves to open HoleField",
+									"name": "Worker hits HoleField",
 									"visible": true,
 									"defaultDiagram": false,
 									"ownedViews": [
@@ -10682,11 +10682,11 @@
 													"containerExtending": false,
 													"left": 75.97900390625,
 													"top": 10,
-													"width": 190.2998046875,
+													"width": 125.25537109375,
 													"height": 13,
 													"autoResize": false,
 													"underline": false,
-													"text": "Worker moves to open HoleField",
+													"text": "Worker hits HoleField",
 													"horizontalAlignment": 2,
 													"verticalAlignment": 5,
 													"wordWrap": false
@@ -10729,8 +10729,8 @@
 											"containerExtending": false,
 											"left": 5,
 											"top": 5,
-											"width": 695,
-											"height": 595,
+											"width": 668,
+											"height": 372,
 											"autoResize": false,
 											"nameLabel": {
 												"$ref": "AAAAAAFiFGt0oSemykw="
@@ -18339,7 +18339,7 @@
 											"left": 5,
 											"top": 5,
 											"width": 695,
-											"height": 595,
+											"height": 460,
 											"autoResize": false,
 											"nameLabel": {
 												"$ref": "AAAAAAFiFHMQbi9lDTs="
@@ -22882,7 +22882,7 @@
 											"left": 0,
 											"top": 5,
 											"width": 892,
-											"height": 596,
+											"height": 356,
 											"autoResize": false,
 											"nameLabel": {
 												"$ref": "AAAAAAFiFHuKXlDYPkc="
@@ -27058,7 +27058,7 @@
 											"left": 5,
 											"top": 5,
 											"width": 695,
-											"height": 595,
+											"height": 364,
 											"autoResize": false,
 											"nameLabel": {
 												"$ref": "AAAAAAFiFH4bOFdxJ54="
@@ -30679,7 +30679,7 @@
 											"left": 5,
 											"top": 0,
 											"width": 828,
-											"height": 609,
+											"height": 361,
 											"autoResize": false,
 											"nameLabel": {
 												"$ref": "AAAAAAFiFIHXgl7/C9A="
@@ -34300,7 +34300,7 @@
 											"left": 5,
 											"top": 5,
 											"width": 884,
-											"height": 595,
+											"height": 372,
 											"autoResize": false,
 											"nameLabel": {
 												"$ref": "AAAAAAFiFwQLCtf/Vyo="
@@ -39765,7 +39765,7 @@
 											"left": 5,
 											"top": 5,
 											"width": 812,
-											"height": 595,
+											"height": 412,
 											"autoResize": false,
 											"nameLabel": {
 												"$ref": "AAAAAAFiFwmaDOV11WM="
@@ -45151,7 +45151,7 @@
 									"_parent": {
 										"$ref": "AAAAAAFiFw00P++9ugI="
 									},
-									"name": "Box push another Box to WallField",
+									"name": "Box pushes another Box to WallField",
 									"visible": true,
 									"defaultDiagram": false,
 									"ownedViews": [
@@ -45182,11 +45182,11 @@
 													"containerExtending": false,
 													"left": 75.97900390625,
 													"top": 10,
-													"width": 200.43701171875,
+													"width": 214.1669921875,
 													"height": 13,
 													"autoResize": false,
 													"underline": false,
-													"text": "Box push another Box to WallField",
+													"text": "Box pushes another Box to WallField",
 													"horizontalAlignment": 2,
 													"verticalAlignment": 5,
 													"wordWrap": false
@@ -45229,8 +45229,8 @@
 											"containerExtending": false,
 											"left": 5,
 											"top": 5,
-											"width": 868,
-											"height": 595,
+											"width": 876,
+											"height": 380,
 											"autoResize": false,
 											"nameLabel": {
 												"$ref": "AAAAAAFiFw00QO/Aurk="
