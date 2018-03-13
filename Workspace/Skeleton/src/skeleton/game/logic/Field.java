@@ -3,6 +3,8 @@ package skeleton.game.logic;
 import java.util.HashMap;
 import java.util.Map;
 
+import skeleton.out.MethodWriter;
+
 public abstract class Field {
 	
 	private Map<Direction, Field> neighbors = new HashMap<Direction, Field>();
@@ -13,8 +15,9 @@ public abstract class Field {
 	public abstract Movable workerEnters(Worker w, Direction d);
 	
 	public Field getNeighbor(Direction d) {
-		System.out.println("Field.getNeighbor(d)");
+		MethodWriter.printOutMethod("Field.getNeighbor", "d");
 		
+		MethodWriter.printOutRet("f");
 		return neighbors.get(d);
 	}
 	
@@ -31,7 +34,9 @@ public abstract class Field {
 	}
 	
 	public void remove() {
-		System.out.println("Field.remove()");
+		MethodWriter.printOutMethod("Field.remove", "");
+		
+		MethodWriter.printOutRet("");
 	}
 	
 	public void updateRecorder() {

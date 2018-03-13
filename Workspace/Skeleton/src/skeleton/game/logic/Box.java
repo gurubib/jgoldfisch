@@ -1,5 +1,7 @@
 package skeleton.game.logic;
 
+import skeleton.out.MethodWriter;
+
 public class Box extends Movable {
 
 	@Override
@@ -22,7 +24,8 @@ public class Box extends Movable {
 
 	@Override
 	public void pushByWorker(Worker w, Direction d) {
-		System.out.println("Box.pushByWorker(w, d)");
+		MethodWriter.printOutMethod("Box.pushByWorker", "w, d");
+		
 		
 		Field f1 = getField().getNeighbor(d);
 		Movable m = f1.boxEnters(this, d);
@@ -32,6 +35,7 @@ public class Box extends Movable {
 		
 		finalizeStep();
 		
+		MethodWriter.printOutRet("");
 	}
 
 	@Override
@@ -42,9 +46,11 @@ public class Box extends Movable {
 	
 	@Override
 	public void finalizeStep() {						//LOL felesleges
-		System.out.println("Worker.finalizeStep(d)");
+		MethodWriter.printOutMethod("Box.finalizeStep", "");
 		
 		getField().boxArrived(this);
+		
+		MethodWriter.printOutRet("");
 	}
 
 }

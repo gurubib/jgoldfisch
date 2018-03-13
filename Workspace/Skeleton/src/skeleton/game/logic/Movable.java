@@ -1,5 +1,7 @@
 package skeleton.game.logic;
 
+import skeleton.out.MethodWriter;
+
 public abstract class Movable {
 	
 	private Field field;
@@ -16,14 +18,17 @@ public abstract class Movable {
 	}
 	
 	public void place(Field f) {
-		System.out.println("Movable.place(f)");
+		MethodWriter.printOutMethod("Movable.place", "f");
 		
 		this.field = f;
+		
+		MethodWriter.printOutRet("");
 	}
 	
 	public Field getField() {
-		System.out.println("Movable.getField()");
+		MethodWriter.printOutMethod("Movable.getField", "");
 		
+		MethodWriter.printOutRet("f");
 		return this.field;
 	}
 }

@@ -4,31 +4,36 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 
+import skeleton.out.MethodWriter;
+
 public class SimpleField extends Field {
 
 	@Override
 	public Movable boxEnters(Box b, Direction d) {
-		System.out.println("SimpleField.boxEnters(w, d)");
+		MethodWriter.printOutMethod("Moveable.boxEnters", "w, d");
 		
 		b.place(this);
 		getNeighbor(d.getOpposite()).remove();
 		
 		Movable movable = getMovable();
 		
-		if (movable != null)
+		if (movable != null) {
+			MethodWriter.printOutRet("moveable");
 			return movable;
-		else
+		} else {
+			MethodWriter.printOutRet("null");
 			return null;
+		}
 	}
 
 	@Override
 	public Movable workerEnters(Worker w, Direction d) {
-		System.out.println("SimpleField.workerEnters(w, d)");
+		MethodWriter.printOutMethod("SimpleField.workerEnters", "w, d");
 		
 		w.place(this);
 		getNeighbor(d.getOpposite()).remove();
 		
-		System.out.println("~ Is there a box on this Field? (y/n)");
+		MethodWriter.printOutQuestion("Is there a box on this Field? (y/n)");
 		
 		String answer = readFromStdin();
 		
@@ -45,22 +50,28 @@ public class SimpleField extends Field {
 		
 		Movable movable = getMovable();
 		
-		if (movable != null)
+		if (movable != null) {
+			MethodWriter.printOutRet("movable");
 			return movable;
-		else
+		} else {
+			MethodWriter.printOutRet("null");
 			return null;
+		}
 	}
 	
 	@Override
 	public void boxArrived(Box b) {
-		System.out.println("SimpleField.boxArrived(b)");
+		MethodWriter.printOutMethod("SimpleField.boxArrived", "b");
 		
 		
+		MethodWriter.printOutRet("");
 	}
 	
 	@Override
 	public void workerArrived(Worker w) {
-		System.out.println("SimpleField.workerArrived(b)");
+		MethodWriter.printOutMethod("SimpleField.workerArrived", "b");
+		
+		MethodWriter.printOutRet("");
 	}
 	
 	private String readFromStdin() {

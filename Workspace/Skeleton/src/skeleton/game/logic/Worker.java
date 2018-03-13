@@ -1,5 +1,7 @@
 package skeleton.game.logic;
 
+import skeleton.out.MethodWriter;
+
 public class Worker extends Movable {
 
 	private int points = 0;
@@ -39,7 +41,7 @@ public class Worker extends Movable {
 	}
 	
 	public void control(Direction d) {
-		System.out.println("Worker.control(d)");
+		MethodWriter.printOutMethod("Worker.control", "d");
 		
 		Field f1 = getField().getNeighbor(d);
 		
@@ -49,13 +51,17 @@ public class Worker extends Movable {
 			m.pushByWorker(this, d);
 		
 		finalizeStep();
+		
+		MethodWriter.printOutRet("");
 	}
 	
 	@Override
 	public void finalizeStep() {						//LOL felesleges
-		System.out.println("Worker.finalizeStep(d)");
+		MethodWriter.printOutMethod("Worker.finalizeStep", "");
 		
 		getField().workerArrived(this);
+		
+		MethodWriter.printOutRet("");
 	}
 	
 	public void goBack(Direction d) {
