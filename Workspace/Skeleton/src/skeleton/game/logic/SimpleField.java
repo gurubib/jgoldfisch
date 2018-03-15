@@ -10,39 +10,42 @@ public class SimpleField extends Field {
 
 	@Override
 	public Movable boxEnters(Box b, Direction d) {
-		MethodWriter.printOutMethod("Moveable.boxEnters", "w, d");
-		
-		b.place(this);
-		getNeighbor(d.getOpposite()).remove();
+		MethodWriter.printOutMethod("SimpleField.boxEnters",  b.toString() + ", " + d.toString());
 		
 		Movable movable = getMovable();
 		
-		if (movable != null) {
-			MethodWriter.printOutRet("moveable");
-			return movable;
-		} else {
+		this.setMovable(b);
+		b.place(this);
+		this.getNeighbor(d.getOpposite()).remove(b);
+		
+		
+		
+		if (movable == null)
 			MethodWriter.printOutRet("null");
-			return null;
-		}
+		else
+			MethodWriter.printOutRet(movable.toString());
+		return movable;
 	}
 
 	@Override
 	public Movable workerEnters(Worker w, Direction d) {
-		MethodWriter.printOutMethod("SimpleField.workerEnters", "w, d");
+		MethodWriter.printOutMethod("SimpleField.workerEnters", w.toString() + ", " + d.toString());
 		
-		w.place(this);
-		getNeighbor(d.getOpposite()).remove();
+		MethodWriter.printOutQuestion("Is there a box or a worker on the field? B/W/X");
 		
-		MethodWriter.printOutQuestion("Is there a box on this Field? (y/n)");
-		
-		String answer = readFromStdin();
+		String answer = MethodWriter.readFromStdin();
 		
 		
 		switch (answer) {
-			case "y" : 
+			case "b" : 
 				Box b = new Box();
 				b.setField(this);
 				this.setMovable(b);
+				break;
+			case "w" :
+				Worker w2 = new Worker();
+				w2.setField(this);
+				this.setMovable(w2);
 				break;
 			default:
 				this.setMovable(null);
@@ -50,40 +53,21 @@ public class SimpleField extends Field {
 		
 		Movable movable = getMovable();
 		
-		if (movable != null) {
-			MethodWriter.printOutRet("movable");
-			return movable;
-		} else {
+		this.setMovable(w);
+		w.place(this);
+		getNeighbor(d.getOpposite()).remove(w);
+		
+	
+		
+
+		
+		if (movable == null)
 			MethodWriter.printOutRet("null");
-			return null;
-		}
+		else
+			MethodWriter.printOutRet(movable.toString());
+		return movable;
 	}
 	
-	@Override
-	public void boxArrived(Box b) {
-		MethodWriter.printOutMethod("SimpleField.boxArrived", "b");
-		
-		
-		MethodWriter.printOutRet("");
-	}
 	
-	@Override
-	public void workerArrived(Worker w) {
-		MethodWriter.printOutMethod("SimpleField.workerArrived", "b");
-		
-		MethodWriter.printOutRet("");
-	}
-	
-	private String readFromStdin() {
-		String answer = null;
-		
-		try {
-			BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-			answer = br.readLine();
-		} catch (NumberFormatException | IOException e) {
-			e.printStackTrace();
-		}
-		return answer;
-	}
 
 }

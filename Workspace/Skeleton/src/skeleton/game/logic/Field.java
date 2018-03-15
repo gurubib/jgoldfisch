@@ -7,6 +7,8 @@ import skeleton.out.MethodWriter;
 
 public abstract class Field {
 	
+	private String skeletonName;
+	
 	private Map<Direction, Field> neighbors = new HashMap<Direction, Field>();
 	private Movable movable = null;
 	
@@ -14,6 +16,13 @@ public abstract class Field {
 	public abstract Movable boxEnters(Box b, Direction d);
 	public abstract Movable workerEnters(Worker w, Direction d);
 	
+	@Override
+	public String toString() {
+		return skeletonName;
+	}
+	public void setSkeletonName(String skeletonName) {
+		this.skeletonName = skeletonName;
+	}
 	public Field getNeighbor(Direction d) {
 		MethodWriter.printOutMethod("Field.getNeighbor", "d");
 		
@@ -33,8 +42,11 @@ public abstract class Field {
 		return movable;
 	}
 	
-	public void remove() {
-		MethodWriter.printOutMethod("Field.remove", "");
+	public void remove(Movable m) {
+		MethodWriter.printOutMethod("Field.remove", m.toString());
+		
+		if (movable == m)
+			this.movable = null;
 		
 		MethodWriter.printOutRet("");
 	}
@@ -44,11 +56,13 @@ public abstract class Field {
 	}
 	
 	public void boxArrived(Box b) {
-		//TODO
+		MethodWriter.printOutMethod("EndField.boxArrived",b.toString());
+		MethodWriter.printOutRet("");
 	}
 	
 	public void workerArrived(Worker w) {
-		//TODO
+		MethodWriter.printOutMethod("EndField.workerArrived",w.toString());
+		MethodWriter.printOutRet("");
 	}
 	
 }

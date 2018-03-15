@@ -23,7 +23,7 @@ public class SwitchField extends Field {
 	}
 	
 	@Override
-	public void remove() {
+	public void remove(Movable m) {
 		//TODO
 	}
 	

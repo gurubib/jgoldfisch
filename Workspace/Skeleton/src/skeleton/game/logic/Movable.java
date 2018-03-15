@@ -4,6 +4,8 @@ import skeleton.out.MethodWriter;
 
 public abstract class Movable {
 	
+	private String skeletonName;
+	
 	private Field field;
 	
 	public abstract void die();
@@ -13,12 +15,21 @@ public abstract class Movable {
 	public abstract void scorePoint(Direction d);
 	public abstract void finalizeStep();
 	
+	@Override
+	public String toString() {
+		return skeletonName;
+	}
+	public void setSkeletonName(String skeletonName) {
+		this.skeletonName = skeletonName;
+	}
 	public void setField(Field f) {
 		field = f;
 	}
 	
+	
+	
 	public void place(Field f) {
-		MethodWriter.printOutMethod("Movable.place", "f");
+		MethodWriter.printOutMethod("Movable.place", f.toString());
 		
 		this.field = f;
 		
@@ -28,7 +39,7 @@ public abstract class Movable {
 	public Field getField() {
 		MethodWriter.printOutMethod("Movable.getField", "");
 		
-		MethodWriter.printOutRet("f");
+		MethodWriter.printOutRet(this.field.toString());
 		return this.field;
 	}
 }

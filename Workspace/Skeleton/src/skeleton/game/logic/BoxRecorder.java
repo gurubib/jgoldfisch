@@ -3,6 +3,11 @@ package skeleton.game.logic;
 import java.util.ArrayList;
 import java.util.List;
 
+import skeleton.out.MethodWriter;
+
+
+//Elvileg nem kell a szkeletonban figyelni, hogy vege e a jateknak
+
 public class BoxRecorder {
 	
 	private List<Field> fixFields = new ArrayList<Field>();
@@ -11,15 +16,14 @@ public class BoxRecorder {
 		fixFields = walls;
 	}
 	
-	public void checkRecordWith(Field f) {
-		//TODO
-	}
-	
 	public void endFieldOccupied(Field f) {
 		//TODO
 	}
 	
 	public void update(Field f) {
 		//TODO
+	}
+	
+	public void checkRecordWith(Field f) {
 	}
 }

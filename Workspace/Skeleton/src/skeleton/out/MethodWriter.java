@@ -1,5 +1,9 @@
 package skeleton.out;
 
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+
 public class MethodWriter {
 	
 	
@@ -38,6 +42,17 @@ public class MethodWriter {
 		System.out.print(question + ": ");
 		
 		methodDepth--;
+	}
+	public static String readFromStdin() {
+		String answer = null;
+		
+		try {
+			BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+			answer = br.readLine();
+		} catch (NumberFormatException | IOException e) {
+			e.printStackTrace();
+		}
+		return answer;
 	}
 	
 }

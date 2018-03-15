@@ -16,6 +16,10 @@ public class Skeleton {
 		
 		Menu m = new Menu();
 		
+		Box b = new Box();
+		
+		//System.out.println(b.toString());
+		
 		m.addMenuItem(1, "First");
 		m.setDescForItem(1, "Worker -> Box -> Empty");
 		

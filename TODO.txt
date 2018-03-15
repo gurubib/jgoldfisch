@@ -8,14 +8,12 @@
 
 ========FONTOS========
 
-3.1 - Balu
-3.2, 3.3 - Márk, Balu
-3.4 - Áki, Barna, Gergő
-3.6
-
-[Barna] - inicializálások.... (05)
+[Barna] - kommunikációs szarokon inicializálások.... (05)
 
 Követelményes doksi, "speciális rész" elnevezése és szótárba rakása
+
+
+[Áki, Barna] EndField.boxEnters-be nem tudunk pontozni!! szal EndField.boxArrived-ba kell tenni a scorePoint-ot
 
 ========JÓ-LENNE-HA========
 
