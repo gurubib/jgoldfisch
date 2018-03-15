@@ -5,6 +5,12 @@ import skeleton.out.MethodWriter;
 public class HoleField extends Field {
 	private SwitchField switchField;
 
+	
+	
+	public void setSwitchField(SwitchField switchField) {
+		this.switchField = switchField;
+	}
+
 	@Override
 	public Movable boxEnters(Box b, Direction d) {
 		MethodWriter.printOutMethod("HoleField.boxEnters", b.toString() + ", " + d.toString());

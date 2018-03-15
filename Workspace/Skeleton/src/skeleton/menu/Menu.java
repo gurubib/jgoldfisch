@@ -22,7 +22,7 @@ public class Menu {
 	
 	public void drawMenu() {
 		for(Entry<Integer, MenuItem> e : menuItems.entrySet()) {
-			System.out.println(e.getKey() + ": " + e.getValue().getName() + " ==> " + e.getValue().getDesc());
+			System.out.println(e.getValue().getDesc());
 		}
 	}
 	

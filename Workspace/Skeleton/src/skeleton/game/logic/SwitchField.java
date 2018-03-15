@@ -7,6 +7,16 @@ public class SwitchField extends Field {
 	private boolean active = false;
 	private HoleField hole;
 	
+	
+	
+	public HoleField getHole() {
+		return hole;
+	}
+
+	public void setHole(HoleField hole) {
+		this.hole = hole;
+	}
+
 	@Override
 	public Movable boxEnters(Box b, Direction d) {
 		MethodWriter.printOutMethod("SwitchField.boxEnters", b.toString() + ", " + d.toString());
@@ -121,6 +131,11 @@ public class SwitchField extends Field {
 	public void holeInteracted(Movable m) {
 		MethodWriter.printOutMethod("SwitchField.holeInteracted", m.toString());
 	
+		MethodWriter.printOutQuestion("Is the switch on or off? 1/0");
+		String answer = MethodWriter.readFromStdin();
+		
+		active = answer.equals("1");
+		
 		if (active)
 			hole.execute(m);
 		
