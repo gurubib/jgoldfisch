@@ -3,60 +3,91 @@ package skeleton.game.logic;
 import skeleton.out.MethodWriter;
 
 public class Worker extends Movable {
-
-	private int points = 0;
 	
-/*	public Worker(Field field) {
-		super(field);
-	}*/
+	private int points = 0;
 
 	@Override
 	public void die() {
-		// TODO Auto-generated method stub
+		MethodWriter.printOutMethod("Worker.die",  "");
+
+		this.getField().remove(this);
 		
+		MethodWriter.printOutRet("");
 	}
 
 	@Override
 	public void pushBack(Direction d) {
-		// TODO Auto-generated method stub
+		MethodWriter.printOutMethod("Worker.pushBack", d.toString());
 		
+		Field neighbor = this.getField().getNeighbor(d);
+		
+		Movable neighborMovable = neighbor.workerEnters(this, d);
+		
+		
+		if (neighborMovable != null)
+			neighborMovable.die();
+		
+		MethodWriter.printOutRet("");
 	}
 
 	@Override
 	public void pushByBox(Box b, Direction d) {
-		// TODO Auto-generated method stub
+		MethodWriter.printOutMethod("Worker.pushByBox", b.toString() + ", " + d.toString());
 		
+		Field neighbor = this.getField().getNeighbor(d);
+		
+		Movable neighborMovable = neighbor.workerEnters(this, d);
+		
+		if (neighborMovable == this)
+			this.die();
+		else if (neighborMovable != null) {
+			neighborMovable.pushByWorker(this, d);
+			this.finalizeStep();
+		} else {
+			this.finalizeStep();
+		}
+		
+		MethodWriter.printOutRet("");
 	}
 
 	@Override
 	public void pushByWorker(Worker w, Direction d) {
-		// TODO Auto-generated method stub
+		MethodWriter.printOutMethod("Worker.pushByWorker", w.toString() + ", " + d.toString());
 		
+		w.goBack(d.getOpposite());
+		
+		MethodWriter.printOutRet("");
 	}
 
 	@Override
 	public void scorePoint(Direction d) {
-		// TODO Auto-generated method stub
+		MethodWriter.printOutMethod("Worker.scorePoint", d.toString());
 		
+		this.increasePoints();
+		
+		MethodWriter.printOutRet("");
 	}
 	
 	public void control(Direction d) {
 		MethodWriter.printOutMethod("Worker.control", "d");
 		
-		Field f1 = getField().getNeighbor(d);
+		Field neighbor = this.getField().getNeighbor(d);
 		
-		Movable m = f1.workerEnters(this, d);
+		Movable neighborMovable = neighbor.workerEnters(this, d);
 		
-		if (m != null)
-			m.pushByWorker(this, d);
+		if (neighborMovable == this) {
+			Field backwardNeighbor = this.getField().getNeighbor(d.getOpposite());
+			backwardNeighbor.workerEnters(this, d.getOpposite());
+		} else if (neighborMovable != null)
+			neighborMovable.pushByWorker(this, d);
 		
-		finalizeStep();
+		this.finalizeStep();
 		
 		MethodWriter.printOutRet("");
 	}
 	
 	@Override
-	public void finalizeStep() {						//LOL felesleges
+	public void finalizeStep() {
 		MethodWriter.printOutMethod("Worker.finalizeStep", "");
 		
 		getField().workerArrived(this);
@@ -65,11 +96,24 @@ public class Worker extends Movable {
 	}
 	
 	public void goBack(Direction d) {
-		//TODO
+		MethodWriter.printOutMethod("Worker.goBack", "d");
+		
+		Field neighbor = this.getField().getNeighbor(d);
+		
+		Movable neighborMovable = neighbor.workerEnters(this, d);
+		
+		if (neighborMovable != null)
+			neighborMovable.pushByWorker(this, d);
+		
+		MethodWriter.printOutRet("");
 	}
 	
 	public void increasePoints() {
-		//TODO
+		MethodWriter.printOutMethod("Worker.increasePoint", "");
+		
+		points++;
+		
+		MethodWriter.printOutRet("");
 	}
 
 }

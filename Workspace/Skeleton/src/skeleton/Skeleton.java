@@ -41,28 +41,34 @@ public class Skeleton {
 		Field f1 = new SimpleField();
 		Field f2 = new SimpleField();
 		Field f3 = new SimpleField();
+		Field wf = new WallField();
+		
+		f1.setSkeletonName("f1");
+		f2.setSkeletonName("f2");
+		f3.setSkeletonName("f3");
+		wf.setSkeletonName("wf");
 		
 		f1.setNeighbor(Direction.RIGHT, f2);
 		f2.setNeighbor(Direction.LEFT, f1);
 		f2.setNeighbor(Direction.RIGHT, f3);
 		f3.setNeighbor(Direction.LEFT, f2);
+		f3.setNeighbor(Direction.RIGHT, wf);
+		wf.setNeighbor(Direction.LEFT, f3);
 		
 		fl1.add(f1);
 		fl1.add(f2);
 		fl1.add(f3);
+		fl1.add(wf);
 		
 		List<Worker> wl1 = new ArrayList<Worker>();
 		
 		Worker w = new Worker();
 		w.setField(f1);
-		
-		Box b = new Box();
-		b.setField(f2);
+		w.setSkeletonName("w");
 		
 		wl1.add(w);
 		
 		fl1.get(0).setMovable(w);
-		fl1.get(1).setMovable(b);
 		
 		m.getMenuItem(1).init(fl1, wl1);
 	}
