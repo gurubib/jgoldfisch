@@ -8,6 +8,24 @@ public class EndField extends Field {
 	public Movable boxEnters(Box b, Direction d) {
 		MethodWriter.printOutMethod("EndField.boxEnters", b.toString() + ", " + d.toString());
 		
+		if (this.getMovable() == null) {
+
+			MethodWriter.printOutQuestion("Is there a box or a worker on the field? B/X");
+
+			String answer = MethodWriter.readFromStdin();
+
+			switch (answer) {
+			case "b":
+				Box b2 = new Box();
+				b2.setField(this);
+				this.setMovable(b2);
+				break;
+			default:
+				this.setMovable(null);
+			}
+
+		}
+		
 		b.place(this);
 		
 		Field backwardNeighbor = this.getNeighbor(d.getOpposite());
@@ -30,6 +48,23 @@ public class EndField extends Field {
 	public Movable workerEnters(Worker w, Direction d) {
 		MethodWriter.printOutMethod("EndField.workerEnters", w.toString() + ", " + d.toString());
 		
+		if (this.getMovable() == null) {
+
+			MethodWriter.printOutQuestion("Is there a box or a worker on the field? B/X");
+
+			String answer = MethodWriter.readFromStdin();
+
+			switch (answer) {
+			case "b":
+				Box b2 = new Box();
+				b2.setField(this);
+				this.setMovable(b2);
+				break;
+			default:
+				this.setMovable(null);
+			}
+
+		}
 		
 		w.place(this);
 		
