@@ -79,7 +79,7 @@ class MenuItemInitializier {
 		}
 	}
 	
-		
+	//1. Worker steps into wall	
 	private static void menuItemInit_1(MenuItem item) {
 		List<Field> fields = new ArrayList<Field>();
 		
@@ -103,7 +103,7 @@ class MenuItemInitializier {
 		
 		item.init(fields);
 	}
-
+	//2. Worker steps into hole
 	private static void menuItemInit_2(MenuItem item) {
 		List<Field> fields = new ArrayList<Field>();
 		
@@ -127,7 +127,7 @@ class MenuItemInitializier {
 		
 		item.init(fields);
 	}
-	
+	//3. Worker steps to another field, and the third field is a hole (without switch)
 	private static void menuItemInit_3(MenuItem item) {
 		List<Field> fields = new ArrayList<Field>();
 		
@@ -156,27 +156,27 @@ class MenuItemInitializier {
 		
 		item.init(fields);
 	}
-	
+	//4. Worker steps to another field, and the third field is a hole (with switch)
 	private static void menuItemInit_4(MenuItem item) {
 		List<Field> fields = new ArrayList<Field>();
 		
 		SimpleField f1 = new SimpleField();
 		SimpleField f2 = new SimpleField();
 		HoleField hf = new HoleField();
-		SwitchField sw = new SwitchField();
+		SwitchField sf = new SwitchField();
 		
 		f1.setSkeletonName("f1");
 		f2.setSkeletonName("f2");
 		hf.setSkeletonName("hf");
-		sw.setSkeletonName("sw");
+		sf.setSkeletonName("sf");
 		
 		f1.setNeighbor(Direction.RIGHT, f2);
 		f2.setNeighbor(Direction.LEFT, f1);
 		f2.setNeighbor(Direction.RIGHT, hf);
 		hf.setNeighbor(Direction.LEFT, f2);
 		
-		hf.setSwitchField(sw);
-		sw.setHole(hf);
+		hf.setSwitchField(sf);
+		sf.setHole(hf);
 		
 		Worker w = new Worker();
 		w.setSkeletonName("w");
@@ -187,31 +187,199 @@ class MenuItemInitializier {
 		fields.add(f1);
 		fields.add(f2);
 		fields.add(hf);
+		fields.add(sf);
 		
 		item.init(fields);
 	}
-	
+	//5. Worker steps to another Field, and the third field is a switch.
 	private static void menuItemInit_5(MenuItem item) {
+		List<Field> fields = new ArrayList<Field>();
 		
+		SimpleField f1 = new SimpleField();
+		SimpleField f2 = new SimpleField();
+		HoleField hf = new HoleField();
+		SwitchField sf = new SwitchField();
+		
+		f1.setSkeletonName("f1");
+		f2.setSkeletonName("f2");
+		hf.setSkeletonName("hf");
+		sf.setSkeletonName("sf");
+		
+		f1.setNeighbor(Direction.RIGHT, f2);
+		f2.setNeighbor(Direction.LEFT, f1);
+		f2.setNeighbor(Direction.RIGHT, sf);
+		sf.setNeighbor(Direction.LEFT, f2);
+		
+		hf.setSwitchField(sf);
+		sf.setHole(hf);
+		
+		Worker w = new Worker();
+		w.setSkeletonName("w");
+		w.setField(f1);
+		
+		f1.setMovable(w);
+		
+		fields.add(f1);
+		fields.add(f2);
+		fields.add(hf);
+		fields.add(sf);
+		
+		item.init(fields);
 	}
-	
+	//6. Worker steps to another Field, and the third field is Wall
 	private static void menuItemInit_6(MenuItem item) {
+		List<Field> fields = new ArrayList<Field>();
 		
+		SimpleField f1 = new SimpleField();
+		SimpleField f2 = new SimpleField();
+		WallField wf = new WallField();
+		
+		f1.setSkeletonName("f1");
+		f2.setSkeletonName("f2");
+		wf.setSkeletonName("wf");
+		
+		f1.setNeighbor(Direction.RIGHT, f2);
+		f2.setNeighbor(Direction.LEFT, f1);
+		f2.setNeighbor(Direction.RIGHT, wf);
+		wf.setNeighbor(Direction.LEFT, f2);
+		
+		Worker w = new Worker();
+		w.setSkeletonName("w");
+		w.setField(f1);
+		
+		f1.setMovable(w);
+		
+		fields.add(f1);
+		fields.add(f2);
+		fields.add(wf);
+		
+		item.init(fields);
 	}
-	
+	//7. Worker steps to another Field, and the third field is an endzone field
 	private static void menuItemInit_7(MenuItem item) {
+		List<Field> fields = new ArrayList<Field>();
 		
+		SimpleField f1 = new SimpleField();
+		SimpleField f2 = new SimpleField();
+		EndField ef = new EndField();
+		
+		f1.setSkeletonName("f1");
+		f2.setSkeletonName("f2");
+		ef.setSkeletonName("ef");
+		
+		f1.setNeighbor(Direction.RIGHT, f2);
+		f2.setNeighbor(Direction.LEFT, f1);
+		f2.setNeighbor(Direction.RIGHT, ef);
+		ef.setNeighbor(Direction.LEFT, f2);
+		
+		Worker w = new Worker();
+		w.setSkeletonName("w");
+		w.setField(f1);
+		
+		f1.setMovable(w);
+		
+		fields.add(f1);
+		fields.add(f2);
+		fields.add(ef);
+		
+		item.init(fields);
 	}
-	
+	//8. Worker pushes a box to another Field, and the third field is a regular field
 	private static void menuItemInit_8(MenuItem item) {
+		List<Field> fields = new ArrayList<Field>();
 		
+		SimpleField f1 = new SimpleField();
+		SimpleField f2 = new SimpleField();
+		SimpleField f3 = new SimpleField();
+		
+		f1.setSkeletonName("f1");
+		f2.setSkeletonName("f2");
+		f3.setSkeletonName("f3");
+		
+		f1.setNeighbor(Direction.RIGHT, f2);
+		f2.setNeighbor(Direction.LEFT, f1);
+		f2.setNeighbor(Direction.RIGHT, f3);
+		f3.setNeighbor(Direction.LEFT, f2);
+		
+		Worker w = new Worker();
+		w.setSkeletonName("w");
+		w.setField(f1);
+		
+		f1.setMovable(w);
+		
+		fields.add(f1);
+		fields.add(f2);
+		fields.add(f3);
+		
+		item.init(fields);
 	}
-	
+	//9. Worker pushes a box to another Field, and the fourth field is a regular field
 	private static void menuItemInit_9(MenuItem item) {
+		List<Field> fields = new ArrayList<Field>();
 		
+		SimpleField f1 = new SimpleField();
+		SimpleField f2 = new SimpleField();
+		SimpleField f3 = new SimpleField();
+		SimpleField f4 = new SimpleField();
+ 		
+		f1.setSkeletonName("f1");
+		f2.setSkeletonName("f2");
+		f3.setSkeletonName("f3");
+		f4.setSkeletonName("f4");
+		
+		f1.setNeighbor(Direction.RIGHT, f2);
+		f2.setNeighbor(Direction.LEFT, f1);
+		f2.setNeighbor(Direction.RIGHT, f3);
+		f3.setNeighbor(Direction.LEFT, f2);
+		f3.setNeighbor(Direction.RIGHT, f4);
+		f4.setNeighbor(Direction.LEFT, f3);
+		
+		Worker w = new Worker();
+		w.setSkeletonName("w");
+		w.setField(f1);
+		
+		f1.setMovable(w);
+		
+		fields.add(f1);
+		fields.add(f2);
+		fields.add(f3);
+		fields.add(f4);
+		
+		item.init(fields);
 	}
-	
+	//10. Worker pushes a box to another Field, and the fourth field is wall
 	private static void menuItemInit_10(MenuItem item) {
+		List<Field> fields = new ArrayList<Field>();
 		
+		SimpleField f1 = new SimpleField();
+		SimpleField f2 = new SimpleField();
+		SimpleField f3 = new SimpleField();
+		WallField wf = new WallField();
+ 		
+		f1.setSkeletonName("f1");
+		f2.setSkeletonName("f2");
+		f3.setSkeletonName("f3");
+		wf.setSkeletonName("wf");
+		
+		f1.setNeighbor(Direction.RIGHT, f2);
+		f2.setNeighbor(Direction.LEFT, f1);
+		f2.setNeighbor(Direction.RIGHT, f3);
+		f3.setNeighbor(Direction.LEFT, f2);
+		f3.setNeighbor(Direction.RIGHT, wf);
+		wf.setNeighbor(Direction.LEFT, f3);
+		
+		
+		Worker w = new Worker();
+		w.setSkeletonName("w");
+		w.setField(f1);
+		
+		f1.setMovable(w);
+		
+		fields.add(f1);
+		fields.add(f2);
+		fields.add(f3);
+		fields.add(wf);
+		
+		item.init(fields);
 	}
 }
