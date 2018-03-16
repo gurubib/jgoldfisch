@@ -24,6 +24,8 @@ public class Skeleton {
 		
 		int n = Integer.parseInt(br.readLine());
 		
+		System.out.println();
+		
 		m.chooseMenuItem(n);
 		
 	}
