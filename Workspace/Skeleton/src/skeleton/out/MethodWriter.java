@@ -26,7 +26,7 @@ public class MethodWriter {
 		for (int i = 0; i < methodDepth; ++i)
 			System.out.print("   ");
 		
-		System.out.println("ret" + (retVal.equals("") ? retVal : (" " + retVal)) + ";");
+		System.out.println("ret" + ((retVal == null || retVal.equals(""))? retVal : (" " + retVal)) + ";");
 		
 		methodDepth--;
 	}
