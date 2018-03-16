@@ -22,6 +22,7 @@ public abstract class Field {
 	public String toString() {
 		return skeletonName;
 	}
+	
 	/**
 	 * A név beállítására szolgáló függvény.
 	 * @param skeletonName A beállítandó név.
@@ -29,6 +30,7 @@ public abstract class Field {
 	public void setSkeletonName(String skeletonName) {
 		this.skeletonName = skeletonName;
 	}
+	
 	/**
 	 * A mező paraméterben átadott irányban lévő szomszédjának getter függvénye.
 	 * @param d A kért irány.
@@ -40,6 +42,7 @@ public abstract class Field {
 		MethodWriter.printOutRet("f");
 		return neighbors.get(d);
 	}
+	
 	/**
 	 * A mező szomszédjának beállítása.
 	 * @param d A szomszéd iránya.
@@ -48,6 +51,7 @@ public abstract class Field {
 	public void setNeighbor(Direction d, Field f) {
 		neighbors.put(d, f);
 	}
+	
 	/**
 	 * A mezőn lévő Movable referencia beállítása.
 	 * @param m A beállítani kívánt Movable referencia.
@@ -55,6 +59,7 @@ public abstract class Field {
 	public void setMovable(Movable m) {
 		movable = m;
 	}
+	
 	/**
 	 * A mezőn tárolt Movable referencia visszaadására szolgáló függvény.
 	 * @return A mezőn lévő Movable referencia.
@@ -62,6 +67,7 @@ public abstract class Field {
 	public Movable getMovable() {
 		return movable;
 	}
+	
 	/**
 	 * A mezőn lévő Movable referencia kitörlésére szolgáló függvény.
 	 * @param m A kitörlendő Movable referencia.
@@ -74,12 +80,14 @@ public abstract class Field {
 		
 		MethodWriter.printOutRet("");
 	}
+	
 	/**
 	 * A Recorder osztály frissítésére szolgáló függvény.
 	 */
 	public void updateRecorder() {
 		//TODO
 	}
+	
 	/**
 	 * Függvény arra az esetre, ha egy doboz érkezik egy célmezőre.
 	 * @param b Az érkező doboz referenciája.
@@ -88,6 +96,7 @@ public abstract class Field {
 		MethodWriter.printOutMethod("EndField.boxArrived",b.toString());
 		MethodWriter.printOutRet("");
 	}
+	
 	/**
 	 * Függvény arra az esetre, ha egy munkás érkezik a célmezőre.
 	 * @param w Az érkező munkás referenciája.
