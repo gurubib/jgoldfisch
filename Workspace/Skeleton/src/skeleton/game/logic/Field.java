@@ -105,5 +105,4 @@ public abstract class Field {
 		MethodWriter.printOutMethod("EndField.workerArrived",w.toString());
 		MethodWriter.printOutRet("");
 	}
-	
 }
