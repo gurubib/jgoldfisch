@@ -47,10 +47,13 @@ public class SimpleField extends Field {
 	public Movable workerEnters(Worker w, Direction d) {
 		MethodWriter.printOutMethod("SimpleField.workerEnters", w.toString() + ", " + d.toString());
 		
-		MethodWriter.printOutQuestion("Is there a box or a worker on the field? B/W/X");
+		String answer = "x";
 		
-		String answer = MethodWriter.readFromStdin();
+		if (this.getMovable() == null) {
+			MethodWriter.printOutQuestion("Is there a box or a worker on the field? B/W/X");
 		
+			answer = MethodWriter.readFromStdin();
+		}
 		
 		switch (answer) {
 			case "b" : 

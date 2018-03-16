@@ -39,9 +39,12 @@ public class MenuItem {
 		return map;
 	}
 
-	public void init(List<Field> fields, List<Worker> workers) {
+	public void init(List<Field> fields) {
 		map.manualLoad(fields);
-		game.init(workers);
+		
+		Worker mainWorker = (Worker)fields.get(0).getMovable();
+		
+		game.init(mainWorker);
 	}
 	
 	public void execute() {

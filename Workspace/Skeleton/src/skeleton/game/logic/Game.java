@@ -26,8 +26,8 @@ public class Game {
 		instance.map = m;
 	}
 	
-	public void init(List<Worker> w) {
-		instance.workers = w;
+	public void init(Worker w) {
+		instance.workers.add(w);
 	}
 	
 	public Worker getMainWorker() {

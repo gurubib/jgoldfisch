@@ -21,7 +21,7 @@ public class Skeleton {
 		
 		initMenu();
 		
-		initMenuItemMaps(m);
+		//initMenuItemMaps(m);
 		
 		m.drawMenu();
 		
@@ -96,7 +96,7 @@ public class Skeleton {
 		
 		fl1.get(0).setMovable(w);
 		
-		m.getMenuItem(1).init(fl1, wl1);
+		//m.getMenuItem(1).init(fl1, wl1);
 	}
 
 }
