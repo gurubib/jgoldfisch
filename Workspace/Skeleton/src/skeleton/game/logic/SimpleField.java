@@ -74,7 +74,7 @@ public class SimpleField extends Field {
 		
 		this.setMovable(w);
 		w.place(this);
-		getNeighbor(d.getOpposite()).remove(w);
+		//getNeighbor(d.getOpposite()).remove(w);
 		
 		if (movable == null)
 			MethodWriter.printOutRet("null");

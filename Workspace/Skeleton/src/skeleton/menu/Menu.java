@@ -158,7 +158,37 @@ class MenuItemInitializier {
 	}
 	
 	private static void menuItemInit_4(MenuItem item) {
+		List<Field> fields = new ArrayList<Field>();
 		
+		SimpleField f1 = new SimpleField();
+		SimpleField f2 = new SimpleField();
+		HoleField hf = new HoleField();
+		SwitchField sw = new SwitchField();
+		
+		f1.setSkeletonName("f1");
+		f2.setSkeletonName("f2");
+		hf.setSkeletonName("hf");
+		sw.setSkeletonName("sw");
+		
+		f1.setNeighbor(Direction.RIGHT, f2);
+		f2.setNeighbor(Direction.LEFT, f1);
+		f2.setNeighbor(Direction.RIGHT, hf);
+		hf.setNeighbor(Direction.LEFT, f2);
+		
+		hf.setSwitchField(sw);
+		sw.setHole(hf);
+		
+		Worker w = new Worker();
+		w.setSkeletonName("w");
+		w.setField(f1);
+		
+		f1.setMovable(w);
+		
+		fields.add(f1);
+		fields.add(f2);
+		fields.add(hf);
+		
+		item.init(fields);
 	}
 	
 	private static void menuItemInit_5(MenuItem item) {
