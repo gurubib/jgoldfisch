@@ -96,7 +96,7 @@ public class Worker extends Movable {
 	}
 	
 	public void goBack(Direction d) {
-		MethodWriter.printOutMethod("Worker.goBack", "d");
+		MethodWriter.printOutMethod("Worker.goBack", d.toString());
 		
 		Field neighbor = this.getField().getNeighbor(d);
 		

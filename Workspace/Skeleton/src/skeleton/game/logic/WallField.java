@@ -20,7 +20,7 @@ public class WallField extends Field {
 		MethodWriter.printOutMethod("WallField.workerEnters", w.toString() + ", " + d.toString());
 		
 		w.place(this);
-		//getNeighbor(d.getOpposite()).remove(w);
+		getNeighbor(d.getOpposite()).remove(w);
 		
 		MethodWriter.printOutRet(w.toString());
 		return w;

@@ -19,6 +19,7 @@ public class Skeleton {
 		
 		m.drawMenu();
 		
+		System.out.print("\n\n Choose an option: ");
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		
 		int n = Integer.parseInt(br.readLine());
