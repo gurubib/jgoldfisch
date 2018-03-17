@@ -1,23 +1,51 @@
 package skeleton.game.logic;
 
+/**
+ * Enumeráció a pályán található irányokhoz.
+ */
 public enum Direction {
+	/**
+	 * A pályán felfelé mutató irány
+	 */
 	UP,
-	RIGHT,
+
+	/**
+	 * A pályán lefelé mutató irány
+	 */
 	DOWN,
-	LEFT;
-	
-	public Direction getOpposite() {
-		switch(this) {
-			case UP:
-				return Direction.DOWN;
-			case RIGHT:
-				return Direction.LEFT;
-			case DOWN:
-				return Direction.UP;
-			case LEFT:
-				return Direction.RIGHT;
-			default:
-				return Direction.RIGHT;
-		}
+
+	/**
+	 * A pályán balra mutató irány
+	 */
+	LEFT,
+
+	/**
+	 * A pályán jobbra mutató irány
+	 */
+	RIGHT;
+
+	/**
+	 * Az ellentétes irányt tároló változó
+	 */
+	private Direction opposite;
+
+	/**
+	 * Az egyes irányokhoz tartózó ellentétes irányok
+	 */
+	static {
+		UP.opposite = DOWN;
+		DOWN.opposite = UP;
+		LEFT.opposite = RIGHT;
+		RIGHT.opposite = LEFT;
 	}
+
+	/**
+	 * Visszadja az ellentétes irányt
+	 * 
+	 * @return ellentétes irány, Direction literal
+	 */
+	public Direction getOpposite() {
+		return opposite;
+	}
+
 }
