@@ -5,15 +5,32 @@ import skeleton.out.MethodWriter;
 
 import java.io.IOException;
 
+/**
+ * A szekelton program maga, itt található a main függvény, ez irányítja a
+ * futást. Tartalmazza a programhoz tartozó menüt, és azt irányítja.
+ * 
+ * @author jgoldfisch
+ *
+ */
 public class Skeleton {
 
+	/**
+	 * A programhoz tartozó menü.
+	 */
 	private static Menu m = new Menu();
 
+	/**
+	 * A main függvény.
+	 * 
+	 * @param args
+	 * @throws NumberFormatException
+	 * @throws IOException
+	 */
 	public static void main(String[] args) throws NumberFormatException, IOException {
 		initMenu();
 
 		boolean exit = false;
-		
+
 		m.initAllMenuItems();
 		while (!exit) {
 			m.drawMenu();
@@ -21,17 +38,18 @@ public class Skeleton {
 			System.out.print("\n\nChoose an option: ");
 
 			String answer = MethodWriter.readFromStdin();
-			
+			System.out.print("\n\n");
+
 			int n = 0;
-	
-			if(answer.matches("(\\d)*"))
+
+			if (answer.matches("(\\d)*"))
 				n = Integer.parseInt(answer);
 
 			if (0 < n && n < 11) {
 				m.chooseMenuItem(n);
-				m.resetMap(n);
-				MethodWriter.resetNameCounters();
-				
+				m.resetMenuItem(n);
+				MethodWriter.resetCounters();
+
 				System.out.print("\n\nPress enter to go back to the Menu... ");
 				MethodWriter.readFromStdin();
 				System.out.println();
@@ -43,6 +61,9 @@ public class Skeleton {
 
 	}
 
+	/**
+	 * A menüpontok elnevezi és beállítja azok leírását.
+	 */
 	private static void initMenu() {
 		m.addMenuItem(1, "WorkerToWall");
 		m.setDescForItem(1, "1. Worker steps into wall");
