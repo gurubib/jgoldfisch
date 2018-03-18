@@ -126,6 +126,7 @@ public class MethodWriter {
 		try {
 			BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 			answer = br.readLine();
+			answer = answer.toLowerCase();
 		} catch (NumberFormatException | IOException e) {
 			e.printStackTrace();
 		}
