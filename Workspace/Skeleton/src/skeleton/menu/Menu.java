@@ -27,6 +27,8 @@ public class Menu {
 	}
 	
 	public void drawMenu() {
+		System.out.println("SKELETON\n");
+		
 		for(Entry<Integer, MenuItem> e : menuItems.entrySet()) {
 			System.out.println(e.getValue().getDesc());
 		}

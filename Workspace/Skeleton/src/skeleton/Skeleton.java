@@ -3,9 +3,7 @@ package skeleton;
 import skeleton.menu.*;
 import skeleton.out.MethodWriter;
 
-import java.io.BufferedReader;
 import java.io.IOException;
-import java.io.InputStreamReader;
 
 public class Skeleton {
 
@@ -33,6 +31,7 @@ public class Skeleton {
 				
 				System.out.print("\n\nPress enter to go back to the Menu... ");
 				MethodWriter.readFromStdin();
+				System.out.println();
 			} else if (n == 11) {
 				exit = true;
 				System.out.println("Bye!");
