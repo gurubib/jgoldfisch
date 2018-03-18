@@ -3,19 +3,19 @@ package skeleton.game.logic;
 import skeleton.out.MethodWriter;
 
 /**
- * Az egyszeru mezot reprezentalo osztaly. A Field absztrakt ososztaly
- * leszarmazottja.
+ * Az egyszerű mezőt reprezentaló osztály. A Field absztrakt ősosztály
+ * leszármazottja.
  */
 public class SimpleField extends Field {
 
 	/**
-	 * A mezore egy Box lep. Ez az osztaly fel van keszítve minden
-	 * eshetosegre: allhat mar rajta Worker, Box, vagy lehet ures is.
+	 * A mezőre egy Box lép. Ez az ősztaly fel van készítve minden
+	 * eshetőségre: állhat már rajta Worker, Box, vagy lehet üres is.
 	 * 
 	 * @param b
-	 *            A mezore lepo Box referenciaja.
+	 *            A mezőre lépő Box referenciája.
 	 * @param d
-	 *            A mezore lepo Box lepesenek iranya.
+	 *            A mezőre lépő Box lépésének iránya.
 	 */
 	@Override
 	public Movable boxEnters(Box b, Direction d) {
@@ -27,8 +27,8 @@ public class SimpleField extends Field {
 
 			String answer = MethodWriter.readFromStdin();
 
-			// A felhasznalo altal megadott Movable referencia (vagy semmi) beallítasa
-			// a mezore.
+			// A felhasználó által megadott Movable referencia (vagy semmi) beállítasa
+			// a mezőre.
 			switch (answer) {
 			case "b":
 				Box b2 = new Box();
@@ -46,11 +46,11 @@ public class SimpleField extends Field {
 		}
 
 		Movable movable = getMovable();
-		// Az erkezo elhelyezese
+		// Az érkező elhelyezése
 		this.setMovable(b);
 		b.place(this);
-		// Az erkezo Box referenciajanak kitorlese arrol a mezorol, ahonnan
-		// jott.
+		// Az érkező Box referenciájának kitörlese arról a mezőrol, ahonnan
+		// jött.
 		this.getNeighbor(d.getOpposite()).remove(b);
 
 		if (movable == null)
@@ -61,13 +61,13 @@ public class SimpleField extends Field {
 	}
 
 	/**
-	 * A mezore egy Worker lep. Ez az osztaly fel van keszítve minden
-	 * eshetosegre: allhat mar rajta Worker, Box, vagy lehet ures is.
+	 * A mezőre egy Worker lép. Ez az osztály fel van készítve minden
+	 * eshetőségre: állhat már rajta Worker, Box, vagy lehet üres is.
 	 * 
 	 * @param w
-	 *            A mezore lepo Worker referenciaja.
+	 *            A mezőre lépő Worker referenciája.
 	 * @param d
-	 *            A mezore lepo Worker lepesenek iranya.
+	 *            A mezőre lépő Worker lépésének iránya.
 	 */
 	@Override
 	public Movable workerEnters(Worker w, Direction d) {
@@ -78,8 +78,8 @@ public class SimpleField extends Field {
 
 			String answer = MethodWriter.readFromStdin();
 
-			// A felhasznalo altal megadott Movable referencia (vagy semmi) beallítasa
-			// a mezore.
+			// A felhasználó által megadott Movable referencia (vagy semmi) beállítása
+			// a mezőre.
 			switch (answer) {
 			case "b":
 				Box b = new Box();
@@ -97,11 +97,11 @@ public class SimpleField extends Field {
 		}
 
 		Movable movable = getMovable();
-		// Az erkezo Worker elhelyezese.
+		// Az érkező Worker elhelyezése.
 		this.setMovable(w);
 		w.place(this);
-		// Az erkezo Worker referenciajanak kitorlese arrol a mezorol, ahonnan
-		// jott.
+		// Az érkező Worker referenciájának kitörlése arról a mezőről, ahonnan
+		// jött.
 		getNeighbor(d.getOpposite()).remove(w);
 
 		if (movable == null)

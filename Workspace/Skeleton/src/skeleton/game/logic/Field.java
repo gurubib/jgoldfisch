@@ -4,6 +4,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 import skeleton.out.MethodWriter;
+
 /**
  * Az egyes mező típusok absztrakt ősosztálya.
  */
