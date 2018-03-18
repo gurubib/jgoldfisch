@@ -12,12 +12,25 @@ public class MenuItem {
 	private String name;
 	private String desc;
 	private skeleton.game.logic.Map map = new skeleton.game.logic.Map();
+	private Worker mainWorker;
 	private Game game = Game.getInstance();
 	
 	public MenuItem(String name) {
 		this.name = name;
 		this.desc = name.toLowerCase();
 	}
+	
+	public Worker getMainWorker() {
+		return mainWorker;
+	}
+
+
+
+	public void setMainWorker(Worker mainWorker) {
+		this.mainWorker = mainWorker;
+	}
+
+
 
 	public String getName() {
 		return name;
@@ -44,10 +57,16 @@ public class MenuItem {
 		
 		Worker mainWorker = (Worker)fields.get(0).getMovable();
 		
-		game.init(mainWorker);
+		game.addWorker(mainWorker);
 	}
 	
-	public void execute() {
-		game.getMainWorker().control(Direction.RIGHT);
+	public void execute(int n) {
+		mainWorker.control(Direction.RIGHT);
+	}
+	
+	public void resetMap(int n) {
+		map.reset(); 
+		mainWorker.setField(map.getField(0));
+		map.getField(0).setMovable(mainWorker);
 	}
 }

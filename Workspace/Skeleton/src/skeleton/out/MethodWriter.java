@@ -6,7 +6,6 @@ import java.io.InputStreamReader;
 
 public class MethodWriter {
 	
-	
 	private static int methodDepth = 0;
 	private static int boxNum = 0;
 	private static int workerNum = 0;
@@ -75,4 +74,9 @@ public class MethodWriter {
 		return answer;
 	}
 	
+	public static void resetNameCounters() {
+		methodDepth = 0;
+		boxNum = 0;
+		workerNum = 0;
+	}
 }

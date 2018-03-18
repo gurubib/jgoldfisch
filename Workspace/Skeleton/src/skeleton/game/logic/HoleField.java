@@ -9,7 +9,7 @@ import skeleton.out.MethodWriter;
  */
 
 public class HoleField extends Field {
-	private SwitchField switchField;
+	private SwitchField switchField = null;
 
 	
 	/**
