@@ -38,4 +38,13 @@ public class Map {
 	public Field getField(int n) {
 		return fields.get(n);
 	}
+	
+	public void reset() {
+		for(Field f : fields) {
+			Movable m = f.getMovable();
+			
+			if (m != null)
+				m = null;
+		}
+	}
 }

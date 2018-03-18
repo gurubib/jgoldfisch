@@ -33,9 +33,19 @@ public class Menu {
 	}
 	
 	public void chooseMenuItem(int n) {
-		MenuItemInitializier.initMenuItem(n, menuItems.get(n));
+		//MenuItemInitializier.initMenuItem(n, menuItems.get(n));
 		
-		menuItems.get(n).execute();
+		menuItems.get(n).execute(n);
+	}
+	
+	public void initAllMenuItems() {
+		for (Entry<Integer, MenuItem> e : menuItems.entrySet()) {
+			MenuItemInitializier.initMenuItem(e.getKey(), e.getValue());
+		}
+	}
+	
+	public void resetMap(int n) {
+		menuItems.get(n).resetMap(n);
 	}
 }
 
@@ -103,6 +113,7 @@ class MenuItemInitializier {
 		fields.add(wf);
 		
 		item.init(fields);
+		item.setMainWorker(w);
 	}
 	//2. Worker steps into hole
 	private static void menuItemInit_2(MenuItem item) {
@@ -127,6 +138,7 @@ class MenuItemInitializier {
 		fields.add(hf);
 		
 		item.init(fields);
+		item.setMainWorker(w);
 	}
 	//3. Worker steps to another field, and the third field is a hole (without switch)
 	private static void menuItemInit_3(MenuItem item) {
@@ -156,6 +168,7 @@ class MenuItemInitializier {
 		fields.add(hf);
 		
 		item.init(fields);
+		item.setMainWorker(w);
 	}
 	//4. Worker steps to another field, and the third field is a hole (with switch)
 	private static void menuItemInit_4(MenuItem item) {
@@ -191,6 +204,7 @@ class MenuItemInitializier {
 		fields.add(sf);
 		
 		item.init(fields);
+		item.setMainWorker(w);
 	}
 	//5. Worker steps to another Field, and the third field is a switch.
 	private static void menuItemInit_5(MenuItem item) {
@@ -230,6 +244,7 @@ class MenuItemInitializier {
 		fields.add(sf);
 		
 		item.init(fields);
+		item.setMainWorker(w);
 	}
 	//6. Worker steps to another Field, and the third field is Wall
 	private static void menuItemInit_6(MenuItem item) {
@@ -259,6 +274,7 @@ class MenuItemInitializier {
 		fields.add(wf);
 		
 		item.init(fields);
+		item.setMainWorker(w);
 	}
 	//7. Worker steps to another Field, and the third field is an endzone field
 	private static void menuItemInit_7(MenuItem item) {
@@ -288,6 +304,7 @@ class MenuItemInitializier {
 		fields.add(ef);
 		
 		item.init(fields);
+		item.setMainWorker(w);
 	}
 	//8. Worker pushes a box to another Field, and the third field is a regular field
 	private static void menuItemInit_8(MenuItem item) {
@@ -321,6 +338,7 @@ class MenuItemInitializier {
 		fields.add(f3);
 		
 		item.init(fields);
+		item.setMainWorker(w);
 	}
 	//9. Worker pushes a box to another Field, and the fourth field is a regular field
 	private static void menuItemInit_9(MenuItem item) {
@@ -358,6 +376,7 @@ class MenuItemInitializier {
 		fields.add(f4);
 		
 		item.init(fields);
+		item.setMainWorker(w);
 	}
 	//10. Worker pushes a box to another Field, and the fourth field is wall
 	private static void menuItemInit_10(MenuItem item) {
@@ -382,5 +401,6 @@ class MenuItemInitializier {
 		fields.add(ef);
 		
 		item.init(fields);
+		item.setMainWorker(w);
 	}
 }

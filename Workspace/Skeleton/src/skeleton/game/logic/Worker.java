@@ -11,6 +11,23 @@ public class Worker extends Movable {
     private int points = 0;
 
     /**
+     * Alapvető getter függvény, visszaadja az adott attribútumot
+     * @return A points attribútum értéke
+     */
+    public int getPoints() {
+		return points;
+	}
+
+    /**
+     * Alapvető setter függvény, beállítható vele az adott attribútum
+     * 
+     * @param A points attribútum kívánt értéke
+     */
+	public void setPoints(int points) {
+		this.points = points;
+	}
+
+	/**
      * Elpusztítja a játékost és csökkenti a munkások számát egyel.
      */
     @Override

@@ -10,7 +10,8 @@
 
 [Barna] - kommunikációs szarokon inicializálások.... (05)
 
-Követelményes doksi, "speciális rész" elnevezése és szótárba rakása
+!!Követelményes doksi, "speciális rész" elnevezése és szótárba rakása
+!!Skeleton tervezése doksin ahol simán b vagy w van ott az legyen b1 meg w1
 
 [Áki, Barna] workerEntersek csomószor u.olyanok, lhetene a Field-be rakni és a WallField-nél @Override-olni
 
