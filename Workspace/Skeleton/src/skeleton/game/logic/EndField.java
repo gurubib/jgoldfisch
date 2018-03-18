@@ -102,7 +102,7 @@ public class EndField extends Field {
 		Movable movable = this.getMovable();
 		this.setMovable(w);
 		backwardNeighbor.remove(w); // Az érkező Worker referenciájának kitörlése arról a mezőről, ahonnan jött.
-		//ha már van doboz az EndFielden akkor visszaadja az érkező doboz referenciáját,ezzel jelezve hogy nem lehet már ide lépni
+		//ha már van doboz az EndFielden akkor visszaadja az érkező Worker referenciáját,ezzel jelezve hogy nem lehet már ide lépni
 		//mivel az a doboz már nem mozdítható
 		if (movable != null) {
 			MethodWriter.printOutRet(w.toString());
