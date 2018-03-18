@@ -4,7 +4,7 @@ import skeleton.out.MethodWriter;
 
 /**Célmező, amire a dobozokat (Box) juttatni kell. 
  * Amennyiben rálép egy doboz, akkor az mozdíthatatlanná válik ott.
- *A Field absztrakt ősosztály leszármazottja.
+ * A Field absztrakt ősosztály leszármazottja.
  * 
  * @author jgoldfisch
  *
@@ -50,7 +50,7 @@ public class EndField extends Field {
 		Field backwardNeighbor = this.getNeighbor(d.getOpposite());
 		Movable movable = this.getMovable();
 		this.setMovable(b);
-		backwardNeighbor.remove(b); // Az érkező Worker referenciájának kitörlése arról a mezőről, ahonnan jött.
+		backwardNeighbor.remove(b); // Az érkező Box referenciájának kitörlése arról a mezőről, ahonnan jött.
 		//ha már van doboz az EndFielden akkor visszaadja az érkező doboz referenciáját,ezzel jelezve hogy nem lehet már ide lépni
 		//mivel az a doboz már nem mozdítható
 		if (movable != null) {
