@@ -9,9 +9,6 @@ import skeleton.out.MethodWriter;
  * @author jgoldfisch
  *
  */
-*
-*
-*/
 public class EndField extends Field {
 	/**
 	*Fogadja a mezőre érkező Box-t, beállítja annak a mező referenciáját, aztán pedig kitörli a régi mezőjén lévő referenciáját (ahonnan jött, null-ra állítja). 
