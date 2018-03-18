@@ -8,7 +8,7 @@ public class MethodWriter {
 	
 	private static int methodDepth = 0;
 	private static int boxNum = 0;
-	private static int workerNum = 0;
+	private static int workerNum = 1;
 	
 	private static String boxNamePostfix() {
 		return Integer.toString(++boxNum);
@@ -77,6 +77,6 @@ public class MethodWriter {
 	public static void resetNameCounters() {
 		methodDepth = 0;
 		boxNum = 0;
-		workerNum = 0;
+		workerNum = 1;
 	}
 }

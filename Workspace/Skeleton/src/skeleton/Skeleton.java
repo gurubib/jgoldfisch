@@ -22,7 +22,10 @@ public class Skeleton {
 
 			String answer = MethodWriter.readFromStdin();
 			
-			int n = Integer.parseInt(answer);
+			int n = 0;
+	
+			if(answer.matches("(\\d)*"))
+				n = Integer.parseInt(answer);
 
 			if (0 < n && n < 11) {
 				m.chooseMenuItem(n);
