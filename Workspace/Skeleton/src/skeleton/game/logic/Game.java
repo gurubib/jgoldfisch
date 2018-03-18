@@ -3,8 +3,6 @@ package skeleton.game.logic;
 import java.util.ArrayList;
 import java.util.List;
 
-import skeleton.out.MethodWriter;
-
 //Elvileg nem kell a szkeletonban figyelni, hogy vege e a jateknak
 
 public class Game {

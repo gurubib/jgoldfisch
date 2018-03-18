@@ -8,6 +8,26 @@ public class MethodWriter {
 	
 	
 	private static int methodDepth = 0;
+	private static int boxNum = 0;
+	private static int workerNum = 0;
+	
+	private static String boxNamePostfix() {
+		return Integer.toString(++boxNum);
+	}
+	
+	private static String workerNamePostfix() {
+		return Integer.toString(++workerNum);
+	}
+	
+	public static String nameGenerator(String prefix) {
+		if (prefix.equals("b")) {
+			return prefix + boxNamePostfix();
+		} else if (prefix.equals("w")){
+			return prefix + workerNamePostfix();
+		} else {
+			return "m";
+		}
+	}
 	
 	public static void printOutMethod(String methodName, String params) {
 		methodDepth++;

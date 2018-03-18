@@ -5,10 +5,6 @@ import skeleton.menu.*;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.ArrayList;
-import java.util.List;
-
-import skeleton.game.logic.*;
 
 public class Skeleton {
 	

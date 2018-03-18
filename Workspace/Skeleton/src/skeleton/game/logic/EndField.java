@@ -17,6 +17,7 @@ public class EndField extends Field {
 			switch (answer) {
 			case "b":
 				Box b2 = new Box();
+				b2.setSkeletonName(MethodWriter.nameGenerator("b"));
 				b2.setField(this);
 				this.setMovable(b2);
 				break;
@@ -57,6 +58,7 @@ public class EndField extends Field {
 			switch (answer) {
 			case "b":
 				Box b2 = new Box();
+				b2.setSkeletonName(MethodWriter.nameGenerator("b"));
 				b2.setField(this);
 				this.setMovable(b2);
 				break;

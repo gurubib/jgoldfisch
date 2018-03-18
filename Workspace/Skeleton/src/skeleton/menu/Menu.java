@@ -7,6 +7,7 @@ import java.util.Map;
 import java.util.Map.Entry;
 
 import skeleton.game.logic.Field;
+import skeleton.out.MethodWriter;
 import skeleton.game.logic.*;
 
 public class Menu {
@@ -93,7 +94,7 @@ class MenuItemInitializier {
 		wf.setNeighbor(Direction.LEFT, f1);
 		
 		Worker w = new Worker();
-		w.setSkeletonName("w");
+		w.setSkeletonName(MethodWriter.nameGenerator("w"));
 		w.setField(f1);
 		
 		f1.setMovable(w);
@@ -117,7 +118,7 @@ class MenuItemInitializier {
 		hf.setNeighbor(Direction.LEFT, f1);
 		
 		Worker w = new Worker();
-		w.setSkeletonName("w");
+		w.setSkeletonName(MethodWriter.nameGenerator("w"));
 		w.setField(f1);
 		
 		f1.setMovable(w);
@@ -145,7 +146,7 @@ class MenuItemInitializier {
 		hf.setNeighbor(Direction.LEFT, f2);
 		
 		Worker w = new Worker();
-		w.setSkeletonName("w");
+		w.setSkeletonName(MethodWriter.nameGenerator("w"));
 		w.setField(f1);
 		
 		f1.setMovable(w);
@@ -179,7 +180,7 @@ class MenuItemInitializier {
 		sf.setHole(hf);
 		
 		Worker w = new Worker();
-		w.setSkeletonName("w");
+		w.setSkeletonName(MethodWriter.nameGenerator("w"));
 		w.setField(f1);
 		
 		f1.setMovable(w);
@@ -218,7 +219,7 @@ class MenuItemInitializier {
 		sf.setHole(hf);
 		
 		Worker w = new Worker();
-		w.setSkeletonName("w");
+		w.setSkeletonName(MethodWriter.nameGenerator("w"));
 		w.setField(f1);
 		
 		f1.setMovable(w);
@@ -248,7 +249,7 @@ class MenuItemInitializier {
 		wf.setNeighbor(Direction.LEFT, f2);
 		
 		Worker w = new Worker();
-		w.setSkeletonName("w");
+		w.setSkeletonName(MethodWriter.nameGenerator("w"));
 		w.setField(f1);
 		
 		f1.setMovable(w);
@@ -277,7 +278,7 @@ class MenuItemInitializier {
 		ef.setNeighbor(Direction.LEFT, f2);
 		
 		Worker w = new Worker();
-		w.setSkeletonName("w");
+		w.setSkeletonName(MethodWriter.nameGenerator("w"));
 		w.setField(f1);
 		
 		f1.setMovable(w);
@@ -310,7 +311,7 @@ class MenuItemInitializier {
 		wf.setNeighbor(Direction.LEFT, f3);
 		
 		Worker w = new Worker();
-		w.setSkeletonName("w");
+		w.setSkeletonName(MethodWriter.nameGenerator("w"));
 		w.setField(f1);
 		
 		f1.setMovable(w);
@@ -347,7 +348,7 @@ class MenuItemInitializier {
 		wf.setNeighbor(Direction.LEFT, f4);
 		
 		Worker w = new Worker();
-		w.setSkeletonName("w");
+		w.setSkeletonName(MethodWriter.nameGenerator("w"));
 		w.setField(f1);
 		
 		f1.setMovable(w);
@@ -372,7 +373,7 @@ class MenuItemInitializier {
 		ef.setNeighbor(Direction.LEFT, f1);
 		
 		Worker w = new Worker();
-		w.setSkeletonName("w");
+		w.setSkeletonName(MethodWriter.nameGenerator("w"));
 		w.setField(f1);
 		
 		f1.setMovable(w);

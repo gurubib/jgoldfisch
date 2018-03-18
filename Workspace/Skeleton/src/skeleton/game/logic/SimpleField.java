@@ -32,11 +32,13 @@ public class SimpleField extends Field {
 			switch (answer) {
 			case "b":
 				Box b2 = new Box();
+				b2.setSkeletonName(MethodWriter.nameGenerator("b"));
 				b2.setField(this);
 				this.setMovable(b2);
 				break;
 			case "w":
 				Worker w = new Worker();
+				w.setSkeletonName(MethodWriter.nameGenerator("w"));
 				w.setField(this);
 				this.setMovable(w);
 				break;
@@ -83,11 +85,13 @@ public class SimpleField extends Field {
 			switch (answer) {
 			case "b":
 				Box b = new Box();
+				b.setSkeletonName(MethodWriter.nameGenerator("b"));
 				b.setField(this);
 				this.setMovable(b);
 				break;
 			case "w":
 				Worker w2 = new Worker();
+				w2.setSkeletonName(MethodWriter.nameGenerator("w"));
 				w2.setField(this);
 				this.setMovable(w2);
 				break;
