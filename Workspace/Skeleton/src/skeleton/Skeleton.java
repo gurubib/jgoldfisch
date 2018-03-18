@@ -42,7 +42,7 @@ public class Skeleton {
 
 			int n = 0;
 
-			if (answer.matches("(\\d)*"))
+			if (answer.matches("(\\d)+"))
 				n = Integer.parseInt(answer);
 
 			if (0 < n && n < 11) {
