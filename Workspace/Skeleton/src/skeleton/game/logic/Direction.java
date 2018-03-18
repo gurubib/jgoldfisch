@@ -1,36 +1,36 @@
 package skeleton.game.logic;
 
 /**
- * Enumeráció a pályán található irányokhoz.
+ * EnumerÃ¡ciÃ³ a pÃ¡lyÃ¡n talÃ¡lhatÃ³ irÃ¡nyokhoz.
  */
 public enum Direction {
 	/**
-	 * A pályán felfelé mutató irány
+	 * A pÃ¡lyÃ¡n felfelÃ© mutatÃ³ irÃ¡ny
 	 */
 	UP,
 
 	/**
-	 * A pályán lefelé mutató irány
+	 * A pÃ¡lyÃ¡n lefelÃ© mutatÃ³ irÃ¡ny
 	 */
 	DOWN,
 
 	/**
-	 * A pályán balra mutató irány
+	 * A pÃ¡lyÃ¡n balra mutatÃ³ irÃ¡ny
 	 */
 	LEFT,
 
 	/**
-	 * A pályán jobbra mutató irány
+	 * A pÃ¡lyÃ¡n jobbra mutatÃ³ irÃ¡ny
 	 */
 	RIGHT;
 
 	/**
-	 * Az ellentétes irányt tároló változó
+	 * Az ellentÃ©tes irÃ¡nyt tÃ¡rolÃ³ vÃ¡ltozÃ³
 	 */
 	private Direction opposite;
 
 	/**
-	 * Az egyes irányokhoz tartózó ellentétes irányok
+	 * Az egyes irÃ¡nyokhoz tartozÃ³ ellentÃ©tes irÃ¡nyok
 	 */
 	static {
 		UP.opposite = DOWN;
@@ -40,9 +40,9 @@ public enum Direction {
 	}
 
 	/**
-	 * Visszadja az ellentétes irányt
+	 * Visszadja az ellentÃ©tes irÃ¡nyt
 	 * 
-	 * @return ellentétes irány, Direction literal
+	 * @return ellentÃ©tes irÃ¡ny, Direction literal
 	 */
 	public Direction getOpposite() {
 		return opposite;

@@ -3,15 +3,15 @@ package skeleton.game.logic;
 import skeleton.out.MethodWriter;
 
 /**
- * A p·ly·n egy munk·st reprezent·lÛ oszt·ly. KÈpes eltolni a l·d·kat, tov·bb·
- * pontokat kap, minden helyÈre illesztett dobozÈrt.
+ * A p√°ly√°n egy munk√°st reprezent√°l√≥ oszt√°ly. K√©pes eltolni a l√°d√°kat, tov√°bb√°
+ * pontokat kap, minden hely√©re illesztett doboz√©rt.
  */
 public class Worker extends Movable {
 
     private int points = 0;
 
     /**
-     * ElbusztÌtja a j·tÈkost Ès csˆkkenti a munk·sok sz·m·t egyel.
+     * Elpuszt√≠tja a j√°t√©kost √©s cs√∂kkenti a munk√°sok sz√°m√°t egyel.
      */
     @Override
     public void die() {
@@ -23,10 +23,10 @@ public class Worker extends Movable {
     }
 
     /**
-     * Visszatolja a munk·st eggyel a kapott ir·nyba. Amennyiben ez nem
-     * lehetsÈges a munk·s meghal.
+     * Visszatolja a munk√°st eggyel a kapott ir√°nyba. Amennyiben ez nem
+     * lehets√©ges a munk√°s meghal.
      *
-     * @param d a tol·s ir·nya
+     * @param d a tol√°s ir√°nya
      */
     @Override
     public void pushBack(Direction d) {
@@ -44,10 +44,10 @@ public class Worker extends Movable {
     }
 
     /**
-     * MetÛdus a munk·s mozgat·s·hoz, amennyiben egy doboz tolja meg.
+     * Met√≥dus a munk√°s mozgat√°s√°hoz, amennyiben egy doboz tolja meg.
      *
-     * @param b referencia a munk·st megtolÛ dobozra
-     * @param d az ir·ny, melybe a munk·st a doboz tolja
+     * @param b referencia a munk√°st megtol√≥ dobozra
+     * @param d az ir√°ny, melybe a munk√°st a doboz tolja
      */
     @Override
     public void pushByBox(Box b, Direction d) {
@@ -70,10 +70,10 @@ public class Worker extends Movable {
     }
 
     /**
-     * MetÛdus a munk·s mozgat·s·hoz, ammennyiben egy munk·s tolja meg.
+     * Met√≥dus a munk√°s mozgat√°s√°hoz, ammennyiben egy munk√°s tolja meg.
      *
-     * @param w referencia a munk·st megtolÛ munk·sra
-     * @param d irÈny, melybe a munk·st a m·sik munk·s tolja
+     * @param w referencia a munk√°st megtol√≥ munk√°sra
+     * @param d ir√°ny, melybe a munk√°st a m√°sik munk√°s tolja
      */
     @Override
     public void pushByWorker(Worker w, Direction d) {
@@ -85,9 +85,9 @@ public class Worker extends Movable {
     }
 
     /**
-     * A pontszerzÈs alkalm·val meghÌvott f¸ggvÈny.
+     * A pontszerz√©s alkalm√°val megh√≠vott f√ºggv√©ny.
      *
-     * @param d Az ir·ny, melybe tov·badja a pontszerzÈst.
+     * @param d Az ir√°ny, melybe tov√°badja a pontszerz√©st.
      */
     @Override
     public void scorePoint(Direction d) {
@@ -99,10 +99,10 @@ public class Worker extends Movable {
     }
 
     /**
-     * A munk·s ir·nyÌt·s·Èrt felelıs metÛdus. A paramÈterkÈnt kapott ir·nyba
-     * mozgatja a munk·st Ès meghÌvja az ehhez sz¸ksÈges tov·bbi metÛdusokat.
+     * A munk√°s ir√°ny√≠t√°s√°√©rt felel≈ës met√≥dus. A param√©terk√©nt kapott ir√°nyba
+     * mozgatja a munk√°st √©s megh√≠vja az ehhez sz√ºks√©ges tov√°bbi met√≥dusokat.
      *
-     * @param d a mozgat·s ir·nya
+     * @param d a mozgat√°s ir√°nya
      */
     public void control(Direction d) {
         MethodWriter.printOutMethod("Worker.control", "d");
@@ -124,7 +124,7 @@ public class Worker extends Movable {
     }
 
     /**
-     * VÈglegesÌti a mezıre lÈpÈst.
+     * V√©gleges√≠ti a mez≈ëre l√©p√©st.
      */
     @Override
     public void finalizeStep() {
@@ -136,9 +136,9 @@ public class Worker extends Movable {
     }
 
     /**
-     * VisszalÈp a paramÈterkÈnt kapott ir·nyba egyet.
+     * Visszal√©p a param√©terk√©nt kapott ir√°nyba egyet.
      *
-     * @param d a visszalÈpÈs ir·nya.
+     * @param d a visszal√©p√©s ir√°nya.
      */
     public void goBack(Direction d) {
         MethodWriter.printOutMethod("Worker.goBack", d.toString());
@@ -155,7 +155,7 @@ public class Worker extends Movable {
     }
 
     /**
-     * Nˆveli a munk·s pontjainak sz·m·t eggyel.
+     * N√∂veli a munk√°s pontjainak sz√°m√°t eggyel.
      */
     public void increasePoints() {
         MethodWriter.printOutMethod("Worker.increasePoint", "");

@@ -3,7 +3,7 @@ package skeleton.game.logic;
 import skeleton.out.MethodWriter;
 
 /**
- * Absztrakt oszt·ly, melybıl a p·ly·n lÈvı
+ * Absztrakt oszt√°ly, melyb≈ël a p√°ly√°n l√©v≈ë mozgathat√≥ obejktumok √∂r√∂kl≈ëdnek.
  */
 public abstract class Movable {
 
@@ -23,7 +23,7 @@ public abstract class Movable {
     }
 
     /**
-     * Be·llÌtja az objektum nevÈt a paramÈterkÈnt kapott ÈrtÈkre
+     * Be√°ll√≠tja az objektum nev√©t a param√©terk√©nt kapott √©rt√©kre
      *
      * @param skeletonName az objektum neve
      */
@@ -32,18 +32,18 @@ public abstract class Movable {
     }
 
     /**
-     * Be·llÌtja a mezıt a paramÈterkÈnt kapottra.
+     * Be√°ll√≠tja a mez≈ët a param√©terk√©nt kapottra.
      *
-     * @param f referencia egy mezıre
+     * @param f referencia egy mez≈ëre
      */
     public void setField(Field f) {
         field = f;
     }
 
     /**
-     * Be·llÌtja az oszt·ly ·ltal t·rolt mezıt a paramÈterkÈnt kapott ÈrtÈkre.
+     * Be√°ll√≠tja az oszt√°ly √°ltal t√°rolt mez≈ët a param√©terk√©nt kapott √©rt√©kre.
      *
-     * @param f referencia egy mezıre
+     * @param f referencia egy mez≈ëre
      */
     public void place(Field f) {
         MethodWriter.printOutMethod("Movable.place", f.toString());
@@ -54,9 +54,9 @@ public abstract class Movable {
     }
 
     /**
-     * Visszadja a Movable ·ltal t·rolt mezı referenci·j·t
+     * Visszadja a Movable √°ltal t√°rolt mez≈ë referenci√°j√°t
      *
-     * @return referencia a mezıre
+     * @return referencia a mez≈ëre
      */
     public Field getField() {
         MethodWriter.printOutMethod("Movable.getField", "");
