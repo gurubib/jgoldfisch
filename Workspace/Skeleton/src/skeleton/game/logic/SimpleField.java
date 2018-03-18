@@ -3,19 +3,19 @@ package skeleton.game.logic;
 import skeleton.out.MethodWriter;
 
 /**
- * Az egyszerű mezőt reprezentáló osztÃ¡ly. A Field absztrakt Å‘sosztÃ¡ly
- * leszÃ¡rmazottja.
+ * Az egyszeru mezot reprezentalo osztaly. A Field absztrakt ososztaly
+ * leszarmazottja.
  */
 public class SimpleField extends Field {
 
 	/**
-	 * A mezÅ‘re egy Box lÃ©p. Ez az osztÃ¡ly fel van kÃ©szÃ­tve minden
-	 * eshetÅ‘sÃ©gre: Ã¡llhat mÃ¡r rajta Worker, Box, vagy lehet Ã¼res is.
+	 * A mezore egy Box lep. Ez az osztaly fel van keszítve minden
+	 * eshetosegre: allhat mar rajta Worker, Box, vagy lehet ures is.
 	 * 
 	 * @param b
-	 *            A mezÅ‘re lÃ©pÅ‘ Box referenciÃ¡ja.
+	 *            A mezore lepo Box referenciaja.
 	 * @param d
-	 *            A mezÅ‘re lÃ©pÅ‘ Box lÃ©pÃ©sÃ©nek irÃ¡nya.
+	 *            A mezore lepo Box lepesenek iranya.
 	 */
 	@Override
 	public Movable boxEnters(Box b, Direction d) {
@@ -27,8 +27,8 @@ public class SimpleField extends Field {
 
 			String answer = MethodWriter.readFromStdin();
 
-			// A felhasznÃ¡lÃ³ Ã¡ltal megadott Movable referencia (vagy semmi) beÃ¡llÃ­tÃ¡sa
-			// a mezÅ‘re.
+			// A felhasznalo altal megadott Movable referencia (vagy semmi) beallítasa
+			// a mezore.
 			switch (answer) {
 			case "b":
 				Box b2 = new Box();
@@ -46,11 +46,11 @@ public class SimpleField extends Field {
 		}
 
 		Movable movable = getMovable();
-		// Az Ã©rkezÅ‘ elhelyezÃ©se
+		// Az erkezo elhelyezese
 		this.setMovable(b);
 		b.place(this);
-		// Az Ã©rkezÅ‘ Box referenciÃ¡jÃ¡nak kitÃ¶rlÃ©se arrÃ³l a mezÅ‘rÅ‘l, ahonnan
-		// jÃ¶tt.
+		// Az erkezo Box referenciajanak kitorlese arrol a mezorol, ahonnan
+		// jott.
 		this.getNeighbor(d.getOpposite()).remove(b);
 
 		if (movable == null)
@@ -61,13 +61,13 @@ public class SimpleField extends Field {
 	}
 
 	/**
-	 * A mezÅ‘re egy Worker lÃ©p. Ez az osztÃ¡ly fel van kÃ©szÃ­tve minden
-	 * eshetÅ‘sÃ©gre: Ã¡llhat mÃ¡r rajta Worker, Box, vagy lehet Ã¼res is.
+	 * A mezore egy Worker lep. Ez az osztaly fel van keszítve minden
+	 * eshetosegre: allhat mar rajta Worker, Box, vagy lehet ures is.
 	 * 
 	 * @param w
-	 *            A mezÅ‘re lÃ©pÅ‘ Worker referenciÃ¡ja.
+	 *            A mezore lepo Worker referenciaja.
 	 * @param d
-	 *            A mezÅ‘re lÃ©pÅ‘ Worker lÃ©pÃ©sÃ©nek irÃ¡nya.
+	 *            A mezore lepo Worker lepesenek iranya.
 	 */
 	@Override
 	public Movable workerEnters(Worker w, Direction d) {
@@ -78,8 +78,8 @@ public class SimpleField extends Field {
 
 			String answer = MethodWriter.readFromStdin();
 
-			// A felhasznÃ¡lÃ³ Ã¡ltal megadott Movable referencia (vagy semmi) beÃ¡llÃ­tÃ¡sa
-			// a mezÅ‘re.
+			// A felhasznalo altal megadott Movable referencia (vagy semmi) beallítasa
+			// a mezore.
 			switch (answer) {
 			case "b":
 				Box b = new Box();
@@ -97,11 +97,11 @@ public class SimpleField extends Field {
 		}
 
 		Movable movable = getMovable();
-		// Az Ã©rkezÅ‘ Worker elhelyezÃ©se.
+		// Az erkezo Worker elhelyezese.
 		this.setMovable(w);
 		w.place(this);
-		// Az Ã©rkezÅ‘ Worker referenciÃ¡jÃ¡nak kitÃ¶rlÃ©se arrÃ³l a mezÅ‘rÅ‘l, ahonnan
-		// jÃ¶tt.
+		// Az erkezo Worker referenciajanak kitorlese arrol a mezorol, ahonnan
+		// jott.
 		getNeighbor(d.getOpposite()).remove(w);
 
 		if (movable == null)
