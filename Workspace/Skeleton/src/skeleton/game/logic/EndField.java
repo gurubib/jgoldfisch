@@ -10,7 +10,7 @@ public class EndField extends Field {
 		
 		if (this.getMovable() == null) {
 
-			MethodWriter.printOutQuestion("Is there a box or a worker on the field? B/X");
+			MethodWriter.printOutQuestion("Is there a box on the field? B/X");
 
 			String answer = MethodWriter.readFromStdin();
 
@@ -50,7 +50,7 @@ public class EndField extends Field {
 		
 		if (this.getMovable() == null) {
 
-			MethodWriter.printOutQuestion("Is there a box or a worker on the field? B/X");
+			MethodWriter.printOutQuestion("Is there a box on the field? B/X");
 
 			String answer = MethodWriter.readFromStdin();
 

@@ -93,7 +93,7 @@ public abstract class Field {
 	 * @param b Az érkező doboz referenciája.
 	 */
 	public void boxArrived(Box b) {
-		MethodWriter.printOutMethod("EndField.boxArrived",b.toString());
+		MethodWriter.printOutMethod("Field.boxArrived",b.toString());
 		MethodWriter.printOutRet("");
 	}
 	
@@ -102,7 +102,7 @@ public abstract class Field {
 	 * @param w Az érkező munkás referenciája.
 	 */
 	public void workerArrived(Worker w) {
-		MethodWriter.printOutMethod("EndField.workerArrived",w.toString());
+		MethodWriter.printOutMethod("Field.workerArrived",w.toString());
 		MethodWriter.printOutRet("");
 	}
 }

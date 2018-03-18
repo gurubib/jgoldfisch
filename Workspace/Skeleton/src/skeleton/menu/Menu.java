@@ -199,16 +199,20 @@ class MenuItemInitializier {
 		SimpleField f2 = new SimpleField();
 		HoleField hf = new HoleField();
 		SwitchField sf = new SwitchField();
+		WallField wf = new WallField();
 		
 		f1.setSkeletonName("f1");
 		f2.setSkeletonName("f2");
 		hf.setSkeletonName("hf");
 		sf.setSkeletonName("sf");
+		wf.setSkeletonName("wf");
 		
 		f1.setNeighbor(Direction.RIGHT, f2);
 		f2.setNeighbor(Direction.LEFT, f1);
 		f2.setNeighbor(Direction.RIGHT, sf);
 		sf.setNeighbor(Direction.LEFT, f2);
+		sf.setNeighbor(Direction.RIGHT, wf);
+		wf.setNeighbor(Direction.LEFT, sf);
 		
 		hf.setSwitchField(sf);
 		sf.setHole(hf);
@@ -291,15 +295,19 @@ class MenuItemInitializier {
 		SimpleField f1 = new SimpleField();
 		SimpleField f2 = new SimpleField();
 		SimpleField f3 = new SimpleField();
+		WallField wf = new WallField();
 		
 		f1.setSkeletonName("f1");
 		f2.setSkeletonName("f2");
 		f3.setSkeletonName("f3");
+		wf.setSkeletonName("wf");
 		
 		f1.setNeighbor(Direction.RIGHT, f2);
 		f2.setNeighbor(Direction.LEFT, f1);
 		f2.setNeighbor(Direction.RIGHT, f3);
 		f3.setNeighbor(Direction.LEFT, f2);
+		f3.setNeighbor(Direction.RIGHT, wf);
+		wf.setNeighbor(Direction.LEFT, f3);
 		
 		Worker w = new Worker();
 		w.setSkeletonName("w");
@@ -321,11 +329,13 @@ class MenuItemInitializier {
 		SimpleField f2 = new SimpleField();
 		SimpleField f3 = new SimpleField();
 		SimpleField f4 = new SimpleField();
+		WallField wf = new WallField();
  		
 		f1.setSkeletonName("f1");
 		f2.setSkeletonName("f2");
 		f3.setSkeletonName("f3");
 		f4.setSkeletonName("f4");
+		wf.setSkeletonName("wf");
 		
 		f1.setNeighbor(Direction.RIGHT, f2);
 		f2.setNeighbor(Direction.LEFT, f1);
@@ -333,13 +343,14 @@ class MenuItemInitializier {
 		f3.setNeighbor(Direction.LEFT, f2);
 		f3.setNeighbor(Direction.RIGHT, f4);
 		f4.setNeighbor(Direction.LEFT, f3);
+		f4.setNeighbor(Direction.RIGHT, wf);
+		wf.setNeighbor(Direction.LEFT, f4);
 		
 		Worker w = new Worker();
 		w.setSkeletonName("w");
 		w.setField(f1);
 		
 		f1.setMovable(w);
-		
 		fields.add(f1);
 		fields.add(f2);
 		fields.add(f3);
@@ -352,22 +363,13 @@ class MenuItemInitializier {
 		List<Field> fields = new ArrayList<Field>();
 		
 		SimpleField f1 = new SimpleField();
-		SimpleField f2 = new SimpleField();
-		SimpleField f3 = new SimpleField();
-		WallField wf = new WallField();
+		EndField ef = new EndField();
  		
 		f1.setSkeletonName("f1");
-		f2.setSkeletonName("f2");
-		f3.setSkeletonName("f3");
-		wf.setSkeletonName("wf");
+		ef.setSkeletonName("ef");
 		
-		f1.setNeighbor(Direction.RIGHT, f2);
-		f2.setNeighbor(Direction.LEFT, f1);
-		f2.setNeighbor(Direction.RIGHT, f3);
-		f3.setNeighbor(Direction.LEFT, f2);
-		f3.setNeighbor(Direction.RIGHT, wf);
-		wf.setNeighbor(Direction.LEFT, f3);
-		
+		f1.setNeighbor(Direction.RIGHT, ef);
+		ef.setNeighbor(Direction.LEFT, f1);
 		
 		Worker w = new Worker();
 		w.setSkeletonName("w");
@@ -376,9 +378,7 @@ class MenuItemInitializier {
 		f1.setMovable(w);
 		
 		fields.add(f1);
-		fields.add(f2);
-		fields.add(f3);
-		fields.add(wf);
+		fields.add(ef);
 		
 		item.init(fields);
 	}
