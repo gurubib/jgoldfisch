@@ -75,6 +75,7 @@ public class MethodWriter {
 		
 		System.out.print(">>");
 		
+		//Megfelelő behúzás
 		for (int i = 0; i < methodDepth; ++i)
 			System.out.print("   ");
 		
@@ -89,9 +90,11 @@ public class MethodWriter {
 	public static void printOutRet(String retVal) {
 		System.out.print("<<");
 		
+		//Megfelelő behúzás
 		for (int i = 0; i < methodDepth; ++i)
 			System.out.print("   ");
 		
+		//Ha null a visszatérés, akkor ne írja ki, de ha nem null akkor írja ki a megadott szöveget
 		System.out.println("ret" + ((retVal == null || retVal.equals(""))? retVal : (" " + retVal)) + ";");
 		
 		methodDepth--;
@@ -107,6 +110,7 @@ public class MethodWriter {
 		
 		System.out.print("? ");
 		
+		//Megfelelő behúzás
 		for (int i = 0; i < methodDepth; ++i)
 			System.out.print("   ");
 		
@@ -126,6 +130,8 @@ public class MethodWriter {
 		try {
 			BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 			answer = br.readLine();
+			
+			//Mindig kisbetűset csinál a beolvasott sztringből
 			answer = answer.toLowerCase();
 		} catch (NumberFormatException | IOException e) {
 			e.printStackTrace();

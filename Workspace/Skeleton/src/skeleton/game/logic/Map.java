@@ -39,6 +39,9 @@ public class Map {
 		return fields.get(n);
 	}
 	
+	/**
+	 * A térkép alaphelyzetbe állítása, tehát minden mezőről töröljük az entitásokat, ha volt rajtuk.
+	 */
 	public void reset() {
 		for(Field f : fields) {
 			Movable m = f.getMovable();

@@ -16,6 +16,7 @@ public class Box extends Movable {
 	public void die() {
 		MethodWriter.printOutMethod("Box.die", "");
 		
+		//Referenciák nullra állítása
 		this.getField().remove(this);
 		this.setField(null);
 		
@@ -55,6 +56,7 @@ public class Box extends Movable {
 		
 		Movable neighborMovable = neighbor.boxEnters(this, d);
 		
+		//Ha önmagunkat kapjuk vissza, akkor visszalépünk ellenkező irányba
 		if (neighborMovable == this) {
 			Field backwardNeighbor = neighbor.getNeighbor(d.getOpposite());
 			Movable backwardMovable = backwardNeighbor.boxEnters(this, d.getOpposite());
@@ -83,6 +85,7 @@ public class Box extends Movable {
 		
 		Movable neighborMovable = neighbor.boxEnters(this, d);
 		
+		//Ha önmagunkat kapjuk vissza, akkor visszalépünk ellenkező irányba
 		if (neighborMovable == this) {
 			Field backwardNeighbor = neighbor.getNeighbor(d.getOpposite());
 			Movable backwardMovable = backwardNeighbor.boxEnters(this, d.getOpposite());

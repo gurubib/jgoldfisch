@@ -35,6 +35,7 @@ public class Worker extends Movable {
         MethodWriter.printOutMethod("Worker.die", "");
 
         this.getField().remove(this);
+        this.setField(null);
 
         MethodWriter.printOutRet("");
     }
@@ -54,7 +55,7 @@ public class Worker extends Movable {
         Movable neighborMovable = neighbor.workerEnters(this, d);
 
         if (neighborMovable != null) {
-            neighborMovable.die();
+            this.die();
         }
 
         MethodWriter.printOutRet("");
@@ -78,7 +79,9 @@ public class Worker extends Movable {
             this.die();
         } else if (neighborMovable != null) {
             neighborMovable.pushByWorker(this, d);
-            this.finalizeStep();
+            
+            if (getField() != null)
+            	this.finalizeStep();
         } else {
             this.finalizeStep();
         }

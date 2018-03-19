@@ -27,11 +27,15 @@ public class Skeleton {
 	 * @throws IOException
 	 */
 	public static void main(String[] args) throws NumberFormatException, IOException {
+		//Menü inicializálása
 		initMenu();
 
 		boolean exit = false;
 
+		//Menüpontok inicializálása
 		m.initAllMenuItems();
+		
+		//Program loop
 		while (!exit) {
 			m.drawMenu();
 
@@ -42,7 +46,8 @@ public class Skeleton {
 
 			int n = 0;
 
-			if (answer.matches("(\\d)+"))
+			//Csak a max két jegyű számokat fogadja el
+			if (answer.matches("(\\d)+") && answer.length() < 3) 
 				n = Integer.parseInt(answer);
 
 			if (0 < n && n < 11) {

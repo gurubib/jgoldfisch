@@ -38,9 +38,9 @@ public abstract class Field {
 	 * @return A kért irányban lévő szomszéd.
 	 */
 	public Field getNeighbor(Direction d) {
-		MethodWriter.printOutMethod("Field.getNeighbor", "d");
+		MethodWriter.printOutMethod("Field.getNeighbor", d.toString());
 		
-		MethodWriter.printOutRet("f");
+		MethodWriter.printOutRet(neighbors.get(d).toString());
 		return neighbors.get(d);
 	}
 	

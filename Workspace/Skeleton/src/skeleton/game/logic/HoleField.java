@@ -35,12 +35,16 @@ public class HoleField extends Field {
 	public Movable boxEnters(Box b, Direction d) {
 		MethodWriter.printOutMethod("HoleField.boxEnters", b.toString() + ", " + d.toString());
 		
-		
+		//Eredeti mezőn lévő entitás
 		Movable movable = getMovable();
-		this.setMovable(b);
 		
+		//Magunk elhelyezése
+		this.setMovable(b);
 		b.place(this);
+		
+		//Előző mezőről való eltávolítás
 		this.getNeighbor(d.getOpposite()).remove(b);
+		
 		if (movable == null)
 			MethodWriter.printOutRet("null");
 		else
@@ -61,11 +65,16 @@ public class HoleField extends Field {
 	public Movable workerEnters(Worker w, Direction d) {
 		MethodWriter.printOutMethod("HoleField.workerEnters", w.toString() + ", " + d.toString());
 		
+		//Eredeti mezőn lévő entitás
 		Movable movable = getMovable();
-		this.setMovable(w);
 		
+		//Magunk elhelyezése
+		this.setMovable(w);
 		w.place(this);
+		
+		//Előző mezőről való eltávolítás
 		this.getNeighbor(d.getOpposite()).remove(w);
+		
 		if (movable == null)
 			MethodWriter.printOutRet("null");
 		else

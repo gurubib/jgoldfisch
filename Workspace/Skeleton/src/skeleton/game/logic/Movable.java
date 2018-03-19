@@ -61,7 +61,11 @@ public abstract class Movable {
     public Field getField() {
         MethodWriter.printOutMethod("Movable.getField", "");
 
-        MethodWriter.printOutRet(this.field.toString());
+        if (field != null)
+        	MethodWriter.printOutRet(this.field.toString());
+        else
+        	MethodWriter.printOutRet("null");
+        
         return this.field;
     }
 }
