@@ -43,8 +43,9 @@ public class Map {
 		for(Field f : fields) {
 			Movable m = f.getMovable();
 			
-			if (m != null)
-				m = null;
+			if (m != null) {
+				f.setMovable(null);
+			}
 		}
 	}
 }

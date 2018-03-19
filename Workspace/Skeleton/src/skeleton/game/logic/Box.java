@@ -17,6 +17,7 @@ public class Box extends Movable {
 		MethodWriter.printOutMethod("Box.die", "");
 		
 		this.getField().remove(this);
+		this.setField(null);
 		
 		MethodWriter.printOutRet("");
 	}
