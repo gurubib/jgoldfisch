@@ -25,6 +25,12 @@ public class SwitchField extends Field {
 	public void setHole(HoleField hole) {
 		this.hole = hole;
 	}
+	
+	
+	public boolean isActive() {
+		return active;
+	}
+	
 /**
  * Fogadja a mezőre érkező Box-t, beállítja annak a mező referenciáját, 
  * aztán pedig kitörli a régi mezőjén lévő referenciáját (ahonnan jött). 
@@ -191,4 +197,8 @@ public class SwitchField extends Field {
 		MethodWriter.printOutRet("");
 	}
 
+	@Override
+	public String toString() {
+		return super.toString() + " " + active;
+	}
 }

@@ -1,7 +1,6 @@
 package proto.logic;
 
 import java.io.IOException;
-import java.lang.management.ManagementPermission;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
@@ -275,5 +274,13 @@ public class Map {
 				f.setMovable(null);
 			}
 		}
+	}
+
+	public List<Field> getFields() {
+		return fields;
+	}
+
+	public void setFields(List<Field> fields) {
+		this.fields = fields;
 	}
 }

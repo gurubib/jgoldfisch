@@ -146,5 +146,10 @@ public class HoleField extends Field {
 		this.setSlime(null);
 		MethodWriter.printOutRet("");
 	}
+	
+	@Override
+	public String toString() {
+		return super.toString() + " " + switchField.isActive();
+	}
 
 }

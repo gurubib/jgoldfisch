@@ -10,5 +10,10 @@ public class Honey implements Slime{
 		MethodWriter.printOutRet(Integer.toString(f-3));
 		return f-3;
 	}
+	
+	@Override
+	public String toString() {
+		return "h";
+	}
 
 }

@@ -153,11 +153,54 @@ public class CommandHandler {
 	}
 	
 	private void ls_boxes() {
-		System.out.println("ls_boxes(" + ")");
+		//System.out.println("ls_boxes(" + ")");
+		
+		List<Box> boxes = game.getBoxes();
+		
+		for (Box b : boxes) {
+			String[] pos = b.getField().toString().split(" ");
+			
+			System.out.println("ID:" + b.toString() + " X:" + pos[0] + " Y:" + pos[1] + " fix?");
+		}
 	}
 	
 	private void ls_fields() {
-		System.out.println("ls_fields(" + ")");
+		//System.out.println("ls_fields(" + ")");
+		
+		List<Field> fields = game.getMap().getFields();
+		
+		for (Field f : fields) {
+			String[] pos = f.toString().split(" ");
+			
+			String slime = "x";
+			String movable = "x";
+			
+			if (f.getSlime() != null)
+				slime = f.getSlime().toString();
+			
+			if (f.getMovable() != null)
+				movable = f.getMovable().toString();
+			
+			switch (pos[2]) {
+			case "wall":
+				System.out.println("X:" + pos[0] + " Y:" + pos[1] + " " + pos[2]);
+				break;
+			case "simple":
+				System.out.println("X:" + pos[0] + " Y:" + pos[1] + " " + pos[2] + " " + slime + " " + movable);
+				break;
+			case "hole":
+				System.out.println("X:" + pos[0] + " Y:" + pos[1] + " " + pos[2] + " " + pos[3] + " " + slime + " " + movable);
+				break;
+				
+			case "switch":
+				System.out.println("X:" + pos[0] + " Y:" + pos[1] + " " + pos[2] + " " + pos[3] + " " + slime + " " + movable);
+				break;
+				
+			case "endz":
+				System.out.println("X:" + pos[0] + " Y:" + pos[1] + " " + pos[2] + " " + slime + " " + movable);
+				break;
+			}
+		}
 	}
 	
 	private void log(String fileName) {
