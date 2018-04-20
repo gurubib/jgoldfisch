@@ -27,15 +27,25 @@ public class Game {
 	 */
 	private List<Worker> workers = new ArrayList<Worker>();
 	
+	private List<Box> boxes = new ArrayList<Box>();
+	
+	public List<Box> getBoxes() {
+		return boxes;
+	}
+
+	public void setBoxes(List<Box> boxes) {
+		this.boxes = boxes;
+	}
+
 	/**
 	 * Referencia a pályát tartalmazó objektumra.
 	 */
-	private Map map;
+	private Map map = new Map();
 	
 	/**
 	 * Referencia a szabad dobozokat vizsgáló objektumra.
 	 */
-	private BoxRecorder boxRecorder;
+	private BoxRecorder boxRecorder = new BoxRecorder();
 	
 	/**
 	 * A még mozgatható dobozok számát tárolja.
@@ -133,5 +143,9 @@ public class Game {
 	 */
 	public void decreaseBoxes(Box b) {
 		//TODO
+	}
+	
+	public void startGame(String mapFile) {
+		map.loadMap(mapFile);
 	}
 }

@@ -3,12 +3,14 @@ package proto.command;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.util.List;
 
 import proto.logic.*;
 
 public class CommandHandler {
 	
 	boolean close = false;
+	Game game = Game.getInstance();
 	
 	public void readInput() throws IOException {
 		while (!close) {
@@ -126,7 +128,7 @@ public class CommandHandler {
 	}
 	
 	private void load_map(String fileName) {
-		System.out.println("load_map(" + fileName + ")");
+		game.startGame(fileName);
 	}
 	
 	private void control(int workerID, Direction d) {
@@ -138,7 +140,16 @@ public class CommandHandler {
 	}
 	
 	private void ls_workers() {
-		System.out.println("ls_workers(" + ")");
+		//System.out.println("ls_workers(" + ")");
+		
+		List<Worker> workers = game.getWorkers();
+		
+		for (Worker w : workers) {
+			String[] pos = w.getField().toString().split(" ");
+			
+			System.out.println("ID:" + w.getId() + " X:" + pos[0] + " Y:" + pos[1] + " F:" + w.getForce());
+		}
+			
 	}
 	
 	private void ls_boxes() {

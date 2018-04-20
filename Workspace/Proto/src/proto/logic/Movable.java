@@ -59,13 +59,14 @@ public abstract class Movable {
      * @return referencia a mezőre
      */
     public Field getField() {
-        MethodWriter.printOutMethod("Movable.getField", "");
+        //MethodWriter.printOutMethod("Movable.getField", "");
 
+    	/*
         if (field != null)
-        	MethodWriter.printOutRet(this.field.toString());
+        	//MethodWriter.printOutRet(this.field.toString());
         else
-        	MethodWriter.printOutRet("null");
-        
+        	//MethodWriter.printOutRet("null");
+       */
         return this.field;
     }
 }
