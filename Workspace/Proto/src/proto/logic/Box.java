@@ -127,7 +127,7 @@ public class Box extends Movable {
 		MethodWriter.printOutMethod("Box.finalizeStep", "");
 		
 		getField().boxArrived(this);
-		
+		Game.getInstance().getBoxRecorder().update(this.getField());
 		MethodWriter.printOutRet("");
 	}
 
