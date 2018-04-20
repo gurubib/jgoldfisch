@@ -56,7 +56,7 @@ public class Game {
 	/**
 	 * A még játékban lévő munkások számát tárolja.
 	 */
-//	private int workerCounter;
+	private int workerCounter;
 	
 	/**
 	 * A Singleton tervezési mintához szükséges, kívülről nem elérhető konstruktor.
@@ -90,6 +90,7 @@ public class Game {
 	 */
 	public void setWorkers(List<Worker> workers) {
 		this.workers = workers;
+		this.workerCounter = workers.size();
 	}
 
 	/**
@@ -151,8 +152,16 @@ public class Game {
 			System.out.println("GAME OVER");
 		}
 	}
+	public void deleteWorker(Worker w) {
+		workers.remove(w);
+		workerCounter--;
+		if (workerCounter == 0) { //TODO játék vége
+			System.out.println("GAME OVER");
+		}
+	}
 	
 	public void startGame(String mapFile) {
 		map.loadMap(mapFile);
 	}
+	
 }

@@ -71,7 +71,7 @@ public class Worker extends Movable {
 
         this.getField().remove(this);
         this.setField(null);
-
+        Game.getInstance().deleteWorker(this);
         MethodWriter.printOutRet("");
     }
 
