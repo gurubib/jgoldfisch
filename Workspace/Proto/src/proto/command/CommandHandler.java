@@ -160,7 +160,9 @@ public class CommandHandler {
 		
 		if (controlledWorker != null) {
 			if (type.equals("-h"))
-				
+				controlledWorker.placeHoney();
+			else
+				controlledWorker.placeOil();
 		}
 			
 	}
