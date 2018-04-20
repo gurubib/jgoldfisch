@@ -21,32 +21,6 @@ public class SimpleField extends Field {
 	public Movable boxEnters(Box b, Direction d) {
 		MethodWriter.printOutMethod("SimpleField.boxEnters", b.toString() + ", " + d.toString());
 
-		if (d == Direction.RIGHT) {
-
-			MethodWriter.printOutQuestion("Is there a box or a worker on the field? B/W/X");
-
-			String answer = MethodWriter.readFromStdin();
-
-			// A felhasználó által megadott Movable referencia (vagy semmi) beállítasa
-			// a mezőre.
-			switch (answer) {
-			case "b":
-				Box b2 = new Box();
-				b2.setSkeletonName(MethodWriter.nameGenerator("b"));
-				b2.setField(this);
-				this.setMovable(b2);
-				break;
-			case "w":
-				Worker w = new Worker();
-				w.setSkeletonName(MethodWriter.nameGenerator("w"));
-				w.setField(this);
-				this.setMovable(w);
-				break;
-			default:
-				this.setMovable(null);
-			}
-		}
-
 		Movable movable = getMovable();
 		// Az érkező elhelyezése
 		this.setMovable(b);
@@ -75,31 +49,7 @@ public class SimpleField extends Field {
 	public Movable workerEnters(Worker w, Direction d) {
 		MethodWriter.printOutMethod("SimpleField.workerEnters", w.toString() + ", " + d.toString());
 
-		if (d == Direction.RIGHT) {
-			MethodWriter.printOutQuestion("Is there a box or a worker on the field? B/W/X");
-
-			String answer = MethodWriter.readFromStdin();
-
-			// A felhasználó által megadott Movable referencia (vagy semmi) beállítása
-			// a mezőre.
-			switch (answer) {
-			case "b":
-				Box b = new Box();
-				b.setSkeletonName(MethodWriter.nameGenerator("b"));
-				b.setField(this);
-				this.setMovable(b);
-				break;
-			case "w":
-				Worker w2 = new Worker();
-				w2.setSkeletonName(MethodWriter.nameGenerator("w"));
-				w2.setField(this);
-				this.setMovable(w2);
-				break;
-			default:
-				this.setMovable(null);
-			}
-		}
-
+	
 		Movable movable = getMovable();
 		// Az érkező Worker elhelyezése.
 		this.setMovable(w);
