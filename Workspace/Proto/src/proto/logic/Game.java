@@ -143,11 +143,12 @@ public class Game {
 	 * @param b A kivenni kívánt doboz
 	 */
 	public void decreaseBoxes(Box b) {
-		if (b == null) {
-			freeBoxCounter--;
-			if (freeBoxCounter == 0) { //TODO játék vége
-			
-			}
+		if (b != null) {
+			boxes.remove(b);
+		}
+		freeBoxCounter--;
+		if (freeBoxCounter == 0) { //TODO játék vége
+		
 		}
 	}
 	
