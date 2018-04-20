@@ -35,6 +35,7 @@ public class Game {
 
 	public void setBoxes(List<Box> boxes) {
 		this.boxes = boxes;
+		freeBoxCounter = boxes.size();
 	}
 
 	/**
@@ -50,7 +51,7 @@ public class Game {
 	/**
 	 * A még mozgatható dobozok számát tárolja.
 	 */
-//	private int freeBoxCounter;
+	private int freeBoxCounter;
 	
 	/**
 	 * A még játékban lévő munkások számát tárolja.
@@ -142,7 +143,12 @@ public class Game {
 	 * @param b A kivenni kívánt doboz
 	 */
 	public void decreaseBoxes(Box b) {
-		//TODO
+		if (b == null) {
+			freeBoxCounter--;
+			if (freeBoxCounter == 0) { //TODO játék vége
+			
+			}
+		}
 	}
 	
 	public void startGame(String mapFile) {

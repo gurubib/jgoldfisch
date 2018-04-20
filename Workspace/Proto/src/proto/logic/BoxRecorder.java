@@ -40,15 +40,6 @@ public class BoxRecorder {
 	}
 
 	/**
-	 * A Map-től megkapja a falakat, erre azért van szükség mert kezdetben ezeket tárolja el a fixFields-be.
-	 * 
-	 * @param walls A falak referenciáji
-	 */
-	public void init(List<Field> walls) {
-		fixFields = walls;
-	}
-	
-	/**
 	 * Ennek a függvénynek a segítségével jelezhető, ha
 	 * egy célmezőre (EndField) beérkezett egy láda (Box). A paraméter átadásával
 	 * jelezzük, hogy melyik mezőről van szó, majd ez a mező bekerül a nyilvántartásba,
@@ -68,6 +59,19 @@ public class BoxRecorder {
 	 * @param f Az adott mező
 	 */
 	public void update(Field f) {
+		boolean horizontallyfix = false;
+		boolean verticallyfix = false;
+		for (int i = 0; i < fixFields.size();i++) {
+			if (f.getNeighbor(Direction.UP) == fixFields.get(i) || f.getNeighbor(Direction.DOWN) == fixFields.get(i))
+				verticallyfix = true;
+			if (f.getNeighbor(Direction.LEFT) == fixFields.get(i) || f.getNeighbor(Direction.RIGHT) == fixFields.get(i))
+				horizontallyfix = true;
+		}
+		if (verticallyfix && horizontallyfix) {
+			fixFields.add(f);
+			Game.getInstance().decreaseBoxes(null);
+		}
+		
 	}
 	
 	/**
