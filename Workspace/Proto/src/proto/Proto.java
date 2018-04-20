@@ -7,13 +7,12 @@ import java.io.IOException;
  *
  */
 public class Proto {
+	
+	//asdsasd
+	//asd
 
 	public static void main(String[] args) throws IOException {
-<<<<<<< HEAD
 		
-=======
-		//Csá
->>>>>>> f5380a0c23f01ab6a982f2795e302ef545910ef5
 	}
 
 }
