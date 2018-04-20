@@ -68,6 +68,21 @@ public abstract class Field {
 	public Movable getMovable() {
 		return movable;
 	}
+	/**
+	 * A mezőn lévő Slime referencia beállítása.
+	 * @param s A beállítani kívánt Slime referencia.
+	 */
+	public void setSlime(Slime s) {
+		slime = s;
+	}
+	
+	/**
+	 * A mezőn tárolt Slimee referencia visszaadására szolgáló függvény.
+	 * @return A mezőn lévő Slime referencia.
+	 */
+	public Slime getSlime() {
+		return slime;
+	}
 	
 	/**
 	 * A mezőn lévő Movable referencia kitörlésére szolgáló függvény.
@@ -105,5 +120,15 @@ public abstract class Field {
 	public void workerArrived(Worker w) {
 		MethodWriter.printOutMethod("Field.workerArrived",w.toString());
 		MethodWriter.printOutRet("");
+	}
+	int interact(int f) {
+		MethodWriter.printOutMethod("Field.interact",Integer.toString(f));
+		if (slime == null) {
+			MethodWriter.printOutRet(Integer.toString(f-2));
+			return f-2;
+		}
+		int f2 = slime.interact(f);
+		MethodWriter.printOutRet(Integer.toString(f2));
+		return f2;
 	}
 }

@@ -143,6 +143,7 @@ public class HoleField extends Field {
 		MethodWriter.printOutMethod("HoleField.changeToActive","");
 		if (getMovable() != null)
 			execute(getMovable());
+		this.setSlime(null);
 		MethodWriter.printOutRet("");
 	}
 

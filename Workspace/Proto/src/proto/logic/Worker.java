@@ -11,7 +11,7 @@ import proto.out.MethodWriter;
 public class Worker extends Movable {
 
     private int points = 0;
-    int force; //A játékos ereje, mely minden meghatározza, hogy el tudja-e tolni a dobozok sorát.
+    int force = 5; //A játékos ereje, mely meghatározza, hogy el tudja-e tolni a dobozok sorát.
     ArrayList<Oil> oils = new ArrayList<Oil>(); //Referenciák a munkás által lerakható olaj Slime-okra.
     ArrayList<Honey> honeys = new ArrayList<Honey>();  //Referenciák a munkás által lerakható méz Slime-okra.
     int id;
@@ -82,7 +82,7 @@ public class Worker extends Movable {
      * @param d az irány, melybe a munkást a doboz tolja
      */
     @Override
-    public void pushByBox(Box b, Direction d) {
+    public void pushByBox(Box b, Direction d, int f) {
         MethodWriter.printOutMethod("Worker.pushByBox", b.toString() + ", " + d.toString());
 
         Field neighbor = this.getField().getNeighbor(d);
@@ -92,7 +92,7 @@ public class Worker extends Movable {
         if (neighborMovable == this) {
             this.die();
         } else if (neighborMovable != null) {
-            neighborMovable.pushByWorker(this, d);
+            neighborMovable.pushByWorker(this, d,f);
             
             if (getField() != null)
             	this.finalizeStep();
@@ -110,7 +110,7 @@ public class Worker extends Movable {
      * @param d irány, melybe a munkást a másik munkás tolja
      */
     @Override
-    public void pushByWorker(Worker w, Direction d) {
+    public void pushByWorker(Worker w, Direction d, int f) {
         MethodWriter.printOutMethod("Worker.pushByWorker", w.toString() + ", " + d.toString());
 
         w.goBack(d.getOpposite());
@@ -149,7 +149,7 @@ public class Worker extends Movable {
             Field backwardNeighbor = this.getField().getNeighbor(d.getOpposite());
             backwardNeighbor.workerEnters(this, d.getOpposite());
         } else if (neighborMovable != null) {
-            neighborMovable.pushByWorker(this, d);
+            neighborMovable.pushByWorker(this, d,force);
         }
 
         this.finalizeStep();
@@ -182,7 +182,7 @@ public class Worker extends Movable {
         Movable neighborMovable = neighbor.workerEnters(this, d);
 
         if (neighborMovable != null) {
-            neighborMovable.pushByWorker(this, d);
+            neighborMovable.pushByWorker(this, d,1000);
         }
 
         MethodWriter.printOutRet("");
@@ -197,6 +197,24 @@ public class Worker extends Movable {
         points++;
 
         MethodWriter.printOutRet("");
+    }
+    public void placeOil() {
+    	MethodWriter.printOutMethod("Worker.placeOil", "");
+    	if (oils.size() == 0) {
+    		MethodWriter.printOutRet("");	
+    		return;
+    	}
+    	this.getField().setSlime(oils.remove(0));
+    	MethodWriter.printOutRet("");
+    }
+    public void placeHoney() {
+    	MethodWriter.printOutMethod("Worker.placeHoney", "");
+    	if (honeys.size() == 0) {
+    		MethodWriter.printOutRet("");
+    		return;
+    	}
+    	MethodWriter.printOutRet("");
+    	this.getField().setSlime(honeys.remove(0));
     }
 
 }

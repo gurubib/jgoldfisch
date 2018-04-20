@@ -49,21 +49,21 @@ public class Box extends Movable {
  *@param d az irĂˇny ahonnan tol
  */
 	@Override
-	public void pushByBox(Box b, Direction d) {
+	public void pushByBox(Box b, Direction d,int f) {
 		MethodWriter.printOutMethod("Box.pushByBox", b.toString() + ", " + d.toString());
 		
 		Field neighbor = getField().getNeighbor(d);
 		
 		Movable neighborMovable = neighbor.boxEnters(this, d);
-		
+		int f2 = getField().interact(f);
 		//Ha Ă¶nmagunkat kapjuk vissza, akkor visszalĂ©pĂĽnk ellenkezĹ‘ irĂˇnyba
-		if (neighborMovable == this) {
+		if (neighborMovable == this || f2 <0) {
 			Field backwardNeighbor = neighbor.getNeighbor(d.getOpposite());
 			Movable backwardMovable = backwardNeighbor.boxEnters(this, d.getOpposite());
 			
 			backwardMovable.pushBack(d.getOpposite());
 		} else if (neighborMovable != null) {
-			neighborMovable.pushByBox(this, d);
+			neighborMovable.pushByBox(this, d, f2);
 		}
 		
 		this.finalizeStep();
@@ -78,21 +78,21 @@ public class Box extends Movable {
  *@param d az irĂˇny, ahonnan tolja
  */
 	@Override
-	public void pushByWorker(Worker w, Direction d) {
+	public void pushByWorker(Worker w, Direction d, int f) {
 		MethodWriter.printOutMethod("Box.pushByWorker", w.toString() + ", " + d.toString());
 		
 		Field neighbor = getField().getNeighbor(d);
 		
 		Movable neighborMovable = neighbor.boxEnters(this, d);
-		
+		int f2 = getField().interact(f);
 		//Ha Ă¶nmagunkat kapjuk vissza, akkor visszalĂ©pĂĽnk ellenkezĹ‘ irĂˇnyba
-		if (neighborMovable == this) {
+		if (neighborMovable == this || f2 <0) {
 			Field backwardNeighbor = neighbor.getNeighbor(d.getOpposite());
 			Movable backwardMovable = backwardNeighbor.boxEnters(this, d.getOpposite());
 			
 			backwardMovable.pushBack(d.getOpposite());
 		} else if (neighborMovable != null) {
-			neighborMovable.pushByBox(this, d);
+			neighborMovable.pushByBox(this, d, f2);
 		}
 		
 		this.finalizeStep();

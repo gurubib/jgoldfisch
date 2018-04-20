@@ -12,8 +12,8 @@ public abstract class Movable {
 
     public abstract void die();
     public abstract void pushBack(Direction d);
-    public abstract void pushByBox(Box b, Direction d);
-    public abstract void pushByWorker(Worker w, Direction d);
+    public abstract void pushByBox(Box b, Direction d, int f);
+    public abstract void pushByWorker(Worker w, Direction d, int f);
     public abstract void scorePoint(Direction d);
     public abstract void finalizeStep();
 
