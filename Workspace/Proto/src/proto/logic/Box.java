@@ -19,7 +19,7 @@ public class Box extends Movable {
 		//ReferenciĂˇk nullra ĂˇllĂ­tĂˇsa
 		this.getField().remove(this);
 		this.setField(null);
-		
+		Game.getInstance().decreaseBoxes(this);
 		MethodWriter.printOutRet("");
 	}
 /**
