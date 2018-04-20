@@ -1,6 +1,3 @@
-/**
- * 
- */
 package proto;
 
 import java.io.IOException;
@@ -12,7 +9,7 @@ import java.io.IOException;
 public class Proto {
 
 	public static void main(String[] args) throws IOException {
-		//Szasz Aki
+		//Csá
 	}
 
 }
