@@ -23,24 +23,6 @@ public class EndField extends Field {
 	public Movable boxEnters(Box b, Direction d) {
 		MethodWriter.printOutMethod("EndField.boxEnters", b.toString() + ", " + d.toString());
 		
-		if (this.getMovable() == null) {
-			//Megkérdezi a felhasználotól, hogy van-e már doboz a mezőn.
-			MethodWriter.printOutQuestion("Is there a box on the field? B/X");
-
-			String answer = MethodWriter.readFromStdin();
-			//az adott válasz alapján a doboz létrehozása ha szükséges.
-			switch (answer) {
-			case "b":
-				Box b2 = new Box();
-				b2.setSkeletonName(MethodWriter.nameGenerator("b"));
-				b2.setField(this);
-				this.setMovable(b2);
-				break;
-			default:
-				this.setMovable(null);
-			}
-
-		}
 		//az érkező doboz áthelyezése az új mezőre
 		b.place(this);
 		
@@ -74,24 +56,6 @@ public class EndField extends Field {
 	public Movable workerEnters(Worker w, Direction d) {
 		MethodWriter.printOutMethod("EndField.workerEnters", w.toString() + ", " + d.toString());
 		
-		if (this.getMovable() == null) {
-			//Megkérdezi a felhasználotól, hogy van-e már doboz a mezőn.
-			MethodWriter.printOutQuestion("Is there a box on the field? B/X");
-
-			String answer = MethodWriter.readFromStdin();
-			//az adott válasz alapján a doboz létrehozása ha szükséges.
-			switch (answer) {
-			case "b":
-				Box b2 = new Box();
-				b2.setSkeletonName(MethodWriter.nameGenerator("b"));
-				b2.setField(this);
-				this.setMovable(b2);
-				break;
-			default:
-				this.setMovable(null);
-			}
-
-		}
 		//az érkező doboz áthelyezése az új mezőre
 		w.place(this);
 		

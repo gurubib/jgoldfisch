@@ -43,30 +43,6 @@ public class SwitchField extends Field {
 	public Movable boxEnters(Box b, Direction d) {
 		MethodWriter.printOutMethod("SwitchField.boxEnters", b.toString() + ", " + d.toString());
 
-		if (d == Direction.RIGHT) {
-
-			MethodWriter.printOutQuestion("Is there a box or a worker on the field? B/W/X");
-
-			String answer = MethodWriter.readFromStdin();
-
-			switch (answer) {
-			case "b":
-				Box b2 = new Box();
-				b2.setSkeletonName(MethodWriter.nameGenerator("b"));
-				b2.setField(this);
-				this.setMovable(b2);
-				break;
-			case "w":
-				Worker w = new Worker();
-				w.setSkeletonName(MethodWriter.nameGenerator("w"));
-				w.setField(this);
-				this.setMovable(w);
-				break;
-			default:
-				this.setMovable(null);
-			}
-		}
-
 		Movable movable = getMovable();
 
 		this.setMovable(b);
@@ -92,30 +68,6 @@ public class SwitchField extends Field {
 	@Override
 	public Movable workerEnters(Worker w, Direction d) {
 		MethodWriter.printOutMethod("SwitchField.workerEnters", w.toString() + ", " + d.toString());
-
-		if (d == Direction.RIGHT) {
-
-			MethodWriter.printOutQuestion("Is there a box or a worker on the field? B/W/X");
-
-			String answer = MethodWriter.readFromStdin();
-
-			switch (answer) {
-			case "b":
-				Box b = new Box();
-				b.setSkeletonName(MethodWriter.nameGenerator("b"));
-				b.setField(this);
-				this.setMovable(b);
-				break;
-			case "w":
-				Worker w2 = new Worker();
-				w2.setSkeletonName(MethodWriter.nameGenerator("w"));
-				w2.setField(this);
-				this.setMovable(w2);
-				break;
-			default:
-				this.setMovable(null);
-			}
-		}
 
 		Movable movable = getMovable();
 
@@ -185,11 +137,6 @@ public class SwitchField extends Field {
  */
 	public void holeInteracted(Movable m) {
 		MethodWriter.printOutMethod("SwitchField.holeInteracted", m.toString());
-
-		MethodWriter.printOutQuestion("Is the switch on or off? 1/0");
-		String answer = MethodWriter.readFromStdin();
-
-		active = answer.equals("1");
 
 		if (active)
 			hole.execute(m);
