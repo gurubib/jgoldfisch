@@ -7,12 +7,9 @@ import java.io.IOException;
  *
  */
 public class Proto {
-	
-	//asdsasd
-	//asd
 
 	public static void main(String[] args) throws IOException {
-		//itnrinbiub
+		
 	}
 
 }
