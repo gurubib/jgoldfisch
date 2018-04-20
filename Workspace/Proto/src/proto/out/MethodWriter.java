@@ -1,4 +1,4 @@
-package skeleton.out;
+package proto.out;
 
 import java.io.BufferedReader;
 import java.io.IOException;

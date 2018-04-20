@@ -1,4 +1,4 @@
-package skeleton.game.logic;
+package proto.logic;
 
 /**
  * Enumeráció a pályán található irányokhoz.

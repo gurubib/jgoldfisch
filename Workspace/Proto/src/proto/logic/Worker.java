@@ -1,6 +1,8 @@
-package skeleton.game.logic;
+package proto.logic;
 
-import skeleton.out.MethodWriter;
+import java.util.ArrayList;
+
+import proto.out.MethodWriter;
 
 /**
  * A pályán egy munkást reprezentáló osztály. Képes eltolni a ládákat, továbbá
@@ -9,7 +11,19 @@ import skeleton.out.MethodWriter;
 public class Worker extends Movable {
 
     private int points = 0;
+    int force; //A játékos ereje, mely minden meghatározza, hogy el tudja-e tolni a dobozok sorát.
+    ArrayList<Oil> oils = new ArrayList<Oil>(); //Referenciák a munkás által lerakható olaj Slime-okra.
+    ArrayList<Honey> honeys = new ArrayList<Honey>();  //Referenciák a munkás által lerakható méz Slime-okra.
+    int id;
 
+    
+    
+    public Worker() {
+    	for (int i = 0; i <5; i++) {
+    		oils.add(new Oil());
+    		honeys.add(new Honey());
+    	}
+    }
     /**
      * Alapvető getter függvény, visszaadja az adott attribútumot
      * @return A points attribútum értéke

@@ -1,6 +1,6 @@
-package skeleton.game.logic;
+package proto.logic;
 
-import skeleton.out.MethodWriter;
+import proto.out.MethodWriter;
 
 /**
  * Ez az osztály reprezentálja az olyan mezőt, melyen lyuk van. switchfield 

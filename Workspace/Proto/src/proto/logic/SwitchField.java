@@ -1,6 +1,6 @@
-package skeleton.game.logic;
+package proto.logic;
 
-import skeleton.out.MethodWriter;
+import proto.out.MethodWriter;
 /**
  * 
  * Egy kapcsolót és hozzá tartozó állapotot reprezentáló mező objektum. 

@@ -1,6 +1,6 @@
-package skeleton.game.logic;
+package proto.logic;
 
-import skeleton.out.MethodWriter;
+import proto.out.MethodWriter;
 
 /**
  * Absztrakt osztály, melyből a pályán lévő mozgatható obejktumok öröklődnek.

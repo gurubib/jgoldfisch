@@ -1,4 +1,4 @@
-package skeleton.game.logic;
+package proto.logic;
 
 import java.util.ArrayList;
 import java.util.List;

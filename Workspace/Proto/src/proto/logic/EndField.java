@@ -1,6 +1,6 @@
-package skeleton.game.logic;
+package proto.logic;
 
-import skeleton.out.MethodWriter;
+import proto.out.MethodWriter;
 
 /**Célmező, amire a dobozokat (Box) juttatni kell. 
  * Amennyiben rálép egy doboz, akkor az mozdíthatatlanná válik ott.

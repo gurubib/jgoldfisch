@@ -1,9 +1,9 @@
-package skeleton.game.logic;
+package proto.logic;
 
 import java.util.HashMap;
 import java.util.Map;
 
-import skeleton.out.MethodWriter;
+import proto.out.MethodWriter;
 
 /**
  * Az egyes mező típusok absztrakt ősosztálya.
@@ -14,7 +14,7 @@ public abstract class Field {
 	
 	private Map<Direction, Field> neighbors = new HashMap<Direction, Field>();
 	private Movable movable = null;
-	
+	private Slime slime = null;
 	
 	public abstract Movable boxEnters(Box b, Direction d);
 	public abstract Movable workerEnters(Worker w, Direction d);

@@ -1,6 +1,6 @@
-package skeleton.game.logic;
+package proto.logic;
 
-import skeleton.out.MethodWriter;
+import proto.out.MethodWriter;
 
 /**
 *Olyan mező objektum, mely egy falat reprezentál. Nem lehet rajta átmenni, és ismeri a szomszédait.

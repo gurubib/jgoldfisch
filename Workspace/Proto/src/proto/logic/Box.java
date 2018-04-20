@@ -1,32 +1,32 @@
-package skeleton.game.logic;
+package proto.logic;
 
-import skeleton.out.MethodWriter;
+import proto.out.MethodWriter;
 /**
  * 
- * Ennek az osztálynak az egyes példányai fogják reprezentálni a dobozokat a játékban. 
- * Őket kell majd a célmezőre eljuttatni.
+ * Ennek az osztĂˇlynak az egyes pĂ©ldĂˇnyai fogjĂˇk reprezentĂˇlni a dobozokat a jĂˇtĂ©kban. 
+ * Ĺ�ket kell majd a cĂ©lmezĹ‘re eljuttatni.
  *
  */
 public class Box extends Movable {
 
 /**
- * Ez a függvény felel az entitás elpusztításáért, illetve csökkenti a szabad dobozok számát.
+ * Ez a fĂĽggvĂ©ny felel az entitĂˇs elpusztĂ­tĂˇsĂˇĂ©rt, illetve csĂ¶kkenti a szabad dobozok szĂˇmĂˇt.
  */
 	@Override
 	public void die() {
 		MethodWriter.printOutMethod("Box.die", "");
 		
-		//Referenciák nullra állítása
+		//ReferenciĂˇk nullra ĂˇllĂ­tĂˇsa
 		this.getField().remove(this);
 		this.setField(null);
 		
 		MethodWriter.printOutRet("");
 	}
 /**
- * Ennek a függvénynek a segítségével a tolás irányába visszaléptethetjük a dobozt. 
- * (Erre szükség van pl. amikor a falba bele akarnánk tolni a dobozt.)
+ * Ennek a fĂĽggvĂ©nynek a segĂ­tsĂ©gĂ©vel a tolĂˇs irĂˇnyĂˇba visszalĂ©ptethetjĂĽk a dobozt. 
+ * (Erre szĂĽksĂ©g van pl. amikor a falba bele akarnĂˇnk tolni a dobozt.)
  *
- * @param d a visszaléptetés iránya
+ * @param d a visszalĂ©ptetĂ©s irĂˇnya
  */
 	@Override
 	public void pushBack(Direction d) {
@@ -42,11 +42,11 @@ public class Box extends Movable {
 		MethodWriter.printOutRet("");
 	}
 /**
- * Függvény arra az esetre, amennyiben a ládánkat (Box) egy másik doboz tolja meg, 
- * intézi, hogy a láda a megfelelő helyre kerüljön.
+ * FĂĽggvĂ©ny arra az esetre, amennyiben a lĂˇdĂˇnkat (Box) egy mĂˇsik doboz tolja meg, 
+ * intĂ©zi, hogy a lĂˇda a megfelelĹ‘ helyre kerĂĽljĂ¶n.
  *
  *@param b a doboz, ami tol
- *@param d az irány ahonnan tol
+ *@param d az irĂˇny ahonnan tol
  */
 	@Override
 	public void pushByBox(Box b, Direction d) {
@@ -56,7 +56,7 @@ public class Box extends Movable {
 		
 		Movable neighborMovable = neighbor.boxEnters(this, d);
 		
-		//Ha önmagunkat kapjuk vissza, akkor visszalépünk ellenkező irányba
+		//Ha Ă¶nmagunkat kapjuk vissza, akkor visszalĂ©pĂĽnk ellenkezĹ‘ irĂˇnyba
 		if (neighborMovable == this) {
 			Field backwardNeighbor = neighbor.getNeighbor(d.getOpposite());
 			Movable backwardMovable = backwardNeighbor.boxEnters(this, d.getOpposite());
@@ -71,11 +71,11 @@ public class Box extends Movable {
 		MethodWriter.printOutRet("");
 	}
 /**
- * A láda (Box) egy játékos által való megtolásákor hívjuk meg, 
- * intézi hogy a láda a megfelelő helyre kerüljön.
+ * A lĂˇda (Box) egy jĂˇtĂ©kos Ăˇltal valĂł megtolĂˇsĂˇkor hĂ­vjuk meg, 
+ * intĂ©zi hogy a lĂˇda a megfelelĹ‘ helyre kerĂĽljĂ¶n.
  * 
- *@param w a munkás, aki tolja a ládát
- *@param d az irány, ahonnan tolja
+ *@param w a munkĂˇs, aki tolja a lĂˇdĂˇt
+ *@param d az irĂˇny, ahonnan tolja
  */
 	@Override
 	public void pushByWorker(Worker w, Direction d) {
@@ -85,7 +85,7 @@ public class Box extends Movable {
 		
 		Movable neighborMovable = neighbor.boxEnters(this, d);
 		
-		//Ha önmagunkat kapjuk vissza, akkor visszalépünk ellenkező irányba
+		//Ha Ă¶nmagunkat kapjuk vissza, akkor visszalĂ©pĂĽnk ellenkezĹ‘ irĂˇnyba
 		if (neighborMovable == this) {
 			Field backwardNeighbor = neighbor.getNeighbor(d.getOpposite());
 			Movable backwardMovable = backwardNeighbor.boxEnters(this, d.getOpposite());
@@ -100,11 +100,11 @@ public class Box extends Movable {
 		MethodWriter.printOutRet("");
 	}
 /**
- * Amennyiben a célmezőre tolódott a láda, ennek a függvénynek a segítségével végezhetjük el
- *  a megfelelő játékos pontjainak növelését, így a hívást mindig továbbadja 
- *  a megfelelő irányban álló Movable-nek (meghívja rajta önmagát).
+ * Amennyiben a cĂ©lmezĹ‘re tolĂłdott a lĂˇda, ennek a fĂĽggvĂ©nynek a segĂ­tsĂ©gĂ©vel vĂ©gezhetjĂĽk el
+ *  a megfelelĹ‘ jĂˇtĂ©kos pontjainak nĂ¶velĂ©sĂ©t, Ă­gy a hĂ­vĂˇst mindig tovĂˇbbadja 
+ *  a megfelelĹ‘ irĂˇnyban ĂˇllĂł Movable-nek (meghĂ­vja rajta Ă¶nmagĂˇt).
  *
- *@param d az irány, ahonnan tolták a ládát
+ *@param d az irĂˇny, ahonnan toltĂˇk a lĂˇdĂˇt
  */
 	@Override
 	public void scorePoint(Direction d) {
@@ -119,8 +119,8 @@ public class Box extends Movable {
 		MethodWriter.printOutRet("");
 	}
 /**
- * Ez az a függvény, ami az egyes lépések véglegesítésért felel, 
- * a léptetés érvényessége vizsgálatát követően.
+ * Ez az a fĂĽggvĂ©ny, ami az egyes lĂ©pĂ©sek vĂ©glegesĂ­tĂ©sĂ©rt felel, 
+ * a lĂ©ptetĂ©s Ă©rvĂ©nyessĂ©ge vizsgĂˇlatĂˇt kĂ¶vetĹ‘en.
  */
 	@Override
 	public void finalizeStep() {
