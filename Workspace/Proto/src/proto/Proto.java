@@ -12,7 +12,7 @@ import java.io.IOException;
 public class Proto {
 
 	public static void main(String[] args) throws IOException {
-
+		//Szasz Aki
 	}
 
 }
