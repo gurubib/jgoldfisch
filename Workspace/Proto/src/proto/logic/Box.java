@@ -54,8 +54,9 @@ public class Box extends Movable {
 		
 		Field neighbor = getField().getNeighbor(d);
 		
-		Movable neighborMovable = neighbor.boxEnters(this, d);
 		int f2 = getField().interact(f);
+		System.out.println(f2);
+		Movable neighborMovable = neighbor.boxEnters(this, d);
 		//Ha Ă¶nmagunkat kapjuk vissza, akkor visszalĂ©pĂĽnk ellenkezĹ‘ irĂˇnyba
 		if (neighborMovable == this || f2 <0) {
 			Field backwardNeighbor = neighbor.getNeighbor(d.getOpposite());
@@ -83,8 +84,8 @@ public class Box extends Movable {
 		
 		Field neighbor = getField().getNeighbor(d);
 		
-		Movable neighborMovable = neighbor.boxEnters(this, d);
 		int f2 = getField().interact(f);
+		Movable neighborMovable = neighbor.boxEnters(this, d);
 		//Ha Ă¶nmagunkat kapjuk vissza, akkor visszalĂ©pĂĽnk ellenkezĹ‘ irĂˇnyba
 		if (neighborMovable == this || f2 <0) {
 			Field backwardNeighbor = neighbor.getNeighbor(d.getOpposite());
