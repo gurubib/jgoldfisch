@@ -149,7 +149,12 @@ public class HoleField extends Field {
 	
 	@Override
 	public String toString() {
-		return super.toString() + " " + switchField.isActive();
+		String act = "1";
+		
+		if (switchField != null)
+			act = "0";
+		
+		return super.toString() + " " + act;
 	}
 
 }
