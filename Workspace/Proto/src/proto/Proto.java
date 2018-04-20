@@ -12,7 +12,7 @@ public class Proto {
 	//asd
 
 	public static void main(String[] args) throws IOException {
-		
+		//itnrinbiub
 	}
 
 }
