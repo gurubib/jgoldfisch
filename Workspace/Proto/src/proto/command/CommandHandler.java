@@ -132,7 +132,18 @@ public class CommandHandler {
 	}
 	
 	private void control(int workerID, Direction d) {
-		System.out.println("control(" + workerID + ", " + d.toString() + ")");		
+		//System.out.println("control(" + workerID + ", " + d.toString() + ")");
+		List<Worker> workers = game.getWorkers();
+		
+		Worker controlledWorker = null;
+		
+		for (Worker w : workers) {
+			if (w.getId() == workerID)
+				controlledWorker = w;
+		}
+		
+		if (controlledWorker != null)
+			controlledWorker.control(d);
 	}
 	
 	private void drop_special(int workerID, String type) {
