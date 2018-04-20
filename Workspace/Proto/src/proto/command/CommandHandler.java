@@ -11,6 +11,7 @@ public class CommandHandler {
 	
 	boolean close = false;
 	Game game = Game.getInstance();
+	String loadedMap;
 	
 	public void readInput() throws IOException {
 		while (!close) {
@@ -129,6 +130,7 @@ public class CommandHandler {
 	
 	private void load_map(String fileName) {
 		game.startGame(fileName);
+		loadedMap = fileName;
 	}
 	
 	private void control(int workerID, Direction d) {
@@ -244,11 +246,14 @@ public class CommandHandler {
 	}
 	
 	private void drop_map() {
-		System.out.println("drop_map(" + ")");		
+		//System.out.println("drop_map(" + ")");		
+		game.setMap(null);
+		loadedMap = "No map is loaded";
 	}
 	
 	private void show_map() {
-		System.out.println("show_map(" + ")");
+		//System.out.println("show_map(" + ")");
+		System.out.println(loadedMap);
 	}
 	
 	private void run_test(String fileName) {
