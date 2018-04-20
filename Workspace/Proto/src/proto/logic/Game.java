@@ -69,7 +69,7 @@ public class Game {
 	 * @return Az egyedüli példány
 	 */
 	public static Game getInstance(){
-		instance.boxRecorder = new BoxRecorder();
+		//instance.boxRecorder = new BoxRecorder();
 		
         return instance;
     }
@@ -148,7 +148,7 @@ public class Game {
 		}
 		freeBoxCounter--;
 		if (freeBoxCounter == 0) { //TODO játék vége
-		
+			System.out.println("GAME OVER");
 		}
 	}
 	

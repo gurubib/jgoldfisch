@@ -69,9 +69,8 @@ public class BoxRecorder {
 		}
 		if (verticallyfix && horizontallyfix) {
 			fixFields.add(f);
-			Game.getInstance().decreaseBoxes(null);
+			Game.getInstance().decreaseBoxes(null);	
 		}
-		
 	}
 	
 	/**
