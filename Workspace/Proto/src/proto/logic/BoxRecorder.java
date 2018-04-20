@@ -48,6 +48,8 @@ public class BoxRecorder {
 	 * @param f Az adott célmező
 	 */
 	public void endFieldOccupied(Field f) {
+		fixFields.add(f);
+		Game.getInstance().decreaseBoxes(null);	
 	}
 	
 	/**
