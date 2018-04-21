@@ -1,17 +1,32 @@
 package proto.command;
 
 import java.io.BufferedReader;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.io.PrintStream;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map.Entry;
 
 import proto.logic.*;
 
 public class CommandHandler {
 	
-	boolean close = false;
-	Game game = Game.getInstance();
-	String loadedMap;
+	private boolean close = false;
+	private Game game = Game.getInstance();
+	private String loadedMap;
+	
+	private java.util.Map<String, PrintStream> logs = new HashMap<String, PrintStream>();
+	
+	public CommandHandler() {
+		logs.put("scrn", System.out);
+	}
 	
 	public void readInput() throws IOException {
 		while (!close) {
@@ -174,18 +189,23 @@ public class CommandHandler {
 		
 		List<Worker> workers = game.getWorkers();
 		
+		List<String> lines = new ArrayList<String>(); 
+		
 		for (Worker w : workers) {
 			String[] pos = w.getField().toString().split(" ");
 			
-			System.out.println("ID:" + w.getId() + " X:" + pos[0] + " Y:" + pos[1] + " F:" + w.getForce());
+			lines.add("ID:" + w.getId() + " X:" + pos[0] + " Y:" + pos[1] + " F:" + w.getForce());
 		}
-			
+		
+		writeToLogs(lines);
 	}
 	
 	private void ls_boxes() {
 		//System.out.println("ls_boxes(" + ")");
 		
 		List<Box> boxes = game.getBoxes();
+		
+		List<String> lines = new ArrayList<String>(); 
 		
 		for (Box b : boxes) {
 			String[] pos = b.getField().toString().split(" ");
@@ -198,14 +218,18 @@ public class CommandHandler {
 					fix = true;
 			}			
 			
-			System.out.println("ID:" + b.toString() + " X:" + pos[0] + " Y:" + pos[1] + " " + fix);
+			lines.add("ID:" + b.toString() + " X:" + pos[0] + " Y:" + pos[1] + " " + fix);
 		}
+		
+		writeToLogs(lines);
 	}
 	
 	private void ls_fields() {
 		//System.out.println("ls_fields(" + ")");
 		
 		List<Field> fields = game.getMap().getFields();
+		
+		List<String> lines = new ArrayList<String>();
 		
 		for (Field f : fields) {
 			String[] pos = f.toString().split(" ");
@@ -221,36 +245,56 @@ public class CommandHandler {
 			
 			switch (pos[2]) {
 			case "wall":
-				System.out.println("X:" + pos[0] + " Y:" + pos[1] + " " + pos[2]);
+				lines.add("X:" + pos[0] + " Y:" + pos[1] + " " + pos[2]);
 				break;
 			case "simple":
-				System.out.println("X:" + pos[0] + " Y:" + pos[1] + " " + pos[2] + " " + slime + " " + movable);
+				lines.add("X:" + pos[0] + " Y:" + pos[1] + " " + pos[2] + " " + slime + " " + movable);
 				break;
 			case "hole":
-				System.out.println("X:" + pos[0] + " Y:" + pos[1] + " " + pos[2] + " " + pos[3] + " " + slime + " " + movable);
+				lines.add("X:" + pos[0] + " Y:" + pos[1] + " " + pos[2] + " " + pos[3] + " " + slime + " " + movable);
 				break;
 				
 			case "switch":
-				System.out.println("X:" + pos[0] + " Y:" + pos[1] + " " + pos[2] + " " + pos[3] + " " + slime + " " + movable);
+				lines.add("X:" + pos[0] + " Y:" + pos[1] + " " + pos[2] + " " + pos[3] + " " + slime + " " + movable);
 				break;
 				
 			case "endz":
-				System.out.println("X:" + pos[0] + " Y:" + pos[1] + " " + pos[2] + " " + slime + " " + movable);
+				lines.add("X:" + pos[0] + " Y:" + pos[1] + " " + pos[2] + " " + slime + " " + movable);
 				break;
 			}
 		}
+		
+		writeToLogs(lines);
 	}
 	
 	private void log(String fileName) {
-		System.out.println("log(" + fileName + ")");
+		//System.out.println("log(" + fileName + ")");
+		
+		try {
+			PrintStream newPrStr = new PrintStream(new FileOutputStream(fileName, true));
+			logs.put(fileName, newPrStr);
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+		}
+		
 	}
 	
 	private void show_log() {
-		System.out.println("show_log(" + ")");
+		//System.out.println("show_log(" + ")");
+		
+		List<String> lines = new ArrayList<String>();
+		
+		for (Entry<String, PrintStream> e : logs.entrySet()) {
+			lines.add(e.getKey());
+		}
+		
+		writeToLogs(lines);
 	}
 	
 	private void log_off(String arg) {
-		System.out.println("log(" + arg + ")");		
+		//System.out.println("log(" + arg + ")");
+		
+		logs.remove(arg);
 	}
 	
 	private void drop_map() {
@@ -261,17 +305,45 @@ public class CommandHandler {
 	
 	private void show_map() {
 		//System.out.println("show_map(" + ")");
-		System.out.println(loadedMap);
+		List<String> lines = new ArrayList<String>();
+		
+		lines.add(loadedMap);
+		
+		writeToLogs(lines);
 	}
 	
 	private void run_test(String fileName) {
-		System.out.println("log(" + fileName + ")");
+		//System.out.println("log(" + fileName + ")");
+		
+		Path testFilePath = Paths.get(System.getProperty("user.dir"), fileName);
+		
+		try {
+			List<String> commands = Files.readAllLines(testFilePath);
+			
+			for (String s : commands) {
+				String[] parts = s.split(" ");
+				process(parts);
+			}
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 	
 	private void exit() {
-		System.out.println("exit(" + ")");
+
+		System.out.println("BYE <3 :*");
 		close = true;
 	}
 	
+	private void writeToLogs(List<String> lines) {
+		
+		for (PrintStream p : logs.values()) {
+			for (String s : lines) { 
+					p.println(s);
+			}
+		}
+		
+	}
 	
 }	

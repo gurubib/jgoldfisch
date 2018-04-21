@@ -1,0 +1,3 @@
+load_map testmap.txt
+log log.txt
+ls_workers

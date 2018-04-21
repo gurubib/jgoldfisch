@@ -14,6 +14,8 @@ import java.io.InputStreamReader;
  */
 public class MethodWriter {
 	
+	private static boolean log = false;
+	
 	/**
 	 * Az adott függvényhívás mélysége, fontos a kiíráshoz.
 	 */
@@ -28,6 +30,14 @@ public class MethodWriter {
 	 * Az aktuális esetben szereplő munkások száma, fontos a megfelelő nevezéktanhoz.
 	 */
 	private static int workerNum = 1;
+	
+	private static void startLog() {
+		log = true;
+	}
+
+	private static void stopLog() {
+		log = false;
+	}
 	
 	/**
 	 * A nevezéktanhoz szükséges dobozszámot adja vissza. Ez a doboz nevének második fele.
@@ -71,15 +81,17 @@ public class MethodWriter {
 	 * @param params Metódus paraméterei
 	 */
 	public static void printOutMethod(String methodName, String params) {
-		methodDepth++;
-		
-		System.out.print(">>");
-		
-		//Megfelelő behúzás
-		for (int i = 0; i < methodDepth; ++i)
-			System.out.print("   ");
-		
-		System.out.println(methodName + "(" + params + ");");
+		if (log) {
+			methodDepth++;
+			
+			System.out.print(">>");
+			
+			//Megfelelő behúzás
+			for (int i = 0; i < methodDepth; ++i)
+				System.out.print("   ");
+			
+			System.out.println(methodName + "(" + params + ");");
+		}
 	}
 	
 	/**
@@ -88,16 +100,18 @@ public class MethodWriter {
 	 * @param retVal A visszaadandó objektum neve
 	 */
 	public static void printOutRet(String retVal) {
-		System.out.print("<<");
-		
-		//Megfelelő behúzás
-		for (int i = 0; i < methodDepth; ++i)
-			System.out.print("   ");
-		
-		//Ha null a visszatérés, akkor ne írja ki, de ha nem null akkor írja ki a megadott szöveget
-		System.out.println("ret" + ((retVal == null || retVal.equals(""))? retVal : (" " + retVal)) + ";");
-		
-		methodDepth--;
+		if (log) {			
+			System.out.print("<<");
+			
+			//Megfelelő behúzás
+			for (int i = 0; i < methodDepth; ++i)
+				System.out.print("   ");
+			
+			//Ha null a visszatérés, akkor ne írja ki, de ha nem null akkor írja ki a megadott szöveget
+			System.out.println("ret" + ((retVal == null || retVal.equals(""))? retVal : (" " + retVal)) + ";");
+			
+			methodDepth--;
+		}
 	}
 	
 	/**
@@ -105,19 +119,19 @@ public class MethodWriter {
 	 * 
 	 * @param question Kiírandó kérdés
 	 */
-	public static void printOutQuestion(String question) {
-		methodDepth++;
-		
-		System.out.print("? ");
-		
-		//Megfelelő behúzás
-		for (int i = 0; i < methodDepth; ++i)
-			System.out.print("   ");
-		
-		System.out.print(question + ": ");
-		
-		methodDepth--;
-	}
+//	public static void printOutQuestion(String question) {
+//		methodDepth++;
+//		
+//		System.out.print("? ");
+//		
+//		//Megfelelő behúzás
+//		for (int i = 0; i < methodDepth; ++i)
+//			System.out.print("   ");
+//		
+//		System.out.print(question + ": ");
+//		
+//		methodDepth--;
+//	}
 	
 	/**
 	 * Bemenetről való olvasás.
