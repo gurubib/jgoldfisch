@@ -47,7 +47,7 @@ public class CommandHandler {
 		}
 
 		switch (command) {
-			case "load_map":
+			case "load-map":
 				if (args.length == 2)
 					load_map(args[1]);
 				break;
@@ -82,7 +82,7 @@ public class CommandHandler {
 				}
 				break;
 				
-			case "drop_special":
+			case "drop-special":
 				if (args.length == 3) {
 					int workerID = Integer.parseInt(args[1]);
 					
@@ -91,17 +91,17 @@ public class CommandHandler {
 				
 				break;
 				
-			case "ls_workers":
+			case "ls-workers":
 				if (args.length == 1)
 					ls_workers();
 				break;
 				
-			case "ls_boxes":
+			case "ls-boxes":
 				if (args.length == 1)
 					ls_boxes();
 				break;
 				
-			case "ls_fields":
+			case "ls-fields":
 				if (args.length == 1)
 					ls_fields();
 				break;
@@ -111,27 +111,27 @@ public class CommandHandler {
 					log(args[1]);
 				break;
 				
-			case "show_log":
+			case "show-log":
 				if (args.length == 1)
 					show_log();
 				break;
 				
-			case "log_off":
+			case "log-off":
 				if (args.length == 2)
 					log_off(args[1]);
 				break;
 				
-			case "drop_map":
+			case "drop-map":
 				if (args.length == 1)
 					drop_map();
 				break;
 				
-			case "show_map":
+			case "show-map":
 				if (args.length == 1)
 					show_map();
 				break;
 				
-			case "run_test":
+			case "run-test":
 				if (args.length == 2)
 					run_test(args[1]);
 				break;
@@ -263,6 +263,8 @@ public class CommandHandler {
 				break;
 			}
 		}
+		
+		lines.sort((p1, p2) -> p1.compareTo(p2));
 		
 		writeToLogs(lines);
 	}

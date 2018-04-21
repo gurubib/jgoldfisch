@@ -146,6 +146,10 @@ public class SwitchField extends Field {
 
 	@Override
 	public String toString() {
-		return super.toString() + " " + active;
+		String act = "0";
+		if (active)
+			act = "1";
+		
+		return super.toString() + " " + act;
 	}
 }

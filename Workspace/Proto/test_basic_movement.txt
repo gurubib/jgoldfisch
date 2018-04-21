@@ -1,0 +1,5 @@
+[W W W W W W W W]
+[W W W 1 E W W W]
+[W S H X B E X W]
+[W H S X H W W W]
+[W W W W W W W W]
