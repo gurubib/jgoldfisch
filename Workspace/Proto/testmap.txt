@@ -2,5 +2,5 @@
 [W X X X 4 X X W]
 [W X B 2 B H X W]
 [W 1 B B 3 X X W]
-[W X X X X X X W]
+[W X X X X X B W]
 [W W W W W W W W]

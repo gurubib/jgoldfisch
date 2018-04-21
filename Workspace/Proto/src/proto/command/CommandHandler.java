@@ -189,8 +189,16 @@ public class CommandHandler {
 		
 		for (Box b : boxes) {
 			String[] pos = b.getField().toString().split(" ");
+		
+			boolean fix = false;
+			List<Field> fixFields = game.getBoxRecorder().getFixFields();
+		
+			for (Field f : fixFields) {
+				if (f == b.getField())
+					fix = true;
+			}			
 			
-			System.out.println("ID:" + b.toString() + " X:" + pos[0] + " Y:" + pos[1] + " fix?");
+			System.out.println("ID:" + b.toString() + " X:" + pos[0] + " Y:" + pos[1] + " " + fix);
 		}
 	}
 	

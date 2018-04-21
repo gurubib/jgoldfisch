@@ -3,7 +3,6 @@ package proto;
 import java.io.IOException;
 
 import proto.command.*;
-import proto.logic.Map;
 
 /**
  * @author jgoldfisch

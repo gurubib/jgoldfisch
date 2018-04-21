@@ -38,7 +38,6 @@ public class Map {
 
 			int width = lines.get(0).split(" ").length;
 			int height = lines.size();
-			int id = 0;
 
 			String[][] mapString = new String[height][width];
 
@@ -224,9 +223,9 @@ public class Map {
 		}
 
 		// Maganak
-		Game.getInstance().getBoxRecorder().setFixFields(walls);
 		Game.getInstance().setWorkers(workers);
 		Game.getInstance().setBoxes(boxes);
+		Game.getInstance().getBoxRecorder().setFixFields(walls);
 	}
 
 	/**

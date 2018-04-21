@@ -37,6 +37,10 @@ public class BoxRecorder {
 	 */
 	public void setFixFields(List<Field> fixFields) {
 		this.fixFields = fixFields;
+		
+		for (Box b : Game.getInstance().getBoxes()) {
+			update(b.getField());
+		}
 	}
 
 	/**
