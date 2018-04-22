@@ -1,0 +1,6 @@
+[W W W W W W W W W]
+[W X X 1 B X X X W]
+[W X X X B B E X W]
+[W S B X B H W X W]
+[W X X X B H X X W]
+[W W W W W W W W W]
