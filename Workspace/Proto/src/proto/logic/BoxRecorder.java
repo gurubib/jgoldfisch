@@ -65,6 +65,9 @@ public class BoxRecorder {
 	 * @param f Az adott mező
 	 */
 	public void update(Field f) {
+		if(f == null)
+			return;
+		
 		boolean horizontallyfix = false;
 		boolean verticallyfix = false;
 		for (int i = 0; i < fixFields.size();i++) {

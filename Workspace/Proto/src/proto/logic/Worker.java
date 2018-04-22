@@ -135,6 +135,7 @@ public class Worker extends Movable {
         MethodWriter.printOutMethod("Worker.pushByWorker", w.toString() + ", " + d.toString());
 
         w.goBack(d.getOpposite());
+        this.getField().setMovable(this);
 
         MethodWriter.printOutRet("");
     }

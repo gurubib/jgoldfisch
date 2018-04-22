@@ -245,17 +245,17 @@ public class CommandHandler {
 			
 			switch (pos[2]) {
 			case "wall":
-				lines.add(" X:" + pos[1] + "Y:" + pos[0] +  " " + pos[2]);
+				lines.add(" X:" + pos[1] + " Y:" + pos[0] +  " " + pos[2]);
 				break;
 			case "simple":
-				lines.add(" X:" + pos[1] + "Y:" + pos[0] +  " " + pos[2] + " " + slime + " " + movable);
+				lines.add(" X:" + pos[1] + " Y:" + pos[0] +  " " + pos[2] + " " + slime + " " + movable);
 				break;
 			case "hole":
-				lines.add( " X:" + pos[1] + "Y:" + pos[0] + " " + pos[2] + " " + pos[3] + " " + slime + " " + movable);
+				lines.add( " X:" + pos[1] + " Y:" + pos[0] + " " + pos[2] + " " + pos[3] + " " + slime + " " + movable);
 				break;
 				
 			case "switch":
-				lines.add(" X:" + pos[1] + "Y:" + pos[0] +  " " + pos[2] + " " + pos[3] + " " + slime + " " + movable);
+				lines.add(" X:" + pos[1] + " Y:" + pos[0] +  " " + pos[2] + " " + pos[3] + " " + slime + " " + movable);
 				break;
 				
 			case "endz":
