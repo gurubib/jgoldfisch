@@ -194,7 +194,7 @@ public class CommandHandler {
 		for (Worker w : workers) {
 			String[] pos = w.getField().toString().split(" ");
 			
-			lines.add("ID:" + w.getId() + " X:" + pos[0] + " Y:" + pos[1] + " F:" + w.getForce());
+			lines.add("ID:" + w.getId() + " X:" + pos[1] + " Y:" + pos[0] + " F:" + w.getForce());
 		}
 		
 		writeToLogs(lines);
@@ -218,7 +218,7 @@ public class CommandHandler {
 					fix = true;
 			}			
 			
-			lines.add("ID:" + b.toString() + " X:" + pos[0] + " Y:" + pos[1] + " " + fix);
+			lines.add("ID:" + b.toString() + " X:" + pos[1] + " Y:" + pos[0] + " " + fix);
 		}
 		
 		writeToLogs(lines);
@@ -245,21 +245,21 @@ public class CommandHandler {
 			
 			switch (pos[2]) {
 			case "wall":
-				lines.add("X:" + pos[0] + " Y:" + pos[1] + " " + pos[2]);
+				lines.add(" X:" + pos[1] + "Y:" + pos[0] +  " " + pos[2]);
 				break;
 			case "simple":
-				lines.add("X:" + pos[0] + " Y:" + pos[1] + " " + pos[2] + " " + slime + " " + movable);
+				lines.add(" X:" + pos[1] + "Y:" + pos[0] +  " " + pos[2] + " " + slime + " " + movable);
 				break;
 			case "hole":
-				lines.add("X:" + pos[0] + " Y:" + pos[1] + " " + pos[2] + " " + pos[3] + " " + slime + " " + movable);
+				lines.add( " X:" + pos[1] + "Y:" + pos[0] + " " + pos[2] + " " + pos[3] + " " + slime + " " + movable);
 				break;
 				
 			case "switch":
-				lines.add("X:" + pos[0] + " Y:" + pos[1] + " " + pos[2] + " " + pos[3] + " " + slime + " " + movable);
+				lines.add(" X:" + pos[1] + "Y:" + pos[0] +  " " + pos[2] + " " + pos[3] + " " + slime + " " + movable);
 				break;
 				
 			case "endz":
-				lines.add("X:" + pos[0] + " Y:" + pos[1] + " " + pos[2] + " " + slime + " " + movable);
+				lines.add(" X:" + pos[1] + "Y:" + pos[0] +  " " + pos[2] + " " + slime + " " + movable);
 				break;
 			}
 		}
