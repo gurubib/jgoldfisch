@@ -1,5 +1,0 @@
-ID:b1 X:2 Y:5 false
-ID:b2 X:3 Y:5 false
-ID:b3 X:3 Y:6 false
-ID:b4 X:4 Y:2 false
-ID:b6 X:5 Y:5 false
