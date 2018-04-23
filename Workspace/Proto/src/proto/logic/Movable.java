@@ -17,6 +17,9 @@ public abstract class Movable {
     public abstract void scorePoint(Direction d);
     public abstract void finalizeStep();
 
+    /**
+     * Az objektum nevét kiíró toString() függvény felüldefiniálása.
+     */
     @Override
     public String toString() {
         return skeletonName;

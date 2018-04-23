@@ -152,6 +152,11 @@ public class Game {
 			System.out.println("GAME OVER");
 		}
 	}
+	
+	/**
+	 * A kapott munkást törli a játékból.
+	 * @param w - a törölni kívánt munkás
+	 */
 	public void deleteWorker(Worker w) {
 		workers.remove(w);
 		workerCounter--;
@@ -160,6 +165,11 @@ public class Game {
 		}
 	}
 	
+	/**
+	 * Elindít egy játékot, a pálya betöltésével.
+	 * 
+	 * @param mapFile - a betöltendő pálya
+	 */
 	public void startGame(String mapFile) {
 		map.loadMap(mapFile);
 	}

@@ -14,6 +14,9 @@ import java.io.InputStreamReader;
  */
 public class MethodWriter {
 	
+	/**
+	 * A metódusokhoz tartozó logolást kapcsolja ki/be.
+	 */
 	private static boolean log = false;
 	
 	/**
@@ -31,6 +34,7 @@ public class MethodWriter {
 	 */
 	private static int workerNum = 1;
 	
+	/*
 	private static void startLog() {
 		log = true;
 	}
@@ -38,6 +42,7 @@ public class MethodWriter {
 	private static void stopLog() {
 		log = false;
 	}
+	*/
 	
 	/**
 	 * A nevezéktanhoz szükséges dobozszámot adja vissza. Ez a doboz nevének második fele.

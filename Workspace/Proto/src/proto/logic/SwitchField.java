@@ -144,6 +144,10 @@ public class SwitchField extends Field {
 		MethodWriter.printOutRet("");
 	}
 
+	/**
+	 * Az objektum állapotát és nevét kiíró toString() 
+	 * függvény felüldefiniálása.
+	 */
 	@Override
 	public String toString() {
 		String act = "0";

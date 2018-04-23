@@ -7,18 +7,34 @@ import proto.out.MethodWriter;
 
 /**
  * Az egyes mező típusok absztrakt ősosztálya.
+ * 
  */
 public abstract class Field {
-	
+	/**
+	 * Az adott objektumot a kiíráskor reprezentáló név.
+	 */
 	private String skeletonName;
-	
+	/**
+	 * a pályán lévő mező szomszédai az adott irányokból
+	 */
 	private Map<Direction, Field> neighbors = new HashMap<Direction, Field>();
+	
+	/**
+	 * Az esetleges mezőn álló Movable objektum referenciája.
+	 */
 	private Movable movable = null;
+	
+	/**
+	 * Az esetleges mezőn lévő erő módosító referenciája.
+	 */
 	private Slime slime = null;
 	
 	public abstract Movable boxEnters(Box b, Direction d);
 	public abstract Movable workerEnters(Worker w, Direction d);
 	
+	/**
+	 * Az objektum nevének kiírására felüldefiniált toString() metódus.
+	 */
 	@Override
 	public String toString() {
 		return skeletonName;
@@ -121,6 +137,12 @@ public abstract class Field {
 		MethodWriter.printOutMethod("Field.workerArrived",w.toString());
 		MethodWriter.printOutRet("");
 	}
+	
+	/**
+	 * A kapott erőt a mezőn lévő anyag függvényében megváltoztatja.
+	 * @param f - a kapott eredeti erő
+	 * @return
+	 */
 	int interact(int f) {
 		MethodWriter.printOutMethod("Field.interact",Integer.toString(f));
 		if (slime == null) {

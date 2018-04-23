@@ -3,14 +3,14 @@ package proto.logic;
 import proto.out.MethodWriter;
 /**
  * 
- * Ennek az osztĂˇlynak az egyes pĂ©ldĂˇnyai fogjĂˇk reprezentĂˇlni a dobozokat a jĂˇtĂ©kban. 
- * Ĺ�ket kell majd a cĂ©lmezĹ‘re eljuttatni.
+ * Ennek az osztálynak az egyes példányai reprezentálják a dobozokat a játékban. 
+ * Őket lehet a célmezőre eljuttatni.
  *
  */
 public class Box extends Movable {
 
 /**
- * Ez a fĂĽggvĂ©ny felel az entitĂˇs elpusztĂ­tĂˇsĂˇĂ©rt, illetve csĂ¶kkenti a szabad dobozok szĂˇmĂˇt.
+ * Ez a függvény felel az entitás elpusztításáért, illetve csökkenti a szabad dobozok számát.
  */
 	@Override
 	public void die() {
@@ -22,12 +22,12 @@ public class Box extends Movable {
 		Game.getInstance().decreaseBoxes(this);
 		MethodWriter.printOutRet("");
 	}
-/**
- * Ennek a fĂĽggvĂ©nynek a segĂ­tsĂ©gĂ©vel a tolĂˇs irĂˇnyĂˇba visszalĂ©ptethetjĂĽk a dobozt. 
- * (Erre szĂĽksĂ©g van pl. amikor a falba bele akarnĂˇnk tolni a dobozt.)
- *
- * @param d a visszalĂ©ptetĂ©s irĂˇnya
- */
+	/**
+	 * Ennek a függvénynek a segítségével a tolás irányába visszaléptethetjük a dobozt. 
+	 * (Erre szükség van pl. amikor a falba bele akarnánk tolni a dobozt.)
+	 *
+	 * @param d a visszaléptetés iránya
+	 */
 	@Override
 	public void pushBack(Direction d) {
 		MethodWriter.printOutMethod("Box.pushBack", d.toString());
@@ -41,13 +41,16 @@ public class Box extends Movable {
 		
 		MethodWriter.printOutRet("");
 	}
-/**
- * FĂĽggvĂ©ny arra az esetre, amennyiben a lĂˇdĂˇnkat (Box) egy mĂˇsik doboz tolja meg, 
- * intĂ©zi, hogy a lĂˇda a megfelelĹ‘ helyre kerĂĽljĂ¶n.
- *
- *@param b a doboz, ami tol
- *@param d az irĂˇny ahonnan tol
- */
+	/**
+	 * Függvény arra az esetre, amennyiben a ládánkat (Box) egy másik doboz tolja meg, 
+	 * intézi, hogy a láda a megfelelő helyre kerüljön.
+	 * Továbbá ellenőrzi, hogy a kapott erővel van-e lehetőség eltolni a doboz-t, 
+	 * figyelembe véve a mezőn lévő anyagot.
+	 *
+	 *@param b a doboz, ami tol
+	 *@param d az irány ahonnan tol
+	 *@param f az erő amivel tolni kívánják a dobozt
+	 */
 	@Override
 	public void pushByBox(Box b, Direction d,int f) {
 		MethodWriter.printOutMethod("Box.pushByBox", b.toString() + ", " + d.toString());
@@ -71,13 +74,16 @@ public class Box extends Movable {
 
 		MethodWriter.printOutRet("");
 	}
-/**
- * A lĂˇda (Box) egy jĂˇtĂ©kos Ăˇltal valĂł megtolĂˇsĂˇkor hĂ­vjuk meg, 
- * intĂ©zi hogy a lĂˇda a megfelelĹ‘ helyre kerĂĽljĂ¶n.
- * 
- *@param w a munkĂˇs, aki tolja a lĂˇdĂˇt
- *@param d az irĂˇny, ahonnan tolja
- */
+	/**
+	 * A láda (Box) egy játékos által való megtolásákor hívjuk meg, 
+	 * intézi hogy a láda a megfelelő helyre kerüljön. 
+	 * Továbbá ellenőrzi, hogy a munkás által átadott erővel van-e lehetőség
+	 *  a dobozt eltolni a mezőn lévő anyag függvényében.
+	 * 
+	 *@param w a munkás, aki tolja a ládát
+	 *@param d az irány, ahonnan tolja
+	 *@param f az erő amivel tolni kívánják a dobozt
+	 */
 	@Override
 	public void pushByWorker(Worker w, Direction d, int f) {
 		MethodWriter.printOutMethod("Box.pushByWorker", w.toString() + ", " + d.toString());
@@ -100,13 +106,13 @@ public class Box extends Movable {
 
 		MethodWriter.printOutRet("");
 	}
-/**
- * Amennyiben a cĂ©lmezĹ‘re tolĂłdott a lĂˇda, ennek a fĂĽggvĂ©nynek a segĂ­tsĂ©gĂ©vel vĂ©gezhetjĂĽk el
- *  a megfelelĹ‘ jĂˇtĂ©kos pontjainak nĂ¶velĂ©sĂ©t, Ă­gy a hĂ­vĂˇst mindig tovĂˇbbadja 
- *  a megfelelĹ‘ irĂˇnyban ĂˇllĂł Movable-nek (meghĂ­vja rajta Ă¶nmagĂˇt).
- *
- *@param d az irĂˇny, ahonnan toltĂˇk a lĂˇdĂˇt
- */
+	/**
+	 * Amennyiben a célmezőre tolódott a láda, ennek a függvénynek a segítségével végezhetjük el
+	 *  a megfelelő játékos pontjainak növelését, így a hívást mindig továbbadja 
+	 *  a megfelelő irányban álló Movable-nek (meghívja rajta önmagát).
+	 *
+	 *@param d az irány, ahonnan tolták a ládát
+	 */
 	@Override
 	public void scorePoint(Direction d) {
 		MethodWriter.printOutMethod("Box.finalizeStep", "");
@@ -119,10 +125,10 @@ public class Box extends Movable {
 		
 		MethodWriter.printOutRet("");
 	}
-/**
- * Ez az a fĂĽggvĂ©ny, ami az egyes lĂ©pĂ©sek vĂ©glegesĂ­tĂ©sĂ©rt felel, 
- * a lĂ©ptetĂ©s Ă©rvĂ©nyessĂ©ge vizsgĂˇlatĂˇt kĂ¶vetĹ‘en.
- */
+	/**
+	 * Ez az a függvény, ami az egyes lépések véglegesítésért felel, 
+	 * a léptetés érvényessége vizsgálatát követően.
+	 */
 	@Override
 	public void finalizeStep() {
 		MethodWriter.printOutMethod("Box.finalizeStep", "");

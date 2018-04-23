@@ -275,10 +275,17 @@ public class Map {
 		}
 	}
 
+	/**
+	 * Mezők lekérésére szolgáló függvény.
+	 * @return
+	 */
 	public List<Field> getFields() {
 		return fields;
 	}
-
+	/**
+	 * A kapott paraméterre állítja a mezőket.
+	 * @param fields
+	 */
 	public void setFields(List<Field> fields) {
 		this.fields = fields;
 	}

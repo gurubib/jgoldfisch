@@ -5,18 +5,42 @@ import java.util.ArrayList;
 import proto.out.MethodWriter;
 
 /**
- * A pályán egy munkást reprezentáló osztály. Képes eltolni a ládákat,
- * továbbá pontokat kap, minden helyére illesztett dobozért.
+ * A játékosok által irányított munkást reprezentáló osztály. 
+ * Ő tudja a ládákat (Box) eltolni, illetve a pontokat is ő kapja majd. 
+ * Ismeri a mezőt, ahol áll és tárolja a pontjait. 
+ * Meg tud halni, ez többféleképpen is bekövetkezhet, 
+ * ilyenkor eltűnik a pályáról.
  */
 public class Worker extends Movable {
 
+	/**
+	 * A játékos pontjai, amiket az egyes ládák célmezőre juttatásáért kap.
+	 */
 	private int points = 0;
+	
+	/**
+	 * A játékos ereje, mely minden meghatározza, 
+	 * hogy el tudja-e tolni a dobozok sorát.
+	 */
 	int force = 5; // A játékos ereje, mely meghatározza, hogy el tudja-e tolni a dobozok
 					// sorát.
+	
+	/**
+	 * Referenciák a munkás által lerakható olaj Slime-okra.
+	 */
 	ArrayList<Oil> oils = new ArrayList<Oil>(); // Referenciák a munkás által lerakható olaj Slime-okra.
+	/**
+	 * Referenciák a munkás által lerakható méz Slime-okra.
+	 */
 	ArrayList<Honey> honeys = new ArrayList<Honey>(); // Referenciák a munkás által lerakható méz Slime-okra.
+	/**
+	 * A munkás azonosítója.
+	 */
 	int id;
-
+	
+	/**
+	 * Default konstruktor, mely ellátja olajjal és mézzel a játékost.
+	 */
 	public Worker() {
 		for (int i = 0; i < 5; i++) {
 			oils.add(new Oil());
@@ -43,7 +67,7 @@ public class Worker extends Movable {
 	/**
 	 * Alapvető getter függvény, visszaadja az adott attribútumot
 	 * 
-	 * @return A points attribútum értéke
+	 * @return points attribútum értéke
 	 */
 	public int getPoints() {
 		return points;
@@ -52,8 +76,7 @@ public class Worker extends Movable {
 	/**
 	 * Alapvető setter függvény, beállítható vele az adott attribútum
 	 * 
-	 * @param A
-	 *            points attribútum kívánt értéke
+	 * @param points points attribútum kívánt értéke
 	 */
 	public void setPoints(int points) {
 		this.points = points;
@@ -76,11 +99,14 @@ public class Worker extends Movable {
 	}
 
 	/**
-	 * Visszatolja a munkást eggyel a kapott irányba. Amennyiben ez nem
-	 * lehetséges a munkás meghal.
+	 * Ennek a függvénynek ott van szerepe, amikor egy munkás a 
+	 * dobozt a falba bele akarná tolni. Ekkor ezt nem engedi majd, 
+	 * hanem az egész sor (pl.: munkás-doboz-fal) egyet visszafele 
+	 * fog lépni. Ekkor ha a munkás visszalépendő mezőjén tartózkodik 
+	 * valami, akkor a munkás meghal.
+	 * Ennek a megvalósításáért részben felelős ez a metódus is.
 	 *
-	 * @param d
-	 *            a tolás iránya
+	 * @param d a tolás iránya
 	 */
 	@Override
 	public void pushBack(Direction d) {
@@ -99,12 +125,13 @@ public class Worker extends Movable {
 	}
 
 	/**
-	 * Metódus a munkás mozgatásához, amennyiben egy doboz tolja meg.
+	 * Ez a függvény arra az esetre szolgál, hogyha a munkást 
+	 * egy dobozzal (Box) próbálnának meg eltolni. 
+	 * Továbbá továbbadja a kapott erőt a következőnek a sorban.
 	 *
-	 * @param b
-	 *            referencia a munkást megtoló dobozra
-	 * @param d
-	 *            az irány, melybe a munkást a doboz tolja
+	 * @param b referencia a munkást megtoló dobozra
+	 * @param d az irány, melybe a munkást a doboz tolja
+	 * @param f az erő, amivel tolják
 	 */
 	@Override
 	public void pushByBox(Box b, Direction d, int f) {
@@ -129,12 +156,12 @@ public class Worker extends Movable {
 	}
 
 	/**
-	 * Metódus a munkás mozgatásához, ammennyiben egy munkás tolja meg.
-	 *
-	 * @param w
-	 *            referencia a munkást megtoló munkásra
-	 * @param d
-	 *            irány, melybe a munkást a másik munkás tolja
+	 * Ez a függvény arra az esetre szolgál, ha a munkást egy 
+	 * másik munkás próbálná meg eltolni. 
+	 * Továbbá továbbadja a kapott erőt a következőnek a sorban.
+	 * @param w referencia a munkást megtoló munkásra
+	 * @param d irány, melybe a munkást a másik munkás tolja
+	 * @param f az erő, amivel tolják
 	 */
 	@Override
 	public void pushByWorker(Worker w, Direction d, int f) {
@@ -147,10 +174,10 @@ public class Worker extends Movable {
 	}
 
 	/**
-	 * A pontszerzés alkalmával meghívott függvény.
+	 * A pontok növeléséért felelős, méghozzá az 
+	 * increasePoints() függvény segítségével.
 	 *
-	 * @param d
-	 *            Az irány, melybe továbadja a pontszerzést.
+	 * @param d Az irány, melybe továbadja a pontszerzést.
 	 */
 	@Override
 	public void scorePoint(Direction d) {
@@ -162,12 +189,12 @@ public class Worker extends Movable {
 	}
 
 	/**
-	 * A munkás irányításáért felelős metódus. A paraméterként kapott
-	 * irányba mozgatja a munkást és meghívja az ehhez szükséges további
-	 * metódusokat.
+	 * A munkás (Worker) irányításáért felelős függvény. 
+	 * A paraméterben kapott irányban fogja megpróbálni elmozdítani 
+	 * a munkást a szomszédos mezők figyelembe vételével 
+	 * (Mindez önakaratból történik, tehát a felhasználó beavatkozására).
 	 *
-	 * @param d
-	 *            a mozgatás iránya
+	 * @param d a mozgatás iránya
 	 */
 	public void control(Direction d) {
 		MethodWriter.printOutMethod("Worker.control", "d");
@@ -201,10 +228,13 @@ public class Worker extends Movable {
 	}
 
 	/**
-	 * Visszalép a paraméterként kapott irányba egyet.
+	 * A munkás - munkás ütközés / eltolás megfelelő 
+	 * lekezelésében van szerepe, mégpedig elindít egy visszafele 
+	 * való lökést, hiszen nem szabad hagyni, hogy az egyik munkás 
+	 * a másikat közvetlenül eltolja, tehát úgymond visszarendezi 
+	 * a dolgokat.
 	 *
-	 * @param d
-	 *            a visszalépés iránya.
+	 * @param d a visszalépés iránya.
 	 */
 	public void goBack(Direction d) {
 		MethodWriter.printOutMethod("Worker.goBack", d.toString());
@@ -230,7 +260,9 @@ public class Worker extends Movable {
 
 		MethodWriter.printOutRet("");
 	}
-
+	/**
+	 * Függvény arra az esetre, ha a játékos egy olajmezőt helyez a pályára.
+	 */
 	public void placeOil() {
 		MethodWriter.printOutMethod("Worker.placeOil", "");
 		if (oils.size() == 0) {
@@ -240,7 +272,9 @@ public class Worker extends Movable {
 		this.getField().setSlime(oils.remove(0));
 		MethodWriter.printOutRet("");
 	}
-
+	/**
+	 * Függvény arra, ha a játékos egy mézet helyez a pályára.
+	 */
 	public void placeHoney() {
 		MethodWriter.printOutMethod("Worker.placeHoney", "");
 		if (honeys.size() == 0) {

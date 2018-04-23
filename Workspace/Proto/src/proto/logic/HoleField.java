@@ -138,6 +138,7 @@ public class HoleField extends Field {
 	/**
 	 * A kapcsoló megváltoztatása esetén hívjuk meg, 
 	 * hogy ha áll valami abban a pillanatban a lyukon, akkor az megsemmisül.
+	 * Ezen felül megszünteti a lyukon lévő Slime referenciáját.
 	 */
 	public void changeToActive() {
 		MethodWriter.printOutMethod("HoleField.changeToActive","");
@@ -146,7 +147,10 @@ public class HoleField extends Field {
 		this.setSlime(null);
 		MethodWriter.printOutRet("");
 	}
-	
+	/**
+	 * Az osztályhoz tartozó toString() metódus felüldefiniálása.
+	 * 
+	 */
 	@Override
 	public String toString() {
 		String act = "1";

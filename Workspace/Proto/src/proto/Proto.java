@@ -5,6 +5,9 @@ import java.io.IOException;
 import proto.command.*;
 
 /**
+ * Ez a program belépési pontjául szolgáló osztály, ami létrehoz egy parancskezelőt,
+ * és beolvassa a parancsokat, majd elindítja a parancsok kezelelését.
+ * 
  * @author jgoldfisch
  *
  */
