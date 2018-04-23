@@ -16,18 +16,50 @@ import java.util.Map.Entry;
 
 import proto.logic.*;
 
+/**
+ * A bemeneti nyelvet kezelő osztály, a kiadott parancsokat értelmezi és dolgozza fel.
+ * Meghívja a parancs végrehajtásához szükséges egyéb metódusokat,
+ * továbbá tárolja a játék referenciáját (Singleton osztály). Itt fut igazából az üzenetkezelő loop.
+ * 
+ * @author jgoldfisch
+ *
+ */
 public class CommandHandler {
 	
+	/**
+	 * Az üzenetkezelő ciklus kilépési feltétele, az exit parancsnál válik igazzá.
+	 */
 	private boolean close = false;
+	
+	/**
+	 * Az adott játék referenciája, a Singleton minta alapján kezelve.
+	 */
 	private Game game = Game.getInstance();
+	
+	/**
+	 * A betöltött pályafájl neve.
+	 */
 	private String loadedMap;
 	
+	/**
+	 * A használt logok, fájlnévvel azonosítva.
+	 */
 	private java.util.Map<String, PrintStream> logs = new HashMap<String, PrintStream>();
 	
+	
+	/**
+	 * Default konstruktor, a System.out-ot automatikusan, scrn azonosítóval eltárolja a logokba.
+	 */
 	public CommandHandler() {
 		logs.put("scrn", System.out);
 	}
 	
+	/**
+	 * Az üzenetkezelő loop-ot futtató függvény, beolvas egy sornyi parancsot,
+	 * majd darabokra szedi és továbbadja a parancskezelő függvénynek, ami folytatja a feldolgozást.
+	 * 
+	 * @throws IOException
+	 */
 	public void readInput() throws IOException {
 		while (!close) {
 			BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
@@ -38,6 +70,13 @@ public class CommandHandler {
 		}
 	}
 	
+	/**
+	 * A parancsok feldolgozásáért, értelmezéséért felelős függvény.
+	 * Szétszedi az adott utasítást parancsra és argumentumokra,
+	 * majd meghívja a megfelelő parancs elvégzését lebonyolító függvényt. 
+	 * 
+	 * @param args Az adott utasítás darabokra szedve
+	 */
 	private void process(String[] args) {
 		String command = "";
 		
@@ -143,11 +182,22 @@ public class CommandHandler {
 			}
 	}
 	
+	/**
+	 * A pálya betöltését elvégző parancs függvénye.
+	 * 
+	 * @param fileName A pályafájl neve
+	 */
 	private void load_map(String fileName) {
 		game.startGame(fileName);
 		loadedMap = fileName;
 	}
 	
+	/**
+	 * A munkás irányítását végző parancs függvénye.
+	 * 
+	 * @param workerID Az irányítandó munkás azonosítója.
+	 * @param d A kívánt irány.
+	 */
 	private void control(int workerID, Direction d) {
 		//System.out.println("control(" + workerID + ", " + d.toString() + ")");
 		List<Worker> workers = game.getWorkers();
@@ -163,6 +213,12 @@ public class CommandHandler {
 			controlledWorker.control(d);
 	}
 	
+	/**
+	 * Speciális elem lerakását végző parancs függvénye.
+	 * 
+	 * @param workerID A munkás azonosítója
+	 * @param type A speciális elem típusa
+	 */
 	private void drop_special(int workerID, String type) {
 		//System.out.println("drop_special(" + workerID + ", " + type + ")");
 		
@@ -184,6 +240,9 @@ public class CommandHandler {
 			
 	}
 	
+	/**
+	 * Munkások listázását elvégző parancs függvénye.
+	 */
 	private void ls_workers() {
 		//System.out.println("ls_workers(" + ")");
 		
@@ -200,6 +259,9 @@ public class CommandHandler {
 		writeToLogs(lines);
 	}
 	
+	/**
+	 * Dobozok listázását elvégző parancs függvénye.
+	 */
 	private void ls_boxes() {
 		//System.out.println("ls_boxes(" + ")");
 		
@@ -224,6 +286,9 @@ public class CommandHandler {
 		writeToLogs(lines);
 	}
 	
+	/**
+	 * Mezők listázását elvégző parancs függvénye.
+	 */
 	private void ls_fields() {
 		//System.out.println("ls_fields(" + ")");
 		
@@ -269,6 +334,11 @@ public class CommandHandler {
 		writeToLogs(lines);
 	}
 	
+	/**
+	 * Logolást hozzáadó parancs függvénye.
+	 * 
+	 * @param fileName A kívánt log fájlneve
+	 */
 	private void log(String fileName) {
 		//System.out.println("log(" + fileName + ")");
 		
@@ -281,6 +351,9 @@ public class CommandHandler {
 		
 	}
 	
+	/**
+	 * A meglévő logolási helyeket listázó parancs függvénye.
+	 */
 	private void show_log() {
 		//System.out.println("show_log(" + ")");
 		
@@ -293,18 +366,29 @@ public class CommandHandler {
 		writeToLogs(lines);
 	}
 	
+	/**
+	 * Adott logolás befejezését elvégző parancs függvénye.
+	 * 
+	 * @param arg A befejezendő parancs neve / fájlneve
+	 */
 	private void log_off(String arg) {
 		//System.out.println("log(" + arg + ")");
 		
 		logs.remove(arg);
 	}
 	
+	/**
+	 * A betöltött pálya eldobásáért felelős parancs függvénye.
+	 */
 	private void drop_map() {
 		//System.out.println("drop_map(" + ")");		
 		game.setMap(null);
 		loadedMap = "No map is loaded";
 	}
 	
+	/**
+	 * A betöltött pálya fájlnevét kiíró parancs függvénye.
+	 */
 	private void show_map() {
 		//System.out.println("show_map(" + ")");
 		List<String> lines = new ArrayList<String>();
@@ -314,6 +398,11 @@ public class CommandHandler {
 		writeToLogs(lines);
 	}
 	
+	/**
+	 * Előre megírt teszteset futtatásáért felelős parancs függvénye.
+	 * 
+	 * @param fileName Az előre megírt teszteset fájlneve
+	 */
 	private void run_test(String fileName) {
 		//System.out.println("log(" + fileName + ")");
 		
@@ -332,12 +421,20 @@ public class CommandHandler {
 		}
 	}
 	
+	/**
+	 * Kilépésért felelős parancs függvénye.
+	 */
 	private void exit() {
 
 		System.out.println("BYE <3 :*");
 		close = true;
 	}
 	
+	/**
+	 * A logolásért felelős függvény, végigmegy az összes logon és kiírja a kapott sorokat.
+	 * 
+	 * @param lines A logolni kívánt sorok listája
+	 */
 	private void writeToLogs(List<String> lines) {
 		
 		for (PrintStream p : logs.values()) {
