@@ -10,18 +10,18 @@
  X:2 Y:2 wall
  X:2 Y:3 wall
  X:2 Y:4 simple x x
+ X:2 Y:5 endz x x
  X:2 Y:6 wall
  X:2 Y:7 wall
  X:2 Y:8 wall
- X:2Y:5 endz x x
  X:3 Y:1 wall
  X:3 Y:2 switch 0 x x
  X:3 Y:3 hole 0 x x
  X:3 Y:4 simple x x
  X:3 Y:5 simple x b1
+ X:3 Y:6 endz x x
  X:3 Y:7 simple x x
  X:3 Y:8 wall
- X:3Y:6 endz x x
  X:4 Y:1 wall
  X:4 Y:2 hole 0 x x
  X:4 Y:3 switch 0 x w1
