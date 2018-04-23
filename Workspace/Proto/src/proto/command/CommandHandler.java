@@ -324,7 +324,7 @@ public class CommandHandler {
 				break;
 				
 			case "endz":
-				lines.add(" X:" + pos[1] + "Y:" + pos[0] +  " " + pos[2] + " " + slime + " " + movable);
+				lines.add(" X:" + pos[1] + " Y:" + pos[0] +  " " + pos[2] + " " + slime + " " + movable);
 				break;
 			}
 		}
@@ -342,8 +342,10 @@ public class CommandHandler {
 	private void log(String fileName) {
 		//System.out.println("log(" + fileName + ")");
 		
+		Path logPath = Paths.get(System.getProperty("user.dir"), "logs", fileName);
+		
 		try {
-			PrintStream newPrStr = new PrintStream(new FileOutputStream(fileName, true));
+			PrintStream newPrStr = new PrintStream(new FileOutputStream(logPath.toFile(), false));
 			logs.put(fileName, newPrStr);
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();
@@ -406,7 +408,7 @@ public class CommandHandler {
 	private void run_test(String fileName) {
 		//System.out.println("log(" + fileName + ")");
 		
-		Path testFilePath = Paths.get(System.getProperty("user.dir"), fileName);
+		Path testFilePath = Paths.get(System.getProperty("user.dir"), "tests", fileName);
 		
 		try {
 			List<String> commands = Files.readAllLines(testFilePath);
@@ -426,7 +428,7 @@ public class CommandHandler {
 	 */
 	private void exit() {
 
-		System.out.println("BYE <3 :*");
+		//System.out.println("BYE <3 :*");
 		close = true;
 	}
 	
