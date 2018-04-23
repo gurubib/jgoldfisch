@@ -1,0 +1,22 @@
+load-map second_basic_map.txt
+drop-special 1 -o
+control 1 -r
+control 1 -r
+drop-special 1 -o
+control 2 -d
+control 1 -r
+control 1 -u
+control 1 -u
+control 1 -l
+control 1 -d
+control 1 -u
+control 1 -l
+control 1 -l
+control 1 -d
+control 1 -l
+control 1 -d
+control 1 -r
+ls-workers
+ls-boxes
+ls-fields
+exit

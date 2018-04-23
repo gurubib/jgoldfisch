@@ -1,0 +1,7 @@
+load-map test_basic_pushes.txt
+log log_test10.txt
+control 1 -d
+control 1 -r
+control 1 -r
+ls-boxes
+exit

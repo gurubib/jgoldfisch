@@ -1,0 +1,10 @@
+load-map second_basic_map.txt
+log log_test20.txt
+control 1 -l
+control 1 -u
+control 1 -r
+control 2 -l
+ls-workers
+ls-boxes
+ls-fields
+exit

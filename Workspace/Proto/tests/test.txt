@@ -1,0 +1,7 @@
+load-map test_basic_movement.txt
+log log.txt
+control 1 -d
+control 1 -d
+control 1 -r
+ls-workers
+exit
