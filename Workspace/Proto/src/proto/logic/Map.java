@@ -31,7 +31,7 @@ public class Map {
 		SwitchField prevSwitch = null;
 		HoleField prevHole = null;
 
-		Path mapFilePath = Paths.get(System.getProperty("user.dir"), mapFile);
+		Path mapFilePath = Paths.get(System.getProperty("user.dir"), "maps", mapFile);
 
 		try {
 			List<String> lines = Files.readAllLines(mapFilePath);

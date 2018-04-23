@@ -16,7 +16,7 @@ public class Box extends Movable {
 	public void die() {
 		MethodWriter.printOutMethod("Box.die", "");
 		
-		//ReferenciĂˇk nullra ĂˇllĂ­tĂˇsa
+		//Referenciák nullra állítása
 		this.getField().remove(this);
 		this.setField(null);
 		Game.getInstance().decreaseBoxes(this);
@@ -58,9 +58,9 @@ public class Box extends Movable {
 		Field neighbor = getField().getNeighbor(d);
 		
 		int f2 = getField().interact(f);
-		System.out.println(f2);
+		//System.out.println(f2);
 		Movable neighborMovable = neighbor.boxEnters(this, d);
-		//Ha Ă¶nmagunkat kapjuk vissza, akkor visszalĂ©pĂĽnk ellenkezĹ‘ irĂˇnyba
+		
 		if (neighborMovable == this || f2 <0) {
 			Field backwardNeighbor = neighbor.getNeighbor(d.getOpposite());
 			Movable backwardMovable = backwardNeighbor.boxEnters(this, d.getOpposite());
@@ -92,7 +92,7 @@ public class Box extends Movable {
 		
 		int f2 = getField().interact(f);
 		Movable neighborMovable = neighbor.boxEnters(this, d);
-		//Ha Ă¶nmagunkat kapjuk vissza, akkor visszalĂ©pĂĽnk ellenkezĹ‘ irĂˇnyba
+	
 		if (neighborMovable == this || f2 <0) {
 			Field backwardNeighbor = neighbor.getNeighbor(d.getOpposite());
 			Movable backwardMovable = backwardNeighbor.boxEnters(this, d.getOpposite());
