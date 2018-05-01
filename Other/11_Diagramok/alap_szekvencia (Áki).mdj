@@ -12640,9 +12640,9 @@
 													"showShadow": true,
 													"containerChangeable": false,
 													"containerExtending": false,
-													"left": 379,
+													"left": 357,
 													"top": 128,
-													"width": 59.97900390625,
+													"width": 103.3271484375,
 													"height": 13,
 													"autoResize": false,
 													"alpha": 1.5707963267948966,
@@ -12652,7 +12652,7 @@
 													},
 													"edgePosition": 1,
 													"underline": false,
-													"text": "runMenu()",
+													"text": "showEndPanel()",
 													"horizontalAlignment": 2,
 													"verticalAlignment": 5,
 													"wordWrap": false
@@ -13152,7 +13152,7 @@
 									"_parent": {
 										"$ref": "AAAAAAFjHFlaPSOg0l0="
 									},
-									"name": "runMenu()",
+									"name": "showEndPanel()",
 									"source": {
 										"$ref": "AAAAAAFjHFqUhCPYGAs="
 									},
