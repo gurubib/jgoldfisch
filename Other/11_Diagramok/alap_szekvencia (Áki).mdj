@@ -17915,9 +17915,15 @@
 													"showShadow": true,
 													"containerChangeable": false,
 													"containerExtending": false,
+<<<<<<< HEAD
 													"left": 71,
 													"top": 189,
 													"width": 59.97900390625,
+=======
+													"left": 522,
+													"top": 508,
+													"width": 0,
+>>>>>>> ee9c572043dc13a88d681fce754c4a68460e5c06
 													"height": 13,
 													"autoResize": false,
 													"alpha": 1.5707963267948966,
@@ -17949,8 +17955,13 @@
 													"showShadow": true,
 													"containerChangeable": false,
 													"containerExtending": false,
+<<<<<<< HEAD
 													"left": 100,
 													"top": 204,
+=======
+													"left": 522,
+													"top": 523,
+>>>>>>> ee9c572043dc13a88d681fce754c4a68460e5c06
 													"width": 0,
 													"height": 13,
 													"autoResize": false,
@@ -17983,8 +17994,13 @@
 													"showShadow": true,
 													"containerChangeable": false,
 													"containerExtending": false,
+<<<<<<< HEAD
 													"left": 101,
 													"top": 169,
+=======
+													"left": 523,
+													"top": 488,
+>>>>>>> ee9c572043dc13a88d681fce754c4a68460e5c06
 													"width": 0,
 													"height": 13,
 													"autoResize": false,
@@ -18017,8 +18033,13 @@
 													"showShadow": true,
 													"containerChangeable": false,
 													"containerExtending": false,
+<<<<<<< HEAD
 													"left": 24,
 													"top": 185,
+=======
+													"left": 185,
+													"top": 504,
+>>>>>>> ee9c572043dc13a88d681fce754c4a68460e5c06
 													"width": 14,
 													"height": 25,
 													"autoResize": false
@@ -18040,7 +18061,11 @@
 												"$ref": "AAAAAAFjHGxIbiUIGTI="
 											},
 											"lineStyle": 0,
+<<<<<<< HEAD
 											"points": "165:185;38:185",
+=======
+											"points": "848:504;198:504",
+>>>>>>> ee9c572043dc13a88d681fce754c4a68460e5c06
 											"nameLabel": {
 												"$ref": "AAAAAAFjHG4J8yWUQQY="
 											},
