@@ -10015,7 +10015,7 @@
 									"model": {
 										"$ref": "AAAAAAFjGodutuWyH+E="
 									},
-									"visible": true,
+									"visible": false,
 									"enabled": true,
 									"lineColor": "#000000",
 									"fillColor": "#ffffff",
@@ -10119,7 +10119,7 @@
 									"model": {
 										"$ref": "AAAAAAFjGodut+Wzh1M="
 									},
-									"visible": true,
+									"visible": false,
 									"enabled": true,
 									"lineColor": "#000000",
 									"fillColor": "#ffffff",
@@ -18424,7 +18424,6 @@
 								"visibility": "private",
 								"navigable": true,
 								"aggregation": "none",
-								"multiplicity": "1",
 								"isReadOnly": false,
 								"isOrdered": false,
 								"isUnique": false,
@@ -18444,7 +18443,6 @@
 								"visibility": "private",
 								"navigable": true,
 								"aggregation": "none",
-								"multiplicity": "1",
 								"isReadOnly": false,
 								"isOrdered": false,
 								"isUnique": false,
