@@ -1,101 +1,71 @@
-
-import java.awt.*;
-import java.awt.event.ActionEvent;
-
+package gui;
+import java.awt.Dimension;
+import java.awt.Font;
+import java.awt.Graphics;
+import java.awt.Image;
+import java.awt.Point;
+import java.awt.Toolkit;
 import java.io.InputStream;
+
 import javax.imageio.ImageIO;
+import javax.swing.JPanel;
 
-import javax.swing.*;
-import javax.swing.border.EmptyBorder;
-
-
+/**
+ * Egy alapvetÅ‘ JPanelt lÃ©trehozÃ³ osztÃ¡ly. Rendelkezik egy hÃ¡ttÃ©rrel Ã©s egy
+ * hozzÃ¡ tartozÃ³ betÅ±tÃ­pussal.
+ * 
+ * @author jgoldfisch
+ *
+ */
 public class MainPanel extends JPanel {
-	
-	private JPanel parent;
-	
+
+	/**
+	 * A hÃ¡ttÃ©r kÃ©pe (mÃ©ret 1920 * 1080)
+	 */
 	private Image backgroundImage;
+
+	/**
+	 * A menÃ¼ betÅ±tÃ­pusa
+	 */
 	private Font font;
 	
-	public MainPanel(JPanel parent) {
-		
-		// A kép és a betűtípus betöltése
+	/**
+	 * Font méretét modosító szám, a képernyő nagyságától függően
+	 */
+	protected float sizeMod;
+	
+	/**
+	 * Konstruktor egy alapvetÅ‘ panelt Ã©s betÃ¶lti a panelhez tartozÃ³ hÃ¡ttÃ©rkÃ©pet Ã©s
+	 * betÅ±tÃ­pust.
+	 */
+	MainPanel() {
 		try {
 			ClassLoader loader = getClass().getClassLoader();
-			backgroundImage = ImageIO.read(loader.getResource("menuBackground.jpg"));
-			
+			backgroundImage = ImageIO.read(loader.getResource("menuBackground.png"));
+
 			InputStream is = loader.getResourceAsStream("WOODCUTTER STORM.ttf");
 			font = Font.createFont(Font.TRUETYPE_FONT, is);
-			
-		} catch(Exception e) {
+
+		} catch (Exception e) {
+			// Amennyiben hiba a betÃ¶ltÃ©sben, lÃ©pjen ki.
 			System.exit(ERROR);
 		}
-			
-		this.parent = parent;
-		initComponents();
+		
+		// Beállítja a képernyő FHD-tól eltérésének arányát
+		sizeMod = (float)Toolkit.getDefaultToolkit().getScreenSize().getWidth() / 1920.0f;
 	}
-	
-	private void createButton(JButton button, float size, Color color) {	
-		// Betűtípus bállítása
-		button.setFont(font.deriveFont(size));
-		button.setForeground(color);
-		
-		// Átlátszóvá tétel
-		button.setOpaque(false);
-		button.setContentAreaFilled(false);
-		button.setBorderPainted(false);
-		button.setBorder(null);
+
+	/**
+	 * Visszadja a menÃ¼ betÅ±tÃ­pusÃ¡t
+	 */
+	public Font getFont() {
+		return font;
 	}
-	
-	private void initComponents( ) {		
-		// Új játék gomb létrehozása
-		JButton newGame = new JButton("New Game");
-		newGame.addActionListener((ActionEvent e) -> {
-			CardLayout cd = (CardLayout) parent.getLayout();
-			cd.show(parent, "LEVELS");
-		});
-		createButton(newGame, 64.0f, new Color(197,209,227));
-		
-		// Kilépés gomb létrehozása
-		JButton exit = new JButton("Exit");
-		exit.addActionListener((ActionEvent e) -> {
-			System.exit(0);
-		});
-		createButton(exit, 64.0f, new Color(197,209,227));
-		
-		// Cím létrehozása
-		JLabel title = new JLabel("Killer Sokoban");
-		title.setFont(font.deriveFont(128.0f));
-		title.setForeground(new Color(197,209,227));
-		title.setOpaque(false);
-		title.setHorizontalAlignment(SwingConstants.CENTER);
-		
-		// Külső layout létrehozása
-		setLayout(new BorderLayout());
-		setBorder(new EmptyBorder(50,50,50,50));
-		
-		// Benti gombokhoz lévő panelek és layoutok létrehozása
-		JPanel bottomPanel = new JPanel(new FlowLayout(FlowLayout.RIGHT));	
-		JPanel rightPanel = new JPanel();
-		rightPanel.setLayout(new BoxLayout(rightPanel, BoxLayout.Y_AXIS));
-		
-		rightPanel.add(newGame);
-		rightPanel.add(Box.createRigidArea(new Dimension(0, 25)));
-		rightPanel.add(exit);
-		rightPanel.add(Box.createRigidArea(new Dimension(0, 25)));
-		rightPanel.setOpaque(false);
-		
-		bottomPanel.setOpaque(false);
-		bottomPanel.add(rightPanel);
-		
-		// Belső panelek hozzáadása az egészhez
-		add(title, BorderLayout.NORTH);
-		add(bottomPanel, BorderLayout.SOUTH);
-	}
-	
+
 	@Override
 	protected void paintComponent(Graphics g) {
 		super.paintComponent(g);
-		g.drawImage(backgroundImage, 0, 0, getWidth(), getHeight(), this);
 		
+		g.drawImage(backgroundImage.getScaledInstance(getWidth(), -1, Image.SCALE_SMOOTH), 0, 0, this);
 	}
 }
