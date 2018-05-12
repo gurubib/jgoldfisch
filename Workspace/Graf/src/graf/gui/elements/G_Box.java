@@ -33,12 +33,14 @@ public class G_Box extends Drawable {
 	 */
 	@Override
 	public void draw(Graphics g) {
-		String[] pos = gameObject.getField().toString().split(" ");
-		
-		int x = Integer.parseInt(pos[0]) - 1;
-		int y = Integer.parseInt(pos[1]) - 1;
-		SetPosition(x, y);
-		super.draw(g);
+		if (gameObject.getField() != null) {
+			String[] pos = gameObject.getField().toString().split(" ");
+			
+			int x = Integer.parseInt(pos[0]) - 1;
+			int y = Integer.parseInt(pos[1]) - 1;
+			SetPosition(x, y);
+			super.draw(g);
+		}
 		
 	}
 

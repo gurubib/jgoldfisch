@@ -38,11 +38,13 @@ public class G_Worker extends Drawable {
 	
 	@Override
 	public void draw(Graphics g) {
-		String[] pos = gameObject.getField().toString().split(" ");
-		
-		//System.out.println("X: " + pos[1] + " Y: " + pos[0]);
-		
-		SetPosition(Integer.parseInt(pos[0])-1, Integer.parseInt(pos[1])-1);
-		super.draw(g);
+		if (gameObject.getField() != null) {
+			String[] pos = gameObject.getField().toString().split(" ");
+			
+			//System.out.println("X: " + pos[1] + " Y: " + pos[0]);
+			
+			SetPosition(Integer.parseInt(pos[0])-1, Integer.parseInt(pos[1])-1);
+			super.draw(g);
+		}
 	}
 }
