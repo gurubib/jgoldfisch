@@ -14,8 +14,10 @@ public class G_SimpleField extends Drawable{
 	SimpleField gameObject;
 	Image honey, oil;
 	
-	protected G_SimpleField(JPanel panel) {
+	public G_SimpleField(JPanel panel, SimpleField simpleField) {
 		super(panel);
+		gameObject = simpleField;
+		
 		try {
 			ClassLoader loader = getClass().getClassLoader();
 			honey = ImageIO.read(loader.getResource("Mez_Placcs.png"));
@@ -43,10 +45,10 @@ public class G_SimpleField extends Drawable{
 			SetPosition(x, y);
 			
 			if(instance.equals("h")) {
-				texture = honey;
+				setTexture(honey);
 			}
 			if(instance.equals("o")) {
-				texture = oil;
+				setTexture(oil);
 			}
 			super.draw(g);
 		}

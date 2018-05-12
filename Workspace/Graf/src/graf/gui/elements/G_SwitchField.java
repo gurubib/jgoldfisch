@@ -12,13 +12,17 @@ import graf.logic.SwitchField;
 public class G_SwitchField extends Drawable {
 
 	SwitchField gameObject;
-	Image honey, oil;
+	Image texture, honey, oil;
 
-	protected G_SwitchField(JPanel panel) {
-		super(panel);
+	public G_SwitchField(JPanel panel, SwitchField switchField) {
+		super(panel);			
+		gameObject = switchField;
+		
 		try {
 			ClassLoader loader = getClass().getClassLoader();
 			texture = ImageIO.read(loader.getResource("Light_Kek_Csapda_Gomb.png"));
+			setTexture(texture);
+			
 			honey = ImageIO.read(loader.getResource("Mez_Placcs.png"));
 			oil = ImageIO.read(loader.getResource("Olaj_Placcs.png"));
 		} catch (Exception e) {
@@ -44,10 +48,10 @@ public class G_SwitchField extends Drawable {
 		if(gameObject.getSlime() != null) {
 			String instance = gameObject.getSlime().toString();
 			if(instance.equals("h")) {
-				texture = honey;
+				setTexture(honey);
 			}
 			if(instance.equals("o")) {
-				texture = oil;
+				setTexture(oil);
 			}
 			super.draw(g);
 		}

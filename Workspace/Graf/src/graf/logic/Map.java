@@ -118,6 +118,8 @@ public class Map {
 						box.setSkeletonName(MethodWriter.nameGenerator("b"));
 						sfb.setMovable(box);
 						boxes.add(box);
+						
+						gamePanel.addG_Box(box);
 
 						break;
 					case "S":

@@ -15,8 +15,10 @@ public class G_HoleField extends Drawable{
 	protected Image texture1, texture2, honey, oil;
 	
 	
-	protected G_HoleField(JPanel panel) {
+	public G_HoleField(JPanel panel, HoleField holeField) {
 		super(panel);
+		gameObject = holeField;
+		
 		try {
 			ClassLoader loader = getClass().getClassLoader();
 			texture1 = ImageIO.read(loader.getResource("Light_Csapda_Lyuk.png"));
@@ -38,9 +40,9 @@ public class G_HoleField extends Drawable{
 	public void draw(Graphics g) {
 		boolean active = gameObject.getSwitchStatus();
 		if(active) {
-			texture = texture1;
+			setTexture(texture1);
 		} else {
-			texture = texture2;
+			setTexture(texture2);
 		}
 		String position = gameObject.toString();
 		// Ugyanaz elm., mintha split(" ")-t írnánk (regexp)
@@ -55,10 +57,10 @@ public class G_HoleField extends Drawable{
 			if(gameObject.getSlime() != null) {
 				String instance = gameObject.getSlime().toString();
 				if(instance.equals("h")) {
-					texture = honey;
+					setTexture(honey);
 				}
 				if(instance.equals("o")) {
-					texture = oil;
+					setTexture(oil);
 				}
 				super.draw(g);
 			}
