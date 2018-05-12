@@ -1,23 +1,27 @@
 package graf.gui.elements;
 
 import java.awt.Graphics;
+import java.awt.Image;
 
 import javax.imageio.ImageIO;
-
 import javax.swing.JPanel;
 
 import graf.gui.Drawable;
-import graf.logic.Box;
+import graf.logic.EndField;
 
-public class G_Box extends Drawable {
+public class G_EndField extends Drawable {
 
-	Box gameObject;
+	EndField gameObject;
+	Image honey;
+	Image oil;
 
-	protected G_Box(JPanel panel) {
+	protected G_EndField(JPanel panel) {
 		super(panel);
 		try {
 			ClassLoader loader = getClass().getClassLoader();
-			texture = ImageIO.read(loader.getResource("Kek_Shard.png"));
+			texture = ImageIO.read(loader.getResource("Kek_Shard_Hely.png"));
+			honey = ImageIO.read(loader.getResource("Mez_Placcs.png"));
+			oil = ImageIO.read(loader.getResource("Olaj_Placcs.png"));
 		} catch (Exception e) {
 			System.err.println(e.getMessage());
 		}
@@ -37,7 +41,16 @@ public class G_Box extends Drawable {
 		int y = Integer.parseInt(splitted[1]) - 1;
 		SetPosition(x, y);
 		super.draw(g);
-		
+		if(gameObject.getSlime() != null) {
+			String instance = gameObject.getSlime().toString();
+			if(instance.equals("h")) {
+				texture = honey;
+			}
+			if(instance.equals("o")) {
+				texture = oil;
+			}
+			super.draw(g);
+		}
 	}
 
 }
