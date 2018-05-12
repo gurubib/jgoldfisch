@@ -28,7 +28,6 @@ public class EndField extends Field {
 		
 		Field backwardNeighbor = this.getNeighbor(d.getOpposite());
 		Movable movable = this.getMovable();
-		this.setMovable(b);
 		backwardNeighbor.remove(b); // Az érkező Box referenciájának kitörlése arról a mezőről, ahonnan jött.
 		//ha már van doboz az EndFielden akkor visszaadja az érkező doboz referenciáját,ezzel jelezve hogy nem lehet már ide lépni
 		//mivel az a doboz már nem mozdítható
@@ -36,6 +35,7 @@ public class EndField extends Field {
 			MethodWriter.printOutRet(b.toString());
 			return b;
 		}
+		this.setMovable(b);
 		Game.getInstance().getBoxRecorder().endFieldOccupied(this);
 		backwardNeighbor.getMovable().scorePoint(d.getOpposite());
 
@@ -61,7 +61,6 @@ public class EndField extends Field {
 		
 		Field backwardNeighbor = this.getNeighbor(d.getOpposite());
 		Movable movable = this.getMovable();
-		this.setMovable(w);
 		backwardNeighbor.remove(w); // Az érkező Worker referenciájának kitörlése arról a mezőről, ahonnan jött.
 		//ha már van doboz az EndFielden akkor visszaadja az érkező Worker referenciáját,ezzel jelezve hogy nem lehet már ide lépni
 		//mivel az a doboz már nem mozdítható
