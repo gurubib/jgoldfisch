@@ -6,14 +6,15 @@ import java.awt.Graphics;
 import java.awt.Image;
 import java.awt.Point;
 import java.awt.Toolkit;
+import java.io.File;
 import java.io.InputStream;
 
 import javax.imageio.ImageIO;
 import javax.swing.JPanel;
 
 /**
- * Egy alapvetÅ‘ JPanelt lÃ©trehozÃ³ osztÃ¡ly. Rendelkezik egy hÃ¡ttÃ©rrel Ã©s egy
- * hozzÃ¡ tartozÃ³ betÅ±tÃ­pussal.
+ * Egy alapvetÅ‘ JPanelt lÃ©trehozÃ³ osztÃ¡ly. Rendelkezik egy hÃ¡ttÃ©rrel Ã©s
+ * egy hozzÃ¡ tartozÃ³ betÅ±tÃ­pussal.
  * 
  * @author jgoldfisch
  *
@@ -29,21 +30,21 @@ public class MainPanel extends JPanel {
 	 * A menÃ¼ betÅ±tÃ­pusa
 	 */
 	private Font font;
-	
+
 	/**
 	 * Font méretét modosító szám, a képernyő nagyságától függően
 	 */
 	protected float sizeMod;
-	
+
 	/**
-	 * Konstruktor egy alapvetÅ‘ panelt Ã©s betÃ¶lti a panelhez tartozÃ³ hÃ¡ttÃ©rkÃ©pet Ã©s
-	 * betÅ±tÃ­pust.
+	 * Konstruktor egy alapvetÅ‘ panelt Ã©s betÃ¶lti a panelhez tartozÃ³
+	 * hÃ¡ttÃ©rkÃ©pet Ã©s betÅ±tÃ­pust.
 	 */
 	MainPanel() {
 		try {
 			ClassLoader loader = getClass().getClassLoader();
 			backgroundImage = ImageIO.read(loader.getResource("menuBackground.png"));
-
+			
 			InputStream is = loader.getResourceAsStream("WOODCUTTER STORM.ttf");
 			font = Font.createFont(Font.TRUETYPE_FONT, is);
 
@@ -51,9 +52,9 @@ public class MainPanel extends JPanel {
 			// Amennyiben hiba a betÃ¶ltÃ©sben, lÃ©pjen ki.
 			System.exit(ERROR);
 		}
-		
+
 		// Beállítja a képernyő FHD-tól eltérésének arányát
-		sizeMod = (float)Toolkit.getDefaultToolkit().getScreenSize().getWidth() / 1920.0f;
+		sizeMod = (float) Toolkit.getDefaultToolkit().getScreenSize().getWidth() / 1920.0f;
 	}
 
 	/**
@@ -63,10 +64,18 @@ public class MainPanel extends JPanel {
 		return font;
 	}
 
+	public Image getBackgroundImage() {
+		return backgroundImage;
+	}
+
+	public void setBackgroundImage(Image backgroundImage) {
+		this.backgroundImage = backgroundImage;
+	}
+
 	@Override
 	protected void paintComponent(Graphics g) {
 		super.paintComponent(g);
-		
-		g.drawImage(backgroundImage.getScaledInstance(getWidth(), -1, Image.SCALE_SMOOTH), 0, 0, this);
+
+		g.drawImage(backgroundImage, 0, 0, this);
 	}
 }

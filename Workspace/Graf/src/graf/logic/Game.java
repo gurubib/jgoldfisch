@@ -3,6 +3,8 @@ package graf.logic;
 import java.util.ArrayList;
 import java.util.List;
 
+import graf.gui.Controller;
+
 /**
  * FONTOS: A szkeleton programban nem modellezzük és vizsgáljuk a játék egészét,
  * mint például a játék megnyerésének figyelését, továbbá az ehhez tartozó feladatokat.
@@ -21,6 +23,7 @@ public class Game {
 	 * A Singleton tervezési minta megvalósítását támogató változó.
 	 */
 	private static final Game instance = new Game();
+	
 
 	/**
 	 * A pályán lévő, még élő munkások.
@@ -29,6 +32,16 @@ public class Game {
 	
 	private List<Box> boxes = new ArrayList<Box>();
 	
+	private Controller controller;
+	
+	public Controller getController() {
+		return controller;
+	}
+
+	public void setController(Controller controller) {
+		this.controller = controller;
+	}
+
 	public List<Box> getBoxes() {
 		return boxes;
 	}

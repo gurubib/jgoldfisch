@@ -4,6 +4,10 @@ import java.awt.Graphics;
 import java.awt.Image;
 import java.util.ArrayList;
 import javax.imageio.ImageIO;
+import javax.swing.JPanel;
+
+import graf.gui.elements.G_Worker;
+import graf.logic.Worker;
 
 public class GamePanel extends MainPanel {
 
@@ -32,7 +36,7 @@ public class GamePanel extends MainPanel {
 	 * Kirajzolja a statikus elmeket. Elég egyszer meghívni a játék elején.
 	 */
 	public void drawStaticView() {
-		this.invalidate();
+		this.repaint();
 	}
 
 	/**
@@ -40,7 +44,7 @@ public class GamePanel extends MainPanel {
 	 */
 	public void drawDynamicView() {
 		// TODO: Kitalálni, hogyan kéne csak azokat, egyáltalán lehet-e
-		this.invalidate();
+		this.repaint();
 	}
 
 	/**
@@ -52,6 +56,8 @@ public class GamePanel extends MainPanel {
 	 */
 	public void loadTextures(String viewStyle) {
 		// TODO: A map inicializásása, ha itt kell
+		
+		
 		// TODO: Minden játékobjecthez hozzáadni egy G_**-t
 
 		String levelGround = "";
@@ -92,4 +98,11 @@ public class GamePanel extends MainPanel {
 		}
 	}
 
+	public void addG_Worker(Worker w) {
+		JPanel gwp = new JPanel();
+		G_Worker gw = new G_Worker(gwp);
+		gw.setGameObject(w);
+		add(gwp);
+		dynamicDrawables.add(gw);
+	}
 }

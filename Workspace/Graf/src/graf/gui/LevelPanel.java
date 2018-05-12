@@ -73,8 +73,11 @@ public class LevelPanel extends MainPanel {
 		JButton temple = new JButton("Temple of Doom");
 		temple.addActionListener((ActionEvent e) -> {
 			// TODO: Átnézni, mert lehet meg lehet oldani másképpen is
-			Game g = Game.getInstance();
-			g.startGame("map2.txt");
+			///Game g = Game.getInstance();
+			///g.startGame("map2.txt");
+			MainFrame topFrame = (MainFrame)SwingUtilities.getWindowAncestor(this);
+			topFrame.getController().startGame("map2.txt");
+			
 			Container parent = getParent();
 			CardLayout cd = (CardLayout) parent.getLayout();
 			cd.show(parent, "GAME");
@@ -88,8 +91,11 @@ public class LevelPanel extends MainPanel {
 		// ---------------------------------------------
 		JButton dungeon = new JButton("Underground dungeon");
 		dungeon.addActionListener((ActionEvent e) -> {
-			Game g = Game.getInstance();
-			g.startGame("map3.txt");
+			//Game g = Game.getInstance();
+			//g.startGame("map3.txt");
+			MainFrame topFrame = (MainFrame)SwingUtilities.getWindowAncestor(this);
+			topFrame.getController().startGame("map3.txt");
+			
 			Container parent = getParent();
 			CardLayout cd = (CardLayout) parent.getLayout();
 			cd.show(parent, "GAME");

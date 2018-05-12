@@ -57,7 +57,7 @@ abstract public class Drawable {
 			return;
 		}
 
-		g.drawImage(texture.getScaledInstance(Math.round(texture.getWidth(panel) * sizeMod), -1, Image.SCALE_SMOOTH), posX, posY, panel);
+		g.drawImage(texture, posX, posY, panel);
 	}
 
 	/**
@@ -71,5 +71,6 @@ abstract public class Drawable {
 	public void SetPosition(int x, int y) {
 		posX = Math.round((x * 64 + 32) * sizeMod);
 		posY = Math.round((y * 64 - 4) * sizeMod);
+		texture = texture.getScaledInstance(Math.round(texture.getWidth(panel) * sizeMod), -1, Image.SCALE_SMOOTH);
 	}
 }

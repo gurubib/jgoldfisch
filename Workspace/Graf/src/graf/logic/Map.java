@@ -7,6 +7,10 @@ import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.swing.JFrame;
+
+import graf.gui.Controller;
+import graf.gui.GamePanel;
 import graf.out.MethodWriter;
 
 /**
@@ -32,6 +36,9 @@ public class Map {
 		HoleField prevHole = null;
 
 		Path mapFilePath = Paths.get(System.getProperty("user.dir"), "maps", mapFile);
+		
+		//GUI
+		GamePanel gamePanel = Game.getInstance().getController().getFrame().getPanel(); 
 
 		try {
 			List<String> lines = Files.readAllLines(mapFilePath);
@@ -69,6 +76,8 @@ public class Map {
 							fields.get(fields.size() - 2).setNeighbor(Direction.RIGHT, wf);
 						}
 
+						//GUI
+						
 						break;
 
 					case "X":
@@ -204,6 +213,9 @@ public class Map {
 						sfw.setMovable(worker);
 						workers.add(worker);
 						worker.setId(workerID);
+						
+						//GUI
+						gamePanel.addG_Worker(worker);
 						
 						break;
 					}
