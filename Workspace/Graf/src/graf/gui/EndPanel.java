@@ -16,8 +16,10 @@ public class EndPanel extends MainPanel {
 	 * @author jgoldfisch
 	 *
 	 */
-	private int score1 = 0, score2 = 0;
 
+	private JLabel points, winLine;
+	
+	
 	/**
 	 * Konstruktor, meghÃ­vja a komponensek inicializÃ¡lÃ¡sÃ¡t
 	 */
@@ -33,9 +35,18 @@ public class EndPanel extends MainPanel {
 	 * @param p2
 	 *            a második játékos pontja
 	 */
-	public void setScores(int p1, int p2) {
-		score1 = p1;
-		score2 = p2;
+	public void setScores(int score1, int score2) {		
+		if (score1 > score2)
+			winLine.setText("First player won");
+		else if (score1 == score2)
+			winLine.setText("Its a draw!");
+		else
+			winLine.setText("Second player won");
+		
+		if (score1 >= score2)
+			points.setText("Player 1 : " + score1 + "    Player 2 : " + score2);
+		else
+			points.setText("Player 2 : " + score2 + "    Player 1 : " + score1);
 	}
 
 	/**
@@ -94,32 +105,20 @@ public class EndPanel extends MainPanel {
 		// ---------------------------------------------
 		// FÃ¶cÃ­m lÃ©trehozÃ¡sa, az, hogy ki a nyertes
 		// ---------------------------------------------
-		JLabel winLine = new JLabel();
+		winLine = new JLabel();
 		winLine.setFont(getFont().deriveFont(96.0f * sizeMod));
 		winLine.setForeground(new Color(2, 11, 49));
 		winLine.setOpaque(false);
 		winLine.setHorizontalAlignment(SwingConstants.CENTER);
 
-		// SzÃ¶veg beÃ¡llÃ­tÃ¡sa a pontok fÃ¼ggvÃ©nyÃ©ben
-		// ---------------------------------------------
-		if (score1 > score2)
-			winLine.setText("First player won");
-		else if (score1 == score2)
-			winLine.setText("Its a draw!");
-		else
-			winLine.setText("Second player won");
-
 		// Az elsÅ‘ jÃ¡tÃ©kos pontjait jelÃ¶lÅ‘ szÃ¶veg
 		// ---------------------------------------------
-		JLabel player1 = new JLabel();
-		player1.setFont(getFont().deriveFont(64.0f * sizeMod));
-		player1.setForeground(new Color(2, 11, 49));
-		player1.setOpaque(false);
-		player1.setAlignmentX(CENTER_ALIGNMENT);
-		if (score1 >= score2)
-			player1.setText("Player 1 : " + score1 + "    Player 2 : " + score2);
-		else
-			player1.setText("Player 2 : " + score2 + "    Player 1 : " + score1);
+		points = new JLabel();
+		points.setFont(getFont().deriveFont(64.0f * sizeMod));
+		points.setForeground(new Color(2, 11, 49));
+		points.setOpaque(false);
+		points.setAlignmentX(CENTER_ALIGNMENT);
+		
 
 		// ---------------------------------------------
 		// PANELEK LÃ‰TREHOZÃ�SA
@@ -154,7 +153,7 @@ public class EndPanel extends MainPanel {
 		// A jÃ¡tÃ©kosok sorrendje attÃ³l fÃ¼ggÅ‘en, hogy kinek hÃ¡ny pontja lett.
 		// ---------------------------------------------
 		playerPanel.add(Box.createRigidArea(new Dimension(0, Math.round(25 * sizeMod))));
-		playerPanel.add(player1);
+		playerPanel.add(points);
 		playerPanel.setOpaque(false);
 
 		centerPanel.add(playerPanel, BorderLayout.NORTH);

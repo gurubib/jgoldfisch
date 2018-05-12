@@ -34,6 +34,9 @@ public class Game {
 	
 	private Controller controller;
 	
+	// TODO: �tn�zni!!
+	private int score1 = 0, score2 = 0;
+	
 	public Controller getController() {
 		return controller;
 	}
@@ -163,6 +166,15 @@ public class Game {
 		freeBoxCounter--;
 		if (freeBoxCounter == 0) { //TODO játék vége
 			System.out.println("GAME OVER");
+			
+			for(Worker w : workers) {
+				if(w.getId() == 1)
+					score1 = w.getPoints();
+				else if(w.getId() == 2)
+					score2 = w.getPoints();
+			}
+			
+			controller.endGame(score1, score2);
 		}
 	}
 	
@@ -171,10 +183,16 @@ public class Game {
 	 * @param w - a törölni kívánt munkás
 	 */
 	public void deleteWorker(Worker w) {
+		if(w.getId() == 1)
+			score1 = w.getPoints();
+		else if (w.getId() == 2)
+			score2 = w.getPoints();
+		
 		workers.remove(w);
 		workerCounter--;
 		if (workerCounter == 0) { //TODO játék vége
 			System.out.println("GAME OVER");
+			controller.endGame(score1, score2);
 		}
 	}
 	

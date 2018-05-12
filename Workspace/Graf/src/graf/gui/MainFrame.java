@@ -22,6 +22,7 @@ public class MainFrame extends JFrame {
 	 * A játék panelt tartalmazó panel
 	 */
 	public GamePanel panel;
+	public EndPanel endPanel;
 	
 	private Controller controller = new Controller();
 
@@ -87,7 +88,7 @@ public class MainFrame extends JFrame {
 		MenuPanel menuPanel = new MenuPanel();
 		menuPanel.setBackgroundImage(menuPanel.getBackgroundImage().getScaledInstance(width, -1, Image.SCALE_FAST));
 		
-		EndPanel endPanel = new EndPanel();
+		endPanel = new EndPanel();
 		endPanel.setBackgroundImage(endPanel.getBackgroundImage().getScaledInstance(width, -1, Image.SCALE_FAST));
 		
 		LevelPanel levelPanel = new LevelPanel();

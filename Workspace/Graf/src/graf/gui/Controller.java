@@ -1,5 +1,6 @@
 package graf.gui;
 
+import java.awt.CardLayout;
 import java.util.List;
 
 import graf.logic.Direction;
@@ -73,7 +74,9 @@ public class Controller {
 		keyboardHandler.setGaming(true);
 	}
 	
-	public void endGame() {
-		
+	public void endGame(int score1, int score2) {
+		frame.endPanel.setScores(score1, score2);
+		CardLayout cd = (CardLayout) frame.endPanel.getParent().getLayout();
+		cd.show(frame.endPanel.getParent(), "END");
 	}
 }

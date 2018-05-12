@@ -60,11 +60,15 @@ public class LevelPanel extends MainPanel {
 		// ---------------------------------------------
 		JButton jungle = new JButton("Jungle Ruin");
 		jungle.addActionListener((ActionEvent e) -> {
-			// TODO: A jungle gomb megnyomÃ¡sÃ¡nak lekezelÃ©se
-			// TODO: Felesleges tesztelÃ©si utasÃ­tÃ¡sok kitÃ¶rlÃ©se
+			MainFrame topFrame = (MainFrame)SwingUtilities.getWindowAncestor(this);
+			topFrame.getController().startGame("map1.txt");
+			
 			Container parent = getParent();
 			CardLayout cd = (CardLayout) parent.getLayout();
-			cd.show(parent, "END");
+			cd.show(parent, "GAME");
+			
+			MainFrame frame = (MainFrame) SwingUtilities.getRoot(this);
+			frame.panel.loadTextures("Jungle");
 		});
 		createButton(jungle, 54.0f, new Color(151, 170, 199));
 
@@ -72,9 +76,6 @@ public class LevelPanel extends MainPanel {
 		// ---------------------------------------------
 		JButton temple = new JButton("Temple of Doom");
 		temple.addActionListener((ActionEvent e) -> {
-			// TODO: Átnézni, mert lehet meg lehet oldani másképpen is
-			///Game g = Game.getInstance();
-			///g.startGame("map2.txt");
 			MainFrame topFrame = (MainFrame)SwingUtilities.getWindowAncestor(this);
 			topFrame.getController().startGame("map2.txt");
 			
@@ -91,8 +92,6 @@ public class LevelPanel extends MainPanel {
 		// ---------------------------------------------
 		JButton dungeon = new JButton("Underground dungeon");
 		dungeon.addActionListener((ActionEvent e) -> {
-			//Game g = Game.getInstance();
-			//g.startGame("map3.txt");
 			MainFrame topFrame = (MainFrame)SwingUtilities.getWindowAncestor(this);
 			topFrame.getController().startGame("map3.txt");
 			
