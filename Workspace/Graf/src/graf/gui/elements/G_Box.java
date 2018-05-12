@@ -1,6 +1,7 @@
 package graf.gui.elements;
 
 import java.awt.Graphics;
+import java.awt.Image;
 
 import javax.imageio.ImageIO;
 
@@ -13,11 +14,14 @@ public class G_Box extends Drawable {
 
 	Box gameObject;
 
-	protected G_Box(JPanel panel) {
-		super(panel);
+	public G_Box(JPanel panel, Box box) {
+		super(panel);		
+		gameObject = box;
+		
 		try {
 			ClassLoader loader = getClass().getClassLoader();
-			texture = ImageIO.read(loader.getResource("Kek_Shard.png"));
+			Image texture = ImageIO.read(loader.getResource("Kek_Shard.png"));
+			setTexture(texture);
 		} catch (Exception e) {
 			System.err.println(e.getMessage());
 		}
@@ -29,12 +33,10 @@ public class G_Box extends Drawable {
 	 */
 	@Override
 	public void draw(Graphics g) {
-		String position = gameObject.toString();
-		// Ugyanaz elm., mintha split(" ")-t írnánk (regexp)
-		String[] splitted = position.split("\\s+");
+		String[] pos = gameObject.getField().toString().split(" ");
 		
-		int x = Integer.parseInt(splitted[0]) - 1;
-		int y = Integer.parseInt(splitted[1]) - 1;
+		int x = Integer.parseInt(pos[0]) - 1;
+		int y = Integer.parseInt(pos[1]) - 1;
 		SetPosition(x, y);
 		super.draw(g);
 		

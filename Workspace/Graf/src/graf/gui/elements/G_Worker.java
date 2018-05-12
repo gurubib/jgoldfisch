@@ -23,15 +23,17 @@ public class G_Worker extends Drawable {
 
 	Worker gameObject;
 		
-	public G_Worker(JPanel panel) {
+	public G_Worker(JPanel panel, Worker worker) {
 		super(panel);
+		gameObject = worker;
+		
 		try {
 			ClassLoader loader = getClass().getClassLoader();
-			texture = ImageIO.read(loader.getResource("Worker.png"));
+			Image texture = ImageIO.read(loader.getResource("Worker" + gameObject.getId() + ".png"));
+			setTexture(texture);
 		} catch (Exception e) {
-			// Amennyiben hiba a betöltésben, lépjen ki.
-			System.exit(1);
-		}	
+			System.err.println(e.getMessage());
+		}
 	}
 	
 	@Override
@@ -43,13 +45,4 @@ public class G_Worker extends Drawable {
 		SetPosition(Integer.parseInt(pos[0])-1, Integer.parseInt(pos[1])-1);
 		super.draw(g);
 	}
-
-	public Worker getGameObject() {
-		return gameObject;
-	}
-
-	public void setGameObject(Worker gameObject) {
-		this.gameObject = gameObject;
-	}
-	
 }

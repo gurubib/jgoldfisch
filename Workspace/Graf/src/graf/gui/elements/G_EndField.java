@@ -15,11 +15,15 @@ public class G_EndField extends Drawable {
 	Image honey;
 	Image oil;
 
-	protected G_EndField(JPanel panel) {
-		super(panel);
+	public G_EndField(JPanel panel, EndField endField) {
+		super(panel);	
+		gameObject = endField;
+		
 		try {
 			ClassLoader loader = getClass().getClassLoader();
-			texture = ImageIO.read(loader.getResource("Kek_Shard_Hely.png"));
+			Image texture = ImageIO.read(loader.getResource("Kek_shard_hely.png"));
+			setTexture(texture);
+			
 			honey = ImageIO.read(loader.getResource("Mez_Placcs.png"));
 			oil = ImageIO.read(loader.getResource("Olaj_Placcs.png"));
 		} catch (Exception e) {
@@ -44,10 +48,10 @@ public class G_EndField extends Drawable {
 		if(gameObject.getSlime() != null) {
 			String instance = gameObject.getSlime().toString();
 			if(instance.equals("h")) {
-				texture = honey;
+				setTexture(honey);
 			}
 			if(instance.equals("o")) {
-				texture = oil;
+				setTexture(oil);
 			}
 			super.draw(g);
 		}

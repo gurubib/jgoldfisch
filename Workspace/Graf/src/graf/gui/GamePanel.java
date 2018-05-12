@@ -6,8 +6,8 @@ import java.util.ArrayList;
 import javax.imageio.ImageIO;
 import javax.swing.JPanel;
 
-import graf.gui.elements.G_Worker;
-import graf.logic.Worker;
+import graf.gui.elements.*;
+import graf.logic.*;
 
 public class GamePanel extends MainPanel {
 
@@ -73,6 +73,27 @@ public class GamePanel extends MainPanel {
 			levelGround = "map" + 3 + ".png";
 			break;
 		}
+		
+		for(Field f : Game.getInstance().getMap().getFields()) {
+			String type = f.toString().split(" ")[2];
+			
+			switch(type) {
+			case "simple":
+				staticDrawables.add(new G_SimpleField(this, (SimpleField) f));
+				break;
+			case "endz":
+				staticDrawables.add(new G_EndField(this, (EndField) f));
+				break;
+			case "hole":
+				staticDrawables.add(new G_HoleField(this, (HoleField) f));
+				break;
+			case "switch":
+				staticDrawables.add(new G_SwitchField(this, (SwitchField) f));
+				break;
+			case "wall": default:
+				break;
+			}
+		}
 
 		try {
 			ClassLoader loader = getClass().getClassLoader();
@@ -98,11 +119,13 @@ public class GamePanel extends MainPanel {
 		}
 	}
 
-	public void addG_Worker(Worker w) {
-		JPanel gwp = new JPanel();
-		G_Worker gw = new G_Worker(gwp);
-		gw.setGameObject(w);
-		add(gwp);
-		dynamicDrawables.add(gw);
+	public void addG_Worker(Worker worker) {
+		G_Worker gWorker = new G_Worker(this, worker);
+		dynamicDrawables.add(gWorker);
+	}
+	
+	public void addG_Box(Box box) {
+		G_Box gBox = new G_Box(this, box);
+		dynamicDrawables.add(gBox);
 	}
 }
