@@ -125,6 +125,7 @@ public class SwitchField extends Field {
 	public void remove(Movable m) {
 		MethodWriter.printOutMethod("SwitchField.remove", m.toString());
 
+		super.remove(m);
 		this.deactivate();
 
 		MethodWriter.printOutRet("");
