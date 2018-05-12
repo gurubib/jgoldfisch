@@ -160,5 +160,18 @@ public class HoleField extends Field {
 		
 		return super.toString() + " " + act;
 	}
+	
+	/**
+	 * A lyukhoz tartozó kapcsoló állapotának lekérdezése.
+	 * @return
+	 */
+	public boolean getSwitchStatus() {
+		if(switchField != null) {
+		return switchField.isActive();
+		}
+		else  {
+			return true;
+		}
+	}
 
 }

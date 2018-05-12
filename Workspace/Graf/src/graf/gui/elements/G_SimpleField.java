@@ -18,7 +18,6 @@ public class G_SimpleField extends Drawable{
 		super(panel);
 		try {
 			ClassLoader loader = getClass().getClassLoader();
-			texture = ImageIO.read(loader.getResource("Light_Kek_Csapda_Gomb.png"));
 			honey = ImageIO.read(loader.getResource("Mez_Placcs.png"));
 			oil = ImageIO.read(loader.getResource("Olaj_Placcs.png"));
 		} catch (Exception e) {
@@ -32,17 +31,17 @@ public class G_SimpleField extends Drawable{
 	 */
 	@Override
 	public void draw(Graphics g) {
-		String position = gameObject.toString();
-		// Ugyanaz elm., mintha split(" ")-t írnánk (regexp)
-		String[] splitted = position.split("\\s+");
-		
-		int x = Integer.parseInt(splitted[0]) - 1;
-		int y = Integer.parseInt(splitted[1]) - 1;
-		SetPosition(x, y);
-		super.draw(g);
 		
 		if(gameObject.getSlime() != null) {
 			String instance = gameObject.getSlime().toString();
+			String position = gameObject.toString();
+			// Ugyanaz elm., mintha split(" ")-t írnánk (regexp)
+			String[] splitted = position.split("\\s+");
+			
+			int x = Integer.parseInt(splitted[0]) - 1;
+			int y = Integer.parseInt(splitted[1]) - 1;
+			SetPosition(x, y);
+			
 			if(instance.equals("h")) {
 				texture = honey;
 			}
