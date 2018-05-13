@@ -4,9 +4,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * FONTOS: A szkeleton programban nem modellezzük és vizsgáljuk a játék egészét,
- * mint például a játék megnyerésének figyelését, továbbá az ehhez tartozó feladatokat.
- * Ebből kifolyólag ez az osztály NINCS használva, megvalósítása minimális.
  * 
  * Nyilvántartás vezetése a mozdíthatatlan mezőkről, amiken beragadt doboz van. Segítségével
  * lehetséges a beragadt (pl. sarokban lévő) dobozok detektálása.

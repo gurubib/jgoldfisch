@@ -116,7 +116,7 @@ public class GamePanel extends MainPanel {
 	}
 
 	/**
-	 * Kit�rli a t�rk�pen tal�lhat� elemeket
+	 * Kitörli a térképen található elemeket
 	 */
 	public void clearMap() {
 		sc1.setText("<html>Player1<br>0</html>");

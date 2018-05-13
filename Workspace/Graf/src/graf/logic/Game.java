@@ -6,9 +6,6 @@ import java.util.List;
 import graf.gui.Controller;
 
 /**
- * FONTOS: A szkeleton programban nem modellezzük és vizsgáljuk a játék egészét,
- * mint például a játék megnyerésének figyelését, továbbá az ehhez tartozó feladatokat.
- * Ebből kifolyólag ez az osztály NINCS használva, megvalósítása minimális.
  * 
  * A játék alapvető mechanizmusaiért felel és tárolja a nyeréshez, vagy vesztéshez szükséges
  * adatokat. Továbbá tárolja a még életben lévő Worker-öket, és a Map-et.
@@ -34,7 +31,7 @@ public class Game {
 	
 	private Controller controller;
 	
-	// TODO: �tn�zni!!
+	// TODO: �tn�zni!!
 	private int score1 = 0, score2 = 0;
 	
 	public Controller getController() {
@@ -190,8 +187,7 @@ public class Game {
 		
 		workers.remove(w);
 		workerCounter--;
-		if (workerCounter == 0) { //TODO játék vége
-			System.out.println("GAME OVER");
+		if (workerCounter == 0) {
 			controller.endGame(score1, score2);
 		}
 	}
