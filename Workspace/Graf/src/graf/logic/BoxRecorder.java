@@ -77,8 +77,7 @@ public class BoxRecorder {
 				horizontallyfix = true;
 		}
 		if (verticallyfix && horizontallyfix) {
-			fixFields.add(f);
-			Game.getInstance().decreaseBoxes(null);	
+			checkRecordWith(f);
 		}
 	}
 	
@@ -90,5 +89,11 @@ public class BoxRecorder {
 	 * @param f Az adott mező
 	 */
 	public void checkRecordWith(Field f) {
+		for(Field fix : fixFields) {
+			if (fix.equals(f))
+				return;
+		}
+		fixFields.add(f);
+		Game.getInstance().decreaseBoxes(null);
 	}
 }

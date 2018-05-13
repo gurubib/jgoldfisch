@@ -28,9 +28,9 @@ public class Game {
 	/**
 	 * A pályán lévő, még élő munkások.
 	 */
-	private List<Worker> workers = new ArrayList<Worker>();
+	private List<Worker> workers;
 	
-	private List<Box> boxes = new ArrayList<Box>();
+	private List<Box> boxes;
 	
 	private Controller controller;
 	
@@ -57,12 +57,12 @@ public class Game {
 	/**
 	 * Referencia a pályát tartalmazó objektumra.
 	 */
-	private Map map = new Map();
+	private Map map;
 	
 	/**
 	 * Referencia a szabad dobozokat vizsgáló objektumra.
 	 */
-	private BoxRecorder boxRecorder = new BoxRecorder();
+	private BoxRecorder boxRecorder;
 	
 	/**
 	 * A még mozgatható dobozok számát tárolja.
@@ -202,6 +202,11 @@ public class Game {
 	 * @param mapFile - a betöltendő pálya
 	 */
 	public void startGame(String mapFile) {
+		boxRecorder = new BoxRecorder();
+		map = new Map();
+		workers = new ArrayList<Worker>();
+		boxes = new ArrayList<Box>();
+		
 		map.loadMap(mapFile);
 	}
 	

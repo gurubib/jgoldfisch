@@ -1,2 +1,1 @@
-﻿1) Ha egy dobozt 5-6-szor nekitolunka falnak, akkor rögtön vége a játéknak.
-2) Ha egy játéknak vége és szeretnénk egy új játékot indítani, akkor nem igen jön be egy új pálya (hiba helye: box recorder)
+﻿1) Az utolsó soboz helyére tolása nem ad pontot a játékosnak
