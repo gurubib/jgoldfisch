@@ -21,7 +21,7 @@ public class G_EndField extends Drawable {
 		
 		try {
 			ClassLoader loader = getClass().getClassLoader();
-			Image texture = ImageIO.read(loader.getResource("Kek_shard_hely.png"));
+			Image texture = ImageIO.read(loader.getResource("Kek_Shard_Hely.png"));
 			setTexture(texture);
 			
 			honey = ImageIO.read(loader.getResource("Mez_Placcs.png"));

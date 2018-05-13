@@ -106,6 +106,9 @@ public class GamePanel extends MainPanel {
 	 * Kitörli a térképen található elemeket
 	 */
 	public void clearMap() {
+		sc1.setText("<html>Player1<br>0</html>");
+		sc2.setText("<html><div align=right>Player2<br>0</div></html>");
+		
 		dynamicDrawables.clear();
 		staticDrawables.clear();
 	}
@@ -119,19 +122,19 @@ public class GamePanel extends MainPanel {
 	 */
 	public void loadTextures(String viewStyle) {
 		String levelGround = "";
-
+		
 		switch (viewStyle) {
 		case "Jungle":
-			levelGround = "map" + 1 + ".png";
+			levelGround = "Map" + 1 + ".png";
 			break;
 		case "Temple":
-			levelGround = "map" + 2 + ".png";
+			levelGround = "Map" + 2 + ".png";
 			break;
 		case "Dungeon":
-			levelGround = "map" + 3 + ".png";
+			levelGround = "Map" + 3 + ".png";
 			break;
 		}
-
+		
 		for (Field f : Game.getInstance().getMap().getFields()) {
 			String type = f.toString().split(" ")[2];
 
@@ -153,13 +156,13 @@ public class GamePanel extends MainPanel {
 				break;
 			}
 		}
-
+		
 		try {
 			ClassLoader loader = getClass().getClassLoader();
 			level = ImageIO.read(loader.getResource(levelGround));
 		} catch (Exception e) {
 			// Amennyiben hiba a betÃƒÂ¶ltÃƒÂ©sben, lÃƒÂ©pjen ki.
-			System.exit(ERROR);
+			System.err.println(e.getMessage());
 		}
 	}
 

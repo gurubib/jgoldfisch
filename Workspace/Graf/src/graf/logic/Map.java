@@ -1,12 +1,20 @@
 package graf.logic;
 
+import java.awt.Image;
+import java.io.BufferedReader;
 import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.net.URL;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collector;
+import java.util.stream.Collectors;
 
+import javax.imageio.ImageIO;
 import javax.swing.JFrame;
 
 import graf.gui.Controller;
@@ -31,18 +39,19 @@ public class Map {
 		List<Worker> workers = new ArrayList<Worker>();
 		List<Box> boxes = new ArrayList<Box>();
 		List<Field> walls = new ArrayList<Field>();
-		
+
 		SwitchField prevSwitch = null;
 		HoleField prevHole = null;
 
-		Path mapFilePath = Paths.get(System.getProperty("user.dir"), "maps", mapFile);
-		
-		//GUI
-		GamePanel gamePanel = Game.getInstance().getController().getFrame().getPanel(); 
+		// GUI
+		GamePanel gamePanel = Game.getInstance().getController().getFrame().getPanel();
 
 		try {
-			List<String> lines = Files.readAllLines(mapFilePath);
-
+			URL path = getClass().getClassLoader().getResource(mapFile);
+			BufferedReader br = new BufferedReader(new InputStreamReader(path.openStream()));
+	
+			List<String> lines = br.lines().collect(Collectors.toList());
+		
 			int width = lines.get(0).split(" ").length;
 			int height = lines.size();
 
@@ -61,7 +70,7 @@ public class Map {
 					switch (objString) {
 					case "W":
 						WallField wf = new WallField();
-						wf.setSkeletonName(Integer.toString(j+1) + " " + Integer.toString(i+1) + " wall");
+						wf.setSkeletonName(Integer.toString(j + 1) + " " + Integer.toString(i + 1) + " wall");
 						fields.add(wf);
 						walls.add(wf);
 
@@ -76,13 +85,13 @@ public class Map {
 							fields.get(fields.size() - 2).setNeighbor(Direction.RIGHT, wf);
 						}
 
-						//GUI
-						
+						// GUI
+
 						break;
 
 					case "X":
 						SimpleField sf = new SimpleField();
-						sf.setSkeletonName(Integer.toString(j+1) + " " + Integer.toString(i+1) + " simple");
+						sf.setSkeletonName(Integer.toString(j + 1) + " " + Integer.toString(i + 1) + " simple");
 						fields.add(sf);
 
 						if (i > 0) {
@@ -99,7 +108,7 @@ public class Map {
 						break;
 					case "B":
 						SimpleField sfb = new SimpleField();
-						sfb.setSkeletonName(Integer.toString(j+1) + " " + Integer.toString(i+1) + " simple");
+						sfb.setSkeletonName(Integer.toString(j + 1) + " " + Integer.toString(i + 1) + " simple");
 						fields.add(sfb);
 
 						if (i > 0) {
@@ -118,13 +127,13 @@ public class Map {
 						box.setSkeletonName(MethodWriter.nameGenerator("b"));
 						sfb.setMovable(box);
 						boxes.add(box);
-						
+
 						gamePanel.addG_Box(box);
 
 						break;
 					case "S":
 						SwitchField sw = new SwitchField();
-						sw.setSkeletonName(Integer.toString(j+1) + " " + Integer.toString(i+1) + " switch");
+						sw.setSkeletonName(Integer.toString(j + 1) + " " + Integer.toString(i + 1) + " switch");
 						fields.add(sw);
 
 						if (i > 0) {
@@ -137,7 +146,7 @@ public class Map {
 							sw.setNeighbor(Direction.LEFT, fields.get(fields.size() - 2));
 							fields.get(fields.size() - 2).setNeighbor(Direction.RIGHT, sw);
 						}
-						
+
 						if (prevHole == null) {
 							prevSwitch = sw;
 						} else {
@@ -149,7 +158,7 @@ public class Map {
 						break;
 					case "H":
 						HoleField hf = new HoleField();
-						hf.setSkeletonName(Integer.toString(j+1) + " " + Integer.toString(i+1) + " hole");
+						hf.setSkeletonName(Integer.toString(j + 1) + " " + Integer.toString(i + 1) + " hole");
 						fields.add(hf);
 
 						if (i > 0) {
@@ -162,7 +171,7 @@ public class Map {
 							hf.setNeighbor(Direction.LEFT, fields.get(fields.size() - 2));
 							fields.get(fields.size() - 2).setNeighbor(Direction.RIGHT, hf);
 						}
-						
+
 						if (prevSwitch == null) {
 							prevHole = hf;
 						} else {
@@ -170,12 +179,12 @@ public class Map {
 							prevSwitch.setHole(hf);
 							prevSwitch = null;
 						}
-						
+
 						break;
-						
+
 					case "E":
 						EndField e = new EndField();
-						e.setSkeletonName(Integer.toString(j+1) + " " + Integer.toString(i+1) + " endz");
+						e.setSkeletonName(Integer.toString(j + 1) + " " + Integer.toString(i + 1) + " endz");
 						fields.add(e);
 
 						if (i > 0) {
@@ -190,12 +199,12 @@ public class Map {
 						}
 
 						break;
-						
+
 					default:
 						int workerID = Integer.parseInt(objString);
-						
+
 						SimpleField sfw = new SimpleField();
-						sfw.setSkeletonName(Integer.toString(j+1) + " " + Integer.toString(i+1) + " simple");
+						sfw.setSkeletonName(Integer.toString(j + 1) + " " + Integer.toString(i + 1) + " simple");
 						fields.add(sfw);
 
 						if (i > 0) {
@@ -215,27 +224,29 @@ public class Map {
 						sfw.setMovable(worker);
 						workers.add(worker);
 						worker.setId(workerID);
-						
-						//GUI
+
+						// GUI
 						gamePanel.addG_Worker(worker);
-						
+
 						break;
 					}
 				}
 			}
 
 			/*
-			Field testField = fields.get(19);
+			 * Field testField = fields.get(19);
+			 * 
+			 * System.out.println(" UP: " + testField.getNeighbor(Direction.UP) + " LEFT: "
+			 * + testField.getNeighbor(Direction.LEFT) + " DOWN: " +
+			 * testField.getNeighbor(Direction.DOWN) + " RIGHT: " +
+			 * testField.getNeighbor(Direction.RIGHT) + " THIS " + testField.toString());
+			 */
 
-			System.out.println(" UP: " + testField.getNeighbor(Direction.UP) + " LEFT: "
-					+ testField.getNeighbor(Direction.LEFT) + " DOWN: " + testField.getNeighbor(Direction.DOWN)
-					+ " RIGHT: " + testField.getNeighbor(Direction.RIGHT) + " THIS " + testField.toString());
-			*/
-
-		} catch (IOException e) {
-			System.out.println(e);
+		} catch (Exception e) {
+			System.err.println(e.getMessage());
+			e.printStackTrace();
 		}
-
+		
 		// Maganak
 		Game.getInstance().setWorkers(workers);
 		Game.getInstance().setBoxes(boxes);
@@ -291,13 +302,16 @@ public class Map {
 
 	/**
 	 * Mezők lekérésére szolgáló függvény.
+	 * 
 	 * @return
 	 */
 	public List<Field> getFields() {
 		return fields;
 	}
+
 	/**
 	 * A kapott paraméterre állítja a mezőket.
+	 * 
 	 * @param fields
 	 */
 	public void setFields(List<Field> fields) {
