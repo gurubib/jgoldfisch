@@ -2,21 +2,25 @@ package graf.gui;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
-import java.awt.Component;
-import java.awt.FlowLayout;
 import java.awt.Graphics;
 import java.awt.Image;
 import java.util.ArrayList;
 import javax.imageio.ImageIO;
-import javax.swing.BoxLayout;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
-import javax.swing.SwingConstants;
 import javax.swing.border.EmptyBorder;
 
 import graf.gui.elements.*;
 import graf.logic.*;
 
+/**
+ * Az MVC minta view részének egy eleme, maga a játékmenetet megjelenítő panel.
+ * Tartalmazza a modellben szereplő entitások kirajzolandó változatait. Ezeket a modell alapján jeleníti meg.
+ * JPanel leszármazott, ezzel könnyítve a megvalósítást. Tárolja a pályához tartozó textúrákat is.
+ * 
+ * @author jgoldfisch
+ *
+ */
 public class GamePanel extends MainPanel {
 
 	/**
@@ -35,36 +39,45 @@ public class GamePanel extends MainPanel {
 	private ArrayList<Drawable> dynamicDrawables = new ArrayList<>();
 
 	/**
-	 * A staikus elemekt tartalmazó tömb
+	 * A staikus elemeket tartalmazó tömb
 	 */
 	private ArrayList<Drawable> staticDrawables = new ArrayList<>();
 
+	/**
+	 * Játékosok neveinek és kiírására szolgáló JLabel
+	 */
 	private JLabel sc1, sc2;
 
+	/**
+	 * Konstruktor, meghívja az inicializáló függvényt
+	 */
 	public GamePanel() {
 		initComponents();
 	}
 
+	/**
+	 * A Swing komponenseket inicializáló függvény
+	 */
 	public void initComponents() {
 		// ---------------------------------------------
-		// PANELEK LÃ‰TREHOZÃ�SA
+		// PANELEK LÉTREHOZÁSA
 		// ---------------------------------------------
-		// LegfelsÅ‘ panel, border layouttal
+		// Legfelső panel, border layouttal
 		// ---------------------------------------------
 		setLayout(new BorderLayout());
 		int border = Math.round(5 * sizeMod);
 		setBorder(new EmptyBorder(border, border, border, border));
 
-		// DÃ©li panel lÃ©trehozÃ¡sa, a vissza gombhoz
+		// Déli panel létrehozása, a vissza gombhoz
 		// ---------------------------------------------
 		JPanel northPanel = new JPanel(new BorderLayout());
 		int borderNorth = Math.round(10 * sizeMod);
 		northPanel.setBorder(new EmptyBorder(borderNorth, borderNorth, borderNorth, borderNorth));
 
 		// ---------------------------------------------
-		// FELIRATOK LÃ‰TREHOZÃ�SA
+		// FELIRATOK LÉTREHOZÁSA
 		// ---------------------------------------------
-		// FÃ¶cÃ­m lÃ©trehozÃ¡sa, az, hogy ki a nyertes
+		// Főcím létrehozása, az, hogy ki a nyertes
 		// ---------------------------------------------
 		sc1 = new JLabel();
 		sc1.setFont(getFont().deriveFont(32.0f * sizeMod));
@@ -72,7 +85,7 @@ public class GamePanel extends MainPanel {
 		sc1.setOpaque(false);
 		sc1.setText("<html>Player1<br>0</html>");
 
-		// Az elsÅ‘ jÃ¡tÃ©kos pontjait jelÃ¶lÅ‘ szÃ¶veg
+		// Az első játékos pontjait jelölő szöveg
 		// ---------------------------------------------
 		sc2 = new JLabel();
 		sc2.setFont(getFont().deriveFont(32.0f * sizeMod));
@@ -103,7 +116,7 @@ public class GamePanel extends MainPanel {
 	}
 
 	/**
-	 * Kit�rli a t�rk�pen tal�lhat� elemeket
+	 * Kit�rli a t�rk�pen tal�lhat� elemeket
 	 */
 	public void clearMap() {
 		sc1.setText("<html>Player1<br>0</html>");
@@ -161,11 +174,14 @@ public class GamePanel extends MainPanel {
 			ClassLoader loader = getClass().getClassLoader();
 			level = ImageIO.read(loader.getResource(levelGround));
 		} catch (Exception e) {
-			// Amennyiben hiba a betÃ¶ltÃ©sben, lÃ©pjen ki.
+			// Amennyiben hiba a betöltésben, lépjen ki.
 			System.err.println(e.getMessage());
 		}
 	}
 
+	/**
+	 * Felüldefiniált rajzoló függvény
+	 */
 	@Override
 	protected void paintComponent(Graphics g) {
 		super.paintComponent(g);
@@ -181,16 +197,32 @@ public class GamePanel extends MainPanel {
 		}
 	}
 
+	/**
+	 * G_Worker hozzáadását elvégző függvény
+	 * 
+	 * @param worker A G_Worker-hez tartozó modellbeli objektum
+	 */
 	public void addG_Worker(Worker worker) {
 		G_Worker gWorker = new G_Worker(this, worker);
 		dynamicDrawables.add(gWorker);
 	}
 
+	/**
+	 * G_Box hozzáadását elvégző függvény
+	 * 
+	 * @param box A G_Box-hoz tatozó modellbeli objektum
+	 */
 	public void addG_Box(Box box) {
 		G_Box gBox = new G_Box(this, box);
 		dynamicDrawables.add(gBox);
 	}
 
+	/**
+	 * Adott munkás pontjának a kiíratását elvégző függvény, a JLabel-ekre ír
+	 * 
+	 * @param workerID Az adott munkás azonosítója
+	 * @param score	A kiírandó pontszám
+	 */
 	public void setScore(int workerID, int score) {
 		if (workerID == 1) {
 			sc1.setText("<html>Player1<br>" + score + "</html>");

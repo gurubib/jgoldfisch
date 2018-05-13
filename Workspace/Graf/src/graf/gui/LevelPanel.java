@@ -4,8 +4,6 @@ import java.awt.event.ActionEvent;
 import javax.swing.*;
 import javax.swing.border.EmptyBorder;
 
-import graf.logic.Game;
-
 /**
  * 
  * Egy panel, egy háttérrel és saját betűtípussal rendelkező osztály, mely
@@ -18,29 +16,29 @@ import graf.logic.Game;
 public class LevelPanel extends MainPanel {
 
 	/**
-	 * Konstruktor, meghÃ­vja a komponensek inicializÃ¡lÃ¡sÃ¡t
+	 * Konstruktor, meghívja a komponensek inicializálását
 	 */
 	public LevelPanel() {
 		initComponents();
 	}
 
 	/**
-	 * SegÃ©d fÃ¼ggvÃ©ny egy gomb gyorsabb lÃ©trehozÃ¡sÃ¡hoz, szinezÃ©sÃ©hez Ã©s
-	 * hÃ¡tterÃ©nek Ã¡tlÃ¡tszÃ³vÃ¡ tÃ©telÃ©hez.
+	 * Segéd függvény egy gomb gyorsabb létrehozásához, szinezéséhez és
+	 * hátterének átlátszóvá tételéhez.
 	 * 
 	 * @param button
 	 *            referencia a gombra
 	 * @param size
-	 *            a gombon lÃ¡thatÃ³ szÃ¶veg mÃ©rete
+	 *            a gombon látható szöveg mérete
 	 * @param color
-	 *            a gombon lÃ¡thatÃ³ szÃ¶veg szÃ­ne
+	 *            a gombon látható szöveg színe
 	 */
 	private void createButton(JButton button, float size, Color color) {
-		// BetÅ±tÃ­pus bÃ¡llÃ­tÃ¡sa
+		// Betűtípus bállítása
 		button.setFont(getFont().deriveFont(size * sizeMod));
 		button.setForeground(color);
 
-		// Ã�tlÃ¡tszÃ³vÃ¡ tÃ©tel
+		// Átlátszóvá tétel
 		button.setOpaque(false);
 		button.setContentAreaFilled(false);
 		button.setBorderPainted(false);
@@ -48,15 +46,15 @@ public class LevelPanel extends MainPanel {
 	}
 
 	/**
-	 * A panelen talÃ¡lhatÃ³ elemek Ã©s a panelhez tartozÃ³ layoutok lÃ©trehozÃ¡sa
-	 * Ã©s inicializÃ¡lÃ¡sa
+	 * A panelen található elemek és a panelhez tartozó layoutok létrehozása
+	 * és inicializálása
 	 */
 	private void initComponents() {
 
 		// ---------------------------------------------
-		// GOMBOK LÃ‰TREHOZÃ�SA
+		// GOMBOK LÉTREHOZÁSA
 		// ---------------------------------------------
-		// Jungle gomb lÃ©trehozÃ¡sa
+		// Jungle gomb létrehozása
 		// ---------------------------------------------
 		JButton jungle = new JButton("Jungle Ruin");
 		jungle.addActionListener((ActionEvent e) -> {
@@ -74,7 +72,7 @@ public class LevelPanel extends MainPanel {
 		});
 		createButton(jungle, 54.0f, new Color(151, 170, 199));
 
-		// Temple gomb lÃ©trehozÃ¡sa
+		// Temple gomb létrehozása
 		// ---------------------------------------------
 		JButton temple = new JButton("Temple of Doom");
 		temple.addActionListener((ActionEvent e) -> {
@@ -92,7 +90,7 @@ public class LevelPanel extends MainPanel {
 		});
 		createButton(temple, 54.0f, new Color(151, 170, 199));
 
-		// Dungeon gomb lÃ©trehozÃ¡sa
+		// Dungeon gomb létrehozása
 		// ---------------------------------------------
 		JButton dungeon = new JButton("Underground dungeon");
 		dungeon.addActionListener((ActionEvent e) -> {
@@ -110,7 +108,7 @@ public class LevelPanel extends MainPanel {
 		});
 		createButton(dungeon, 54.0f, new Color(151, 170, 199));
 
-		// Back gomb lÃ©trehozÃ¡sa
+		// Back gomb létrehozása
 		// ---------------------------------------------
 		JButton back = new JButton("Back");
 		back.addActionListener((ActionEvent e) -> {
@@ -121,7 +119,7 @@ public class LevelPanel extends MainPanel {
 		createButton(back, 64.0f, new Color(197, 209, 227));
 
 		// ---------------------------------------------
-		// CÃ�M LÃ‰TREHOZÃ�SA
+		// CÁM LÉTREHOZÁSA
 		// ---------------------------------------------
 		JLabel title = new JLabel("Select a map");
 		title.setFont(getFont().deriveFont(96.0f * sizeMod));
@@ -130,15 +128,15 @@ public class LevelPanel extends MainPanel {
 		title.setHorizontalAlignment(SwingConstants.CENTER);
 
 		// ---------------------------------------------
-		// PANELEK LÃ‰TREHOZÃ�SA
+		// PANELEK LÉTREHOZÁSA
 		// ---------------------------------------------
-		// LegfelsÅ‘ panel, border layouttal
+		// Legfelső panel, border layouttal
 		// ---------------------------------------------
 		setLayout(new BorderLayout());
 		int border = Math.round(30 * sizeMod);
 		setBorder(new EmptyBorder(border, border, border, border));
 
-		// DÃ©li panel lÃ©trehozÃ¡sa, a vissza gombhoz
+		// Déli panel létrehozása, a vissza gombhoz
 		// ---------------------------------------------
 		JPanel bottomPanel = new JPanel(new FlowLayout(FlowLayout.LEFT));
 		JPanel backPanel = new JPanel();
@@ -151,9 +149,9 @@ public class LevelPanel extends MainPanel {
 		bottomPanel.setOpaque(false);
 		bottomPanel.add(backPanel);
 
-		// KÃ¶zÃ©psÅ‘ panel lÃ©trehozÃ¡sa, a pÃ¡lyÃ¡kat reprezentÃ¡lÃ³ gombokhoz (border
+		// Középső panel létrehozása, a pályákat reprezentáló gombokhoz (border
 		// layout)
-		// Benne egy Flow Layout a jobbra igazÃ­tÃ¡shoz
+		// Benne egy Flow Layout a jobbra igazításhoz
 		// ---------------------------------------------
 		JPanel centerPanel = new JPanel(new BorderLayout());
 		JPanel mapPanel = new JPanel();
@@ -170,7 +168,7 @@ public class LevelPanel extends MainPanel {
 		centerPanel.add(mapPanel, BorderLayout.SOUTH);
 		centerPanel.setOpaque(false);
 
-		// Panelek hozzÃ¡rendelÃ©se a legfelsÅ‘ panelhez
+		// Panelek hozzárendelése a legfelső panelhez
 		// ---------------------------------------------
 		add(title, BorderLayout.NORTH);
 		add(centerPanel, BorderLayout.CENTER);

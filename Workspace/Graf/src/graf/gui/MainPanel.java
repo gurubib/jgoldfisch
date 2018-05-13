@@ -1,20 +1,17 @@
 package graf.gui;
 
-import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.Graphics;
 import java.awt.Image;
-import java.awt.Point;
 import java.awt.Toolkit;
-import java.io.File;
 import java.io.InputStream;
 
 import javax.imageio.ImageIO;
 import javax.swing.JPanel;
 
 /**
- * Egy alapvetÅ‘ JPanelt lÃ©trehozÃ³ osztÃ¡ly. Rendelkezik egy hÃ¡ttÃ©rrel Ã©s
- * egy hozzÃ¡ tartozÃ³ betÅ±tÃ­pussal.
+ * Egy alapvető JPanelt létrehozó osztály. Rendelkezik egy háttérrel és
+ * egy hozzá tartozó betűtípussal.
  * 
  * @author jgoldfisch
  *
@@ -22,12 +19,12 @@ import javax.swing.JPanel;
 public class MainPanel extends JPanel {
 
 	/**
-	 * A hÃ¡ttÃ©r kÃ©pe (mÃ©ret 1920 * 1080)
+	 * A háttér képe (méret 1920 * 1080)
 	 */
 	private Image backgroundImage;
 
 	/**
-	 * A menÃ¼ betÅ±tÃ­pusa
+	 * A menü betűtípusa
 	 */
 	private Font font;
 
@@ -37,8 +34,8 @@ public class MainPanel extends JPanel {
 	protected float sizeMod;
 
 	/**
-	 * Konstruktor egy alapvetÅ‘ panelt Ã©s betÃ¶lti a panelhez tartozÃ³
-	 * hÃ¡ttÃ©rkÃ©pet Ã©s betÅ±tÃ­pust.
+	 * Konstruktor egy alapvető panelt és betölti a panelhez tartozó
+	 * háttérképet és betűtípust.
 	 */
 	MainPanel() {
 		try {
@@ -49,7 +46,7 @@ public class MainPanel extends JPanel {
 			font = Font.createFont(Font.TRUETYPE_FONT, is);
 
 		} catch (Exception e) {
-			// Amennyiben hiba a betÃ¶ltÃ©sben, lÃ©pjen ki.
+			// Amennyiben hiba a betöltésben, lépjen ki.
 			System.exit(ERROR);
 		}
 
@@ -58,7 +55,7 @@ public class MainPanel extends JPanel {
 	}
 
 	/**
-	 * Visszadja a menÃ¼ betÅ±tÃ­pusÃ¡t
+	 * Visszadja a menü betűtípusát
 	 */
 	public Font getFont() {
 		return font;

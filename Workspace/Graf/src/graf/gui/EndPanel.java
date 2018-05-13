@@ -5,23 +5,22 @@ import java.awt.event.ActionEvent;
 import javax.swing.*;
 import javax.swing.border.EmptyBorder;
 
+/**
+ * 
+ * Egy panel, egy háttérrel és saját betűtípussal rendelkező osztály, mely
+ * tartalmaza a játékosok ponjait, a győztes személyét továbbá két gombot. Egyet
+ * a menübe való visszajutáshoz és egyet új játék kezdéséhez.
+ * 
+ * @author jgoldfisch
+ *
+ */
 public class EndPanel extends MainPanel {
-
-	/**
-	 * 
-	 * Egy panel, egy háttérrel és saját betűtípussal rendelkező osztály, mely
-	 * tartalmaza a játékosok ponjait, a győztes személyét továbbá két gombot. Egyet
-	 * a menübe való visszajutáshoz és egyet új játék kezdéséhez.
-	 * 
-	 * @author jgoldfisch
-	 *
-	 */
 
 	private JLabel points, winLine;
 	
 	
 	/**
-	 * Konstruktor, meghÃ­vja a komponensek inicializÃ¡lÃ¡sÃ¡t
+	 * Konstruktor, meghívja a komponensek inicializálását
 	 */
 	public EndPanel() {
 		initComponents();
@@ -50,22 +49,22 @@ public class EndPanel extends MainPanel {
 	}
 
 	/**
-	 * SegÃ©d fÃ¼ggvÃ©ny egy gomb gyorsabb lÃ©trehozÃ¡sÃ¡hoz, szinezÃ©sÃ©hez Ã©s
-	 * hÃ¡tterÃ©nek Ã¡tlÃ¡tszÃ³vÃ¡ tÃ©telÃ©hez.
+	 * Segéd függvény egy gomb gyorsabb létrehozásához, szinezéséhez és
+	 * hátterének átlátszóvá tételéhez.
 	 * 
 	 * @param button
 	 *            referencia a gombra
 	 * @param size
-	 *            a gombon lÃ¡thatÃ³ szÃ¶veg mÃ©rete
+	 *            a gombon látható szöveg mérete
 	 * @param color
-	 *            a gombon lÃ¡thatÃ³ szÃ¶veg szÃ­ne
+	 *            a gombon látható szöveg színe
 	 */
 	private void createButton(JButton button, float size, Color color) {
-		// BetÅ±tÃ­pus bÃ¡llÃ­tÃ¡sa
+		// Betűtípus bállítása
 		button.setFont(getFont().deriveFont(size * sizeMod));
 		button.setForeground(color);
 
-		// Ã�tlÃ¡tszÃ³vÃ¡ tÃ©tel
+		// Átlátszóvá tétel
 		button.setOpaque(false);
 		button.setContentAreaFilled(false);
 		button.setBorderPainted(false);
@@ -73,14 +72,14 @@ public class EndPanel extends MainPanel {
 	}
 
 	/**
-	 * A panelen talÃ¡lhatÃ³ elemek Ã©s a panelhez tartozÃ³ layoutok lÃ©trehozÃ¡sa
-	 * Ã©s inicializÃ¡lÃ¡sa
+	 * A panelen található elemek és a panelhez tartozó layoutok létrehozása
+	 * és inicializálása
 	 */
 	private void initComponents() {
 		// ---------------------------------------------
-		// GOMBOK LÃ‰TREHOZÃ�SA
+		// GOMBOK LÉTREHOZÁSA
 		// ---------------------------------------------
-		// Back gomb lÃ©trehozÃ¡sa
+		// Back gomb létrehozása
 		// ---------------------------------------------
 		JButton back = new JButton("Back");
 		back.addActionListener((ActionEvent e) -> {
@@ -90,7 +89,7 @@ public class EndPanel extends MainPanel {
 		});
 		createButton(back, 64.0f, new Color(197, 209, 227));
 
-		// New Game gomb lÃ©trehozÃ¡sa
+		// New Game gomb létrehozása
 		// ---------------------------------------------
 		JButton newGame = new JButton("New Game");
 		newGame.addActionListener((ActionEvent e) -> {
@@ -101,9 +100,9 @@ public class EndPanel extends MainPanel {
 		createButton(newGame, 64.0f, new Color(197, 209, 227));
 
 		// ---------------------------------------------
-		// FELIRATOK LÃ‰TREHOZÃ�SA
+		// FELIRATOK LÉTREHOZÁSA
 		// ---------------------------------------------
-		// FÃ¶cÃ­m lÃ©trehozÃ¡sa, az, hogy ki a nyertes
+		// Föcím létrehozása, az, hogy ki a nyertes
 		// ---------------------------------------------
 		winLine = new JLabel();
 		winLine.setFont(getFont().deriveFont(96.0f * sizeMod));
@@ -111,7 +110,7 @@ public class EndPanel extends MainPanel {
 		winLine.setOpaque(false);
 		winLine.setHorizontalAlignment(SwingConstants.CENTER);
 
-		// Az elsÅ‘ jÃ¡tÃ©kos pontjait jelÃ¶lÅ‘ szÃ¶veg
+		// Az első játékos pontjait jelölő szöveg
 		// ---------------------------------------------
 		points = new JLabel();
 		points.setFont(getFont().deriveFont(64.0f * sizeMod));
@@ -121,15 +120,15 @@ public class EndPanel extends MainPanel {
 		
 
 		// ---------------------------------------------
-		// PANELEK LÃ‰TREHOZÃ�SA
+		// PANELEK LÉTREHOZÁSA
 		// ---------------------------------------------
-		// LegfelsÅ‘ panel, border layouttal
+		// Legfelső panel, border layouttal
 		// ---------------------------------------------
 		setLayout(new BorderLayout());
 		int border = Math.round(30 * sizeMod);
 		setBorder(new EmptyBorder(border, border, border, border));
 
-		// DÃ©li panel lÃ©trehozÃ¡sa, a vissza gombhoz
+		// Déli panel létrehozása, a vissza gombhoz
 		// ---------------------------------------------
 		JPanel bottomPanel = new JPanel(new FlowLayout(FlowLayout.LEFT));
 		JPanel backPanel = new JPanel();
@@ -144,13 +143,13 @@ public class EndPanel extends MainPanel {
 		bottomPanel.setOpaque(false);
 		bottomPanel.add(backPanel);
 
-		// KÃ¶zÃ©psÅ‘ panel lÃ©trehozÃ¡sa, a jÃ¡tÃ©kosok pontjait megjelenÃ­tÅ‘ rÃ©sz.
+		// Középső panel létrehozása, a játékosok pontjait megjelenítő rész.
 		// ---------------------------------------------
 		JPanel centerPanel = new JPanel(new BorderLayout());
 		JPanel playerPanel = new JPanel();
 		playerPanel.setLayout(new BoxLayout(playerPanel, BoxLayout.Y_AXIS));
 
-		// A jÃ¡tÃ©kosok sorrendje attÃ³l fÃ¼ggÅ‘en, hogy kinek hÃ¡ny pontja lett.
+		// A játékosok sorrendje attól függően, hogy kinek hány pontja lett.
 		// ---------------------------------------------
 		playerPanel.add(Box.createRigidArea(new Dimension(0, Math.round(25 * sizeMod))));
 		playerPanel.add(points);
@@ -159,7 +158,7 @@ public class EndPanel extends MainPanel {
 		centerPanel.add(playerPanel, BorderLayout.NORTH);
 		centerPanel.setOpaque(false);
 
-		// Panelek hozzÃ¡rendelÃ©se a legfelsÅ‘ panelhez
+		// Panelek hozzárendelése a legfelső panelhez
 		// ---------------------------------------------
 		add(winLine, BorderLayout.NORTH);
 		add(centerPanel, BorderLayout.CENTER);

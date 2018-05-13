@@ -16,29 +16,29 @@ import javax.swing.border.EmptyBorder;
 public class MenuPanel extends MainPanel {
 
 	/**
-	 * Konstruktor, meghÃ­vja a komponensek inicializÃ¡lÃ¡sÃ¡t
+	 * Konstruktor, meghívja a komponensek inicializálását
 	 */
 	public MenuPanel() {
 		initComponents();
 	}
 
 	/**
-	 * SegÃ©d fÃ¼ggvÃ©ny egy gomb gyorsabb lÃ©trehozÃ¡sÃ¡hoz, szinezÃ©sÃ©hez Ã©s
-	 * hÃ¡tterÃ©nek Ã¡tlÃ¡tszÃ³vÃ¡ tÃ©telÃ©hez.
+	 * Segéd függvény egy gomb gyorsabb létrehozásához, szinezéséhez és
+	 * hátterének átlátszóvá tételéhez.
 	 * 
 	 * @param button
 	 *            referencia a gombra
 	 * @param size
-	 *            a gombon lÃ¡thatÃ³ szÃ¶veg mÃ©rete
+	 *            a gombon látható szöveg mérete
 	 * @param color
-	 *            a gombon lÃ¡thatÃ³ szÃ¶veg szÃ­ne
+	 *            a gombon látható szöveg színe
 	 */
 	private void createButton(JButton button, float size, Color color) {
-		// BetÅ±tÃ­pus bÃ¡llÃ­tÃ¡sa
+		// Betűtípus bállítása
 		button.setFont(getFont().deriveFont(size * sizeMod));
 		button.setForeground(color);
 
-		// Ã�tlÃ¡tszÃ³vÃ¡ tÃ©tel
+		// Átlátszóvá tétel
 		button.setOpaque(false);
 		button.setContentAreaFilled(false);
 		button.setBorderPainted(false);
@@ -46,14 +46,14 @@ public class MenuPanel extends MainPanel {
 	}
 
 	/**
-	 * A panelen talÃ¡lhatÃ³ elemek Ã©s a panelhez tartozÃ³ layoutok lÃ©trehozÃ¡sa
-	 * Ã©s inicializÃ¡lÃ¡sa
+	 * A panelen található elemek és a panelhez tartozó layoutok létrehozása
+	 * és inicializálása
 	 */
 	private void initComponents() {
 		// ---------------------------------------------
-		// GOMBOK LÃ‰TREHOZÃ�SA
+		// GOMBOK LÉTREHOZÁSA
 		// ---------------------------------------------
-		// New Game gomb lÃ©trehozÃ¡sa
+		// New Game gomb létrehozása
 		// ---------------------------------------------
 		JButton newGame = new JButton("New Game");
 		newGame.addActionListener((ActionEvent e) -> {
@@ -63,7 +63,7 @@ public class MenuPanel extends MainPanel {
 		});
 		createButton(newGame, 64.0f, new Color(197, 209, 227));
 
-		// KilÃ©pÃ©s gomb lÃ©trehozÃ¡sa
+		// Kilépés gomb létrehozása
 		// ---------------------------------------------
 		JButton exit = new JButton("Exit");
 		exit.addActionListener((ActionEvent e) -> {
@@ -72,7 +72,7 @@ public class MenuPanel extends MainPanel {
 		createButton(exit, 64.0f, new Color(197, 209, 227));
 
 		// ---------------------------------------------
-		// CÃ�M LÃ‰TREHOZÃ�SA
+		// CÁM LÉTREHOZÁSA
 		// ---------------------------------------------
 		JLabel title = new JLabel("Killer Sokoban");
 		title.setFont(getFont().deriveFont(128.0f * sizeMod));
@@ -81,15 +81,15 @@ public class MenuPanel extends MainPanel {
 		title.setHorizontalAlignment(SwingConstants.CENTER);
 
 		// ---------------------------------------------
-		// PANELEK LÃ‰TREHOZÃ�SA
+		// PANELEK LÉTREHOZÁSA
 		// ---------------------------------------------
-		// LegfelsÅ‘ panel, border layouttal
+		// Legfelső panel, border layouttal
 		// ---------------------------------------------
 		setLayout(new BorderLayout());
 		int border = Math.round(50 * sizeMod);
 		setBorder(new EmptyBorder(border, border, border, border));
 
-		// DÃ©li panel lÃ©trehozÃ¡sa, a vissza Ã©s az Ãºj jÃ¡tÃ©k gombhoz
+		// Déli panel létrehozása, a vissza és az új játék gombhoz
 		// ---------------------------------------------
 		JPanel bottomPanel = new JPanel(new FlowLayout(FlowLayout.LEFT));
 		JPanel rightPanel = new JPanel();
@@ -103,7 +103,7 @@ public class MenuPanel extends MainPanel {
 		bottomPanel.setOpaque(false);
 		bottomPanel.add(rightPanel);
 
-		// Panelek hozzÃ¡rendelÃ©se a legfelsÅ‘ panelhez
+		// Panelek hozzárendelése a legfelső panelhez
 		// ---------------------------------------------
 		add(title, BorderLayout.NORTH);
 		add(bottomPanel, BorderLayout.SOUTH);

@@ -9,12 +9,36 @@ import javax.swing.JPanel;
 import graf.gui.Drawable;
 import graf.logic.EndField;
 
+/**
+ * EndField modellbeli objektum kirajzolásáért felelős osztály.
+ * 
+ * @author jgoldfisch
+ *
+ */
 public class G_EndField extends Drawable {
 
+	/**
+	 * A hozzátartozó modellbeli objektum
+	 */
 	EndField gameObject;
+	
+	/**
+	 * A méz képe
+	 */
 	Image honey;
+
+	/**
+	 * Az olaj képe
+	 */
 	Image oil;
 
+	/**
+	 * Konstruktor, amely meghívja az ősosztály konstruktorát, és beállítja a modellbeli objektumot,
+	 * valamint betölti a megfelelő képeket
+	 * 
+	 * @param panel A hozzátartozó JPanel
+	 * @param endField A hozzátartozó modellbeli objektum
+	 */
 	public G_EndField(JPanel panel, EndField endField) {
 		super(panel);	
 		gameObject = endField;
@@ -31,7 +55,7 @@ public class G_EndField extends Drawable {
 		}
 	}
 
-	/*
+	/**
 	 * A pozíció kiderítéséhez a space-ek mentén feldaraboljuk a string-et, majd az
 	 * első elem lesz az X, a második pedig az Y koordináta.
 	 */

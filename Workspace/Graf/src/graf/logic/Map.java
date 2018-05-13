@@ -1,23 +1,12 @@
 package graf.logic;
 
-import java.awt.Image;
 import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.net.URL;
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.stream.Collector;
 import java.util.stream.Collectors;
 
-import javax.imageio.ImageIO;
-import javax.swing.JFrame;
-
-import graf.gui.Controller;
 import graf.gui.GamePanel;
 import graf.out.MethodWriter;
 

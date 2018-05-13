@@ -1,12 +1,9 @@
 package graf.gui;
 
 import java.awt.*;
-import java.awt.event.KeyEvent;
-import java.awt.event.KeyListener;
 
 import javax.swing.*;
 
-import graf.logic.Game;
 
 /**
  * 
@@ -35,6 +32,11 @@ public class MainFrame extends JFrame {
 		controller.setFrame(this);
 	}
 	
+	/**
+	 * Szokványos getter a controller attribútumhoz
+	 * 
+	 * @return A controller attribútum
+	 */
 	public Controller getController() {
 		return controller;
 	}
@@ -47,20 +49,25 @@ public class MainFrame extends JFrame {
 		return panel;
 	}
 
+	/**
+	 * Szokványos setter a panel attribútumhoz
+	 * 
+	 * @param panel A beállítandó panel
+	 */
 	public void setPanel(GamePanel panel) {
 		this.panel = panel;
 	}
 
 	/**
-	 * A Frame Ã©s a benne talÃ¡lhatÃ³ panelek inicializÃ¡lÃ¡sa
+	 * A Frame és a benne találhatÃ³ panelek inicializálása
 	 */
 	private void initComponents() {
-		// Alap beÃ¡llÃ­tÃ¡sok
+		// Alap beállÃ­tások
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
 		setTitle("Killer Sokoban");
 		setFocusable(true);
 
-		// Teljes kÃ©penyÅ‘ tartva a kÃ©parÃ¡nyt.
+		// Teljes képenyő tartva a képarányt.
 		Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
 		int width = (int) screenSize.getWidth();
 		int height = (int) screenSize.getHeight();
@@ -99,7 +106,7 @@ public class MainFrame extends JFrame {
 		controller.setKeyboardHandler(eventHandler);
 		addKeyListener(eventHandler);
 		
-		// Panelek hozzÃ¡adÃ¡sa a layout-hoz
+		// Panelek hozzáadása a layout-hoz
 		panels.add(menuPanel, "MAIN");
 		panels.add(endPanel, "END");
 		panels.add(levelPanel, "LEVELS");
@@ -108,7 +115,7 @@ public class MainFrame extends JFrame {
 		panels.add(panel, "GAME");
 
 		
-		// Panelek hozzÃ¡adÃ¡sa a frame-hez
+		// Panelek hozzáadása a frame-hez
 
 		add(panels);
 		pack();

@@ -9,11 +9,31 @@ import javax.swing.JPanel;
 import graf.gui.Drawable;
 import graf.logic.SwitchField;
 
+/**
+ * SwitchField modellbeli objektum kirajzolásáért felelős osztály.
+ * 
+ * @author jgoldfisch
+ *
+ */
 public class G_SwitchField extends Drawable {
 
+	/**
+	 * A hozzátartozó modellbeli objektum
+	 */
 	SwitchField gameObject;
+	
+	/**
+	 * A megfelelő képek
+	 */
 	Image texture, honey, oil;
 
+	/**
+	 * Konstruktor, amely meghívja az ősosztály konstruktorát, és beállítja a modellbeli objektumot,
+	 * valamint betölti a megfelelő képeket
+	 * 
+	 * @param panel A hozzátartozó JPanel
+	 * @param switchField A hozzátartozó modellbeli objektum
+	 */
 	public G_SwitchField(JPanel panel, SwitchField switchField) {
 		super(panel);			
 		gameObject = switchField;
@@ -30,7 +50,7 @@ public class G_SwitchField extends Drawable {
 		}
 	}
 
-	/*
+	/**
 	 * A pozíció kiderítéséhez a space-ek mentén feldaraboljuk a string-et, majd az
 	 * első elem lesz az X, a második pedig az Y koordináta.
 	 */

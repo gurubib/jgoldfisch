@@ -9,11 +9,31 @@ import javax.swing.JPanel;
 import graf.gui.Drawable;
 import graf.logic.SimpleField;
 
-public class G_SimpleField extends Drawable{
+/**
+ * SimpleField modellbeli objektum kirajzolásáért felelős osztály.
+ * 
+ * @author jgoldfisch
+ *
+ */
+public class G_SimpleField extends Drawable {
 
+	/**
+	 * A hozzátartozó modellbeli objektum
+	 */
 	SimpleField gameObject;
+	
+	/**
+	 * A megfelelő képek
+	 */
 	Image honey, oil;
 	
+	/**
+	 * Konstruktor, amely meghívja az ősosztály konstruktorát, és beállítja a modellbeli objektumot,
+	 * valamint betölti a megfelelő képeket
+	 * 
+	 * @param panel A hozzátartozó JPanel
+	 * @param simpleField A hozzátartozó modellbeli objektum
+	 */
 	public G_SimpleField(JPanel panel, SimpleField simpleField) {
 		super(panel);
 		gameObject = simpleField;
@@ -27,7 +47,7 @@ public class G_SimpleField extends Drawable{
 		}
 	}
 
-	/*
+	/**
 	 * A pozíció kiderítéséhez a space-ek mentén feldaraboljuk a string-et, majd az
 	 * első elem lesz az X, a második pedig az Y koordináta.
 	 */

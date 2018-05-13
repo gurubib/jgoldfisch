@@ -3,31 +3,65 @@ package graf.gui;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 
-import javax.swing.text.JTextComponent.KeyBinding;
-
 import graf.logic.Direction;
 
+/**
+ * A billentyűzet kezelését végző osztály, implementálja a KeyListener interfészt.
+ * 
+ * @author jgoldfisch
+ *
+ */
 public class KeyboardEventHandler implements KeyListener {
 
-	Controller controller;
-	boolean gaming = false;
+	/**
+	 * Az MVC logika Controller része
+	 */
+	private Controller controller;
 	
+	/**
+	 * Konkrét játékmenet közben igaz, a billentyűzetkezelés csak ott működjön
+	 */
+	private boolean gaming = false;
+	
+	/**
+	 * Szokványos getter, a controller attribútumra
+	 * 
+	 * @return A controller
+	 */
 	public Controller getController() {
 		return controller;
 	}
 
+	/**
+	 * Szokványos setter a controller attribútumra
+	 * 
+	 * @param controller A beállítandó controller
+	 */
 	public void setController(Controller controller) {
 		this.controller = controller;
 	}
-	
+
+	/**
+	 * Szokványos getter a gaming attribútumra
+	 * 
+	 * @return A gaming attribútum értéke
+	 */
 	public boolean isGaming() {
 		return gaming;
 	}
 
+	/**
+	 * Szokványos setter a gaming attribútumra
+	 * 
+	 * @param gaming A gaminf beállítandó értéke
+	 */
 	public void setGaming(boolean gaming) {
 		this.gaming = gaming;
 	}
 
+	/**
+	 * Billentyűzet lenyomás eseménykezelő függvény
+	 */
 	@Override
 	public void keyPressed(KeyEvent arg0) {
 		// TODO Auto-generated method stub
@@ -78,12 +112,18 @@ public class KeyboardEventHandler implements KeyListener {
 
 	}
 
+	/**
+	 * Billentyűzet felengedés eseménykezelő függvény
+	 */
 	@Override
 	public void keyReleased(KeyEvent arg0) {
 		// TODO Auto-generated method stub
 
 	}
 
+	/**
+	 * Billentyűzet eseménykezelő függvény
+	 */
 	@Override
 	public void keyTyped(KeyEvent arg0) {
 		// TODO Auto-generated method stub

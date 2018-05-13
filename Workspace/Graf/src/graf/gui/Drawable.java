@@ -4,42 +4,41 @@ import java.awt.Graphics;
 import java.awt.Image;
 import java.awt.Toolkit;
 
-import javax.imageio.ImageIO;
 import javax.swing.JPanel;
 
 /**
- * Absztakt Å‘sosztÃ¡lya minden a pÃ¡lyÃ¡ra rajzolhatÃ³ jÃ¡tÃ©kelemnek. Tartalmaz egy
- * alapvetÅ‘ textÃºrÃ¡t Ã©s a panelt, melyre a kirajzolÃ¡s tÃ¶rtÃ©nni fog.
+ * Absztakt ősosztálya minden a pályára rajzolható játékelemnek. Tartalmaz egy
+ * alapvető textúrát és a panelt, melyre a kirajzolás történni fog.
  * 
  * @author jgoldfisch
  *
  */
 abstract public class Drawable {
 	/**
-	 * A jÃ¡tÃ©kelemhez tartozÃ³ textÃºra
+	 * A játékelemhez tartozó textúra
 	 */
 	private Image texture;
 
 	/**
-	 * A panel, melyre a kirajzolÃ¡st vÃ©gezzÃ¼k
+	 * A panel, melyre a kirajzolást végezzÃ¼k
 	 */
 	protected JPanel panel;
 
 	/**
-	 * Az kirajzolÃ¡s x Ã©s y pozÃ­ciÃ³ja
+	 * Az kirajzolás x és y pozíciója
 	 */
 	protected int posX = -1, posY = -1;
 
 	/**
-	 * A kÃ©pernyÅ‘ Ã¡tmÃ©retezÃ©se esetÃ©n a vÃ¡ltozÃ¡s nagysÃ¡ga (FHD-hoz kÃ©pest)
+	 * A képernyő átméretezése esetén a változás nagysága (FHD-hoz képest)
 	 */
 	protected float sizeMod;
 
 	/**
-	 * Kostruktor egy kirajzolhatÃ³ jÃ¡tÃ©kelemhez
+	 * Kostruktor egy kirajzolható játékelemhez
 	 * 
 	 * @param panel
-	 *            referencia a panelra, melyre a rajzolÃ¡st szeretnÃ©nk vÃ©gezni
+	 *            referencia a panelra, melyre a rajzolást szeretnénk végezni
 	 */
 	protected Drawable(JPanel panel) {
 		this.panel = panel;
@@ -47,10 +46,10 @@ abstract public class Drawable {
 	}
 
 	/**
-	 * Kirajzolja a textÃºrÃ¡t egy megadott koordinÃ¡tÃ¡ba
+	 * Kirajzolja a textúrát egy megadott koordinátába
 	 * 
 	 * @param g
-	 *            referencia egy Graphics osztÃ¡lyra
+	 *            referencia egy Graphics osztályra
 	 */
 	public void draw(Graphics g) {
 		if (posX < 0 || posY < 0) {
@@ -60,18 +59,23 @@ abstract public class Drawable {
 
 		g.drawImage(texture, posX, posY, panel);
 	}
-		
+	
+	/**
+	 * Textúra beállításása (setter)
+	 * 
+	 * @param image A beállítandó kép
+	 */
 	public void setTexture(Image image) {		
 		texture = image.getScaledInstance(Math.round(image.getWidth(panel) * sizeMod), -1, Image.SCALE_SMOOTH);
 	}
 
 	/**
-	 * BeÃ¡llÃ­tja, hogy hova kell kirajzolni a pÃ¡lyÃ¡n a kÃ©pet.
+	 * Beállítja, hogy hova kell kirajzolni a pályán a képet.
 	 * 
 	 * @param x
-	 *            a sor szÃ¡ma (0-val kezdÅ‘dÅ‘en)
+	 *            a sor száma (0-val kezdődően)
 	 * @param y
-	 *            az oszlop szÃ¡ma (0-val kezdÅ‘dÅ‘en)
+	 *            az oszlop száma (0-val kezdődően)
 	 */
 	public void SetPosition(int x, int y) {
 		posX = Math.round((x * 64 + 32) * sizeMod);
