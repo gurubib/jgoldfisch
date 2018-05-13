@@ -107,7 +107,7 @@ public class EndPanel extends MainPanel {
 		// ---------------------------------------------
 		winLine = new JLabel();
 		winLine.setFont(getFont().deriveFont(96.0f * sizeMod));
-		winLine.setForeground(new Color(2, 11, 49));
+		winLine.setForeground(new Color(0, 0, 0));
 		winLine.setOpaque(false);
 		winLine.setHorizontalAlignment(SwingConstants.CENTER);
 
@@ -115,7 +115,7 @@ public class EndPanel extends MainPanel {
 		// ---------------------------------------------
 		points = new JLabel();
 		points.setFont(getFont().deriveFont(64.0f * sizeMod));
-		points.setForeground(new Color(2, 11, 49));
+		points.setForeground(new Color(0, 0, 0));
 		points.setOpaque(false);
 		points.setAlignmentX(CENTER_ALIGNMENT);
 		

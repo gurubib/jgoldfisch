@@ -60,14 +60,16 @@ public class LevelPanel extends MainPanel {
 		// ---------------------------------------------
 		JButton jungle = new JButton("Jungle Ruin");
 		jungle.addActionListener((ActionEvent e) -> {
+			MainFrame frame = (MainFrame) SwingUtilities.getRoot(this);
+			frame.panel.clearMap();
+			
 			MainFrame topFrame = (MainFrame)SwingUtilities.getWindowAncestor(this);
 			topFrame.getController().startGame("map1.txt");
 			
 			Container parent = getParent();
 			CardLayout cd = (CardLayout) parent.getLayout();
 			cd.show(parent, "GAME");
-			
-			MainFrame frame = (MainFrame) SwingUtilities.getRoot(this);
+
 			frame.panel.loadTextures("Jungle");
 		});
 		createButton(jungle, 54.0f, new Color(151, 170, 199));
@@ -76,14 +78,16 @@ public class LevelPanel extends MainPanel {
 		// ---------------------------------------------
 		JButton temple = new JButton("Temple of Doom");
 		temple.addActionListener((ActionEvent e) -> {
+			MainFrame frame = (MainFrame) SwingUtilities.getRoot(this);
+			frame.panel.clearMap();
+			
 			MainFrame topFrame = (MainFrame)SwingUtilities.getWindowAncestor(this);
 			topFrame.getController().startGame("map2.txt");
 			
 			Container parent = getParent();
 			CardLayout cd = (CardLayout) parent.getLayout();
 			cd.show(parent, "GAME");
-			
-			MainFrame frame = (MainFrame) SwingUtilities.getRoot(this);
+
 			frame.panel.loadTextures("Temple");
 		});
 		createButton(temple, 54.0f, new Color(151, 170, 199));
@@ -92,14 +96,16 @@ public class LevelPanel extends MainPanel {
 		// ---------------------------------------------
 		JButton dungeon = new JButton("Underground dungeon");
 		dungeon.addActionListener((ActionEvent e) -> {
+			MainFrame frame = (MainFrame) SwingUtilities.getRoot(this);
+			frame.panel.clearMap();
+			
 			MainFrame topFrame = (MainFrame)SwingUtilities.getWindowAncestor(this);
 			topFrame.getController().startGame("map3.txt");
 			
 			Container parent = getParent();
 			CardLayout cd = (CardLayout) parent.getLayout();
 			cd.show(parent, "GAME");
-			
-			MainFrame frame = (MainFrame) SwingUtilities.getRoot(this);
+
 			frame.panel.loadTextures("Dungeon");
 		});
 		createButton(dungeon, 54.0f, new Color(151, 170, 199));
@@ -119,7 +125,7 @@ public class LevelPanel extends MainPanel {
 		// ---------------------------------------------
 		JLabel title = new JLabel("Select a map");
 		title.setFont(getFont().deriveFont(96.0f * sizeMod));
-		title.setForeground(new Color(2, 11, 49));
+		title.setForeground(new Color(0, 0, 0));
 		title.setOpaque(false);
 		title.setHorizontalAlignment(SwingConstants.CENTER);
 

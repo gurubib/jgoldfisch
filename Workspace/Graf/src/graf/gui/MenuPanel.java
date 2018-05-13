@@ -76,7 +76,7 @@ public class MenuPanel extends MainPanel {
 		// ---------------------------------------------
 		JLabel title = new JLabel("Killer Sokoban");
 		title.setFont(getFont().deriveFont(128.0f * sizeMod));
-		title.setForeground(new Color(2, 11, 49));
+		title.setForeground(new Color(0, 0, 0));
 		title.setOpaque(false);
 		title.setHorizontalAlignment(SwingConstants.CENTER);
 

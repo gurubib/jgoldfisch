@@ -46,6 +46,14 @@ public class GamePanel extends MainPanel {
 		// TODO: Kitalálni, hogyan kéne csak azokat, egyáltalán lehet-e
 		this.repaint();
 	}
+	
+	/**
+	 * Kit�rli a t�rk�pen tal�lhat� elemeket
+	 */
+	public void clearMap() {
+		dynamicDrawables.clear();
+		staticDrawables.clear();
+	}
 
 	/**
 	 * Betőlti a játék pályához tartozó textúrákat.
@@ -55,11 +63,6 @@ public class GamePanel extends MainPanel {
 	 *            <b>Dungeon</b>
 	 */
 	public void loadTextures(String viewStyle) {
-		// TODO: A map inicializásása, ha itt kell
-		
-		
-		// TODO: Minden játékobjecthez hozzáadni egy G_**-t
-
 		String levelGround = "";
 
 		switch (viewStyle) {
