@@ -71,6 +71,7 @@ public class Controller {
 		if(currentWorker != null) {
 			currentWorker.placeOil();
 		}
+		updateView();
 	}
 	
 	public void honeyDropped(int workerID) {
@@ -83,6 +84,7 @@ public class Controller {
 		if(currentWorker != null) {
 			currentWorker.placeHoney();
 		}
+		updateView();
 	}
 	
 	public void updateView() {
