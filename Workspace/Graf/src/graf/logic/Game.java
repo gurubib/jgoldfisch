@@ -27,25 +27,53 @@ public class Game {
 	 */
 	private List<Worker> workers;
 	
+	/**
+	 * A pályán lévő dobozok
+	 */
 	private List<Box> boxes;
 	
+	/**
+	 * Az MVC modell controllere
+	 */
 	private Controller controller;
 	
-	// TODO: �tn�zni!!
+	/**
+	 * A játékosok pontszáma
+	 */
 	private int score1 = 0, score2 = 0;
 	
+	/**
+	 * Szokványos getter, a controller attribútumhoz
+	 * 
+	 * @return A controller attribútum
+	 */
 	public Controller getController() {
 		return controller;
 	}
 
+	/**
+	 * Szokványos setter a controller attribútumhoz
+	 * 
+	 * @param controller A beállítandó controller
+	 */
 	public void setController(Controller controller) {
 		this.controller = controller;
 	}
 
+	/**
+	 * Szokványos getter a boxes attribútumhoz
+	 * 
+	 * @return A boxes attribútum
+	 */
 	public List<Box> getBoxes() {
 		return boxes;
 	}
 
+	/**
+	 * Szokványos setter a boxes attribútumhoz
+	 * 
+	 * @param boxes A beállítandó boxes attribútum
+	 */
 	public void setBoxes(List<Box> boxes) {
 		this.boxes = boxes;
 		freeBoxCounter = boxes.size();
@@ -82,8 +110,6 @@ public class Game {
 	 * @return Az egyedüli példány
 	 */
 	public static Game getInstance(){
-		//instance.boxRecorder = new BoxRecorder();
-		
         return instance;
     }
 	
