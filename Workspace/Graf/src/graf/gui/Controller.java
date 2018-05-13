@@ -62,11 +62,27 @@ public class Controller {
 	}
 	
 	public void oilDropped(int workerID) {
+		Worker currentWorker = null;
+		for(Worker w : game.getWorkers()) {
+			if(w.getId() == workerID)
+				currentWorker = w;
+		}
 		
+		if(currentWorker != null) {
+			currentWorker.placeOil();
+		}
 	}
 	
 	public void honeyDropped(int workerID) {
+		Worker currentWorker = null;
+		for(Worker w : game.getWorkers()) {
+			if(w.getId() == workerID)
+				currentWorker = w;
+		}
 		
+		if(currentWorker != null) {
+			currentWorker.placeHoney();
+		}
 	}
 	
 	public void updateView() {

@@ -45,6 +45,18 @@ public class KeyboardEventHandler implements KeyListener {
 			case 'd': 
 				controller.workerControlled(1, Direction.RIGHT);
 				break;
+			case 'q':
+				controller.honeyDropped(1);
+				break;
+			case 'e':
+				controller.oilDropped(1);
+				break;
+			case 'k':
+				controller.honeyDropped(2);
+				break;
+			case 'l':
+				controller.oilDropped(2);
+				break;
 			}
 			
 			switch(arg0.getKeyCode()) {
