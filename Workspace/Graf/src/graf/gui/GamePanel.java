@@ -1,10 +1,18 @@
 package graf.gui;
 
+import java.awt.BorderLayout;
+import java.awt.Color;
+import java.awt.Component;
+import java.awt.FlowLayout;
 import java.awt.Graphics;
 import java.awt.Image;
 import java.util.ArrayList;
 import javax.imageio.ImageIO;
+import javax.swing.BoxLayout;
+import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.SwingConstants;
+import javax.swing.border.EmptyBorder;
 
 import graf.gui.elements.*;
 import graf.logic.*;
@@ -15,10 +23,9 @@ public class GamePanel extends MainPanel {
 	 * A pálya képe
 	 */
 	private Image level;
-	
+
 	/**
-	 * Valami
-	 * TODO: Törölni is lehetne
+	 * Valami TODO: Törölni is lehetne
 	 */
 	private Image overLay;
 
@@ -26,11 +33,59 @@ public class GamePanel extends MainPanel {
 	 * A dinamikus elemeket tartalmazó tömb
 	 */
 	private ArrayList<Drawable> dynamicDrawables = new ArrayList<>();
-	
+
 	/**
 	 * A staikus elemekt tartalmazó tömb
 	 */
 	private ArrayList<Drawable> staticDrawables = new ArrayList<>();
+
+	private JLabel sc1, sc2;
+
+	public GamePanel() {
+		initComponents();
+	}
+
+	public void initComponents() {
+		// ---------------------------------------------
+		// PANELEK LÃ‰TREHOZÃ�SA
+		// ---------------------------------------------
+		// LegfelsÅ‘ panel, border layouttal
+		// ---------------------------------------------
+		setLayout(new BorderLayout());
+		int border = Math.round(5 * sizeMod);
+		setBorder(new EmptyBorder(border, border, border, border));
+
+		// DÃ©li panel lÃ©trehozÃ¡sa, a vissza gombhoz
+		// ---------------------------------------------
+		JPanel northPanel = new JPanel(new BorderLayout());
+		int borderNorth = Math.round(10 * sizeMod);
+		northPanel.setBorder(new EmptyBorder(borderNorth, borderNorth, borderNorth, borderNorth));
+
+		// ---------------------------------------------
+		// FELIRATOK LÃ‰TREHOZÃ�SA
+		// ---------------------------------------------
+		// FÃ¶cÃ­m lÃ©trehozÃ¡sa, az, hogy ki a nyertes
+		// ---------------------------------------------
+		sc1 = new JLabel();
+		sc1.setFont(getFont().deriveFont(32.0f * sizeMod));
+		sc1.setForeground(new Color(197, 209, 227));
+		sc1.setOpaque(false);
+		sc1.setText("<html>Player1<br>0</html>");
+
+		// Az elsÅ‘ jÃ¡tÃ©kos pontjait jelÃ¶lÅ‘ szÃ¶veg
+		// ---------------------------------------------
+		sc2 = new JLabel();
+		sc2.setFont(getFont().deriveFont(32.0f * sizeMod));
+		sc2.setForeground(new Color(197, 209, 227));
+		sc2.setOpaque(false);
+		sc2.setText("<html><div align=right>Player2<br>0</div></html>");
+		
+		northPanel.add(sc1, BorderLayout.WEST);
+		northPanel.add(sc2, BorderLayout.EAST);
+		northPanel.setOpaque(false);
+		
+		add(northPanel, BorderLayout.NORTH);
+	}
 
 	/**
 	 * Kirajzolja a statikus elmeket. Elég egyszer meghívni a játék elején.
@@ -46,7 +101,7 @@ public class GamePanel extends MainPanel {
 		// TODO: Kitalálni, hogyan kéne csak azokat, egyáltalán lehet-e
 		this.repaint();
 	}
-	
+
 	/**
 	 * Kit�rli a t�rk�pen tal�lhat� elemeket
 	 */
@@ -76,11 +131,11 @@ public class GamePanel extends MainPanel {
 			levelGround = "map" + 3 + ".png";
 			break;
 		}
-		
-		for(Field f : Game.getInstance().getMap().getFields()) {
+
+		for (Field f : Game.getInstance().getMap().getFields()) {
 			String type = f.toString().split(" ")[2];
-			
-			switch(type) {
+
+			switch (type) {
 			case "simple":
 				staticDrawables.add(new G_SimpleField(this, (SimpleField) f));
 				break;
@@ -93,7 +148,8 @@ public class GamePanel extends MainPanel {
 			case "switch":
 				staticDrawables.add(new G_SwitchField(this, (SwitchField) f));
 				break;
-			case "wall": default:
+			case "wall":
+			default:
 				break;
 			}
 		}
@@ -126,9 +182,17 @@ public class GamePanel extends MainPanel {
 		G_Worker gWorker = new G_Worker(this, worker);
 		dynamicDrawables.add(gWorker);
 	}
-	
+
 	public void addG_Box(Box box) {
 		G_Box gBox = new G_Box(this, box);
 		dynamicDrawables.add(gBox);
+	}
+
+	public void setScore(int workerID, int score) {
+		if (workerID == 1) {
+			sc1.setText("<html>Player1<br>" + score + "</html>");
+		} else if (workerID == 2) {
+			sc2.setText("<html><div align=right>Player2<br>" + score + "</div></html>");
+		}
 	}
 }

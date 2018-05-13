@@ -51,8 +51,12 @@ public class Controller {
 				controlledWorker = w;
 		}
 		
-		if (controlledWorker != null)
+		if (controlledWorker != null) {
 			controlledWorker.control(d);
+			
+			int score = controlledWorker.getPoints();
+			frame.panel.setScore(workerID, score);
+		}
 		
 		updateView();
 	}

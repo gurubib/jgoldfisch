@@ -36,8 +36,8 @@ public class EndField extends Field {
 			return b;
 		}
 		this.setMovable(b);
-		Game.getInstance().getBoxRecorder().endFieldOccupied(this);
 		backwardNeighbor.getMovable().scorePoint(d.getOpposite());
+		Game.getInstance().getBoxRecorder().endFieldOccupied(this);
 
 		MethodWriter.printOutRet("null");
 		return null;
